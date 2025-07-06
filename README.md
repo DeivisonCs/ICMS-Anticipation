@@ -33,7 +33,7 @@ https://www.python.org/downloads/
 
 ### Install Dependencies
 ```
-    pip3 install requirements.txt
+    pip3 install -r requirements.txt
 ```
 
 ### Execute File
