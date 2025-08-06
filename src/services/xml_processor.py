@@ -5,6 +5,7 @@ import xml.etree.ElementTree as ET
 import zipfile
 from typing import List, Dict
 import streamlit as st
+from datetime import datetime
 
 from config.settings import NFE_NAMESPACE
 from utils.helpers import safe_decimal_converter
@@ -14,20 +15,48 @@ class XMLProcessor:
      
     
     @staticmethod
-    def extract_nfe_data(xml_content: bytes) -> List[Dict]:
+    def extract_nfe_data(xml_content: bytes, filename: str) -> Dict:
          
         try:
             root = ET.fromstring(xml_content)
-            data = []
-
+            
+            # Extract NF-e header information
+            nfe_key = XMLProcessor._get_text_safe(root, './/nfe:chNFe', NFE_NAMESPACE)
+            nfe_number = XMLProcessor._get_text_safe(root, './/nfe:nNF', NFE_NAMESPACE)
+            nfe_series = XMLProcessor._get_text_safe(root, './/nfe:serie', NFE_NAMESPACE)
+            emission_date = XMLProcessor._get_text_safe(root, './/nfe:dhEmi', NFE_NAMESPACE)
+            
+            # Format emission date if exists
+            if emission_date:
+                try:
+                    date_obj = datetime.fromisoformat(emission_date.split('T')[0])
+                    emission_date = date_obj.strftime('%d/%m/%Y')
+                except:
+                    pass
+            
+            # Get emitter info
+            emitter_name = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:xNome', NFE_NAMESPACE)
+            emitter_cnpj = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:CNPJ', NFE_NAMESPACE)
+            
+            # Get items data
+            items_data = []
             for item in root.findall('.//nfe:det', NFE_NAMESPACE):
                 item_data = XMLProcessor._extract_item_data(item)
-                data.append(item_data)
+                items_data.append(item_data)
 
-            return data
+            return {
+                'nfe_key': nfe_key or filename,
+                'nfe_number': nfe_number,
+                'nfe_series': nfe_series,
+                'emission_date': emission_date,
+                'emitter_name': emitter_name,
+                'emitter_cnpj': emitter_cnpj,
+                'filename': filename,
+                'items': items_data
+            }
         except Exception as e:
-            st.error(f"Erro ao processar XML: {str(e)}")
-            return []
+            st.error(f"Erro ao processar XML {filename}: {str(e)}")
+            return {'nfe_key': filename, 'items': [], 'error': str(e)}
     
     @staticmethod
     def _extract_item_data(item) -> Dict:
@@ -77,7 +106,7 @@ class XMLProcessor:
     @staticmethod
     def process_zip_file(uploaded_file) -> List[Dict]:
          
-        all_data = []
+        all_nfes = []
         
         try:
             with zipfile.ZipFile(uploaded_file, 'r') as zip_ref:
@@ -95,8 +124,8 @@ class XMLProcessor:
                     
                     with zip_ref.open(xml_file) as xml_content:
                         xml_data = xml_content.read()
-                        nfe_data = XMLProcessor.extract_nfe_data(xml_data)
-                        all_data.extend(nfe_data)
+                        nfe_data = XMLProcessor.extract_nfe_data(xml_data, xml_file)
+                        all_nfes.append(nfe_data)
                     
                     progress_bar.progress((i + 1) / len(xml_files))
                 
@@ -106,4 +135,4 @@ class XMLProcessor:
             st.error(f"Erro ao processar arquivo ZIP: {str(e)}")
             return []
         
-        return all_data
+        return all_nfes

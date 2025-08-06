@@ -2,4 +2,4 @@ myenv/
 __pycache__/
 .python-version
 icms_app.py
-.tool-version
+.tool-versions
