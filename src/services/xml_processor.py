@@ -1,6 +1,3 @@
-"""
-Serviço para processamento de arquivos XML da NF-E
-"""
 import xml.etree.ElementTree as ET
 import zipfile
 from typing import List, Dict
@@ -11,8 +8,7 @@ from config.settings import NFE_NAMESPACE
 from utils.helpers import safe_decimal_converter
 
 
-class XMLProcessor:
-     
+class XMLProcessor: 
     
     @staticmethod
     def extract_nfe_data(xml_content: bytes, filename: str) -> Dict:
@@ -37,7 +33,9 @@ class XMLProcessor:
             # Get emitter info
             emitter_name = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:xNome', NFE_NAMESPACE)
             emitter_cnpj = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:CNPJ', NFE_NAMESPACE)
-            
+            uf = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:enderEmit//nfe:UF', NFE_NAMESPACE)
+            ie = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:IE', NFE_NAMESPACE)
+
             # Get items data
             items_data = []
             for item in root.findall('.//nfe:det', NFE_NAMESPACE):
@@ -48,12 +46,15 @@ class XMLProcessor:
                 'nfe_key': nfe_key or filename,
                 'nfe_number': nfe_number,
                 'nfe_series': nfe_series,
+                'uf': uf,
+                'ie': ie,
                 'emission_date': emission_date,
                 'emitter_name': emitter_name,
                 'emitter_cnpj': emitter_cnpj,
                 'filename': filename,
                 'items': items_data
             }
+
         except Exception as e:
             st.error(f"Erro ao processar XML {filename}: {str(e)}")
             return {'nfe_key': filename, 'items': [], 'error': str(e)}
@@ -63,7 +64,7 @@ class XMLProcessor:
         ns = NFE_NAMESPACE
         
         # Extrair dados básicos do produto
-        cod = XMLProcessor._get_text_safe(item, 'nfe:prod/nfe:cProd', ns)
+        cProd = XMLProcessor._get_text_safe(item, 'nfe:prod/nfe:cProd', ns)
         ncm = XMLProcessor._get_text_safe(item, 'nfe:prod/nfe:NCM', ns)
         cfop = XMLProcessor._get_text_safe(item, 'nfe:prod/nfe:CFOP', ns)
         v_total = XMLProcessor._get_text_safe(item, 'nfe:prod/nfe:vProd', ns)
@@ -78,15 +79,17 @@ class XMLProcessor:
         v_icms = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vICMS', ns)
         a_icms = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pICMS', ns)
         mva_st = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pMVAST', ns)
+        pRedBC = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pRedBC', ns)
         
         # Calcular MVA ajustado
         from services.tax_calculator import TaxCalculator
         mva_adjusted = TaxCalculator.calculate_adjusted_mva(safe_decimal_converter(mva_st))
         
         return {
-            'COD': cod,
+            'CPROD': cProd,
             'NCM/SH': ncm,
             'O/CST': o_cst,
+            'RED_BASE_CAL': str(safe_decimal_converter(pRedBC)),
             'CFOP': cfop,
             'V TOTAL': v_total,
             'BC ICMS': bc_icms,

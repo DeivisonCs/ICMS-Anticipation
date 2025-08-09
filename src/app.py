@@ -37,93 +37,70 @@ def render_file_uploader():
 
 
 def render_nfe_selector(nfe_list: List[Dict]):
-     
-    options = []
+    # Agrupar NFES por Inscrição Estadual
+    grouped_nfes = {}
     for nfe in nfe_list:
-        emitter = nfe.get('emitter_name', 'Desconhecido')
-        number = nfe.get('nfe_number', 'S/N')
-        date = nfe.get('emission_date', '')
-        option_text = f"NF-e {number} - {emitter} - {date}"
-        options.append((option_text, nfe['nfe_key']))
-    
-    # Add "All NFEs" option
-    options.insert(0, ("Todas as NF-es", "all"))
-    
+        ie = nfe.get('ie', 'Desconhecido')
+        if ie not in grouped_nfes:
+            grouped_nfes[ie] = []
+        grouped_nfes[ie].append(nfe)
+
+    # Criar opções para o seletor
+    options = [("Todas as Inscrições", "all")]
+    for ie in grouped_nfes.keys():
+        options.append((f"Inscrição Estadual: {ie}", ie))
+
     option_names = [opt[0] for opt in options]
     option_keys = [opt[1] for opt in options]
-    
+
     selected_idx = st.selectbox(
-        "Selecione a NF-e para visualizar:",
+        "Selecione a Inscrição Estadual para visualizar:",
         range(len(option_names)),
         format_func=lambda i: option_names[i]
     )
-    
+
     return option_keys[selected_idx]
 
 
 def render_nfe_summary(nfe_list: List[Dict]):
-     
-    total_nfes = len(nfe_list)
-    total_items = sum(len(nfe.get('items', [])) for nfe in nfe_list)
-    
-    col1, col2 = st.columns(2)
-    with col1:
-        st.metric("Total de NF-es", total_nfes)
-    with col2:
-        st.metric("Total de Itens", total_items)
-    
-    # Display a table with NF-e summary
-    summary_data = []
+    # Agrupar NFEs por Inscrição Estadual
+    grouped_nfes = {}
     for nfe in nfe_list:
-        items = nfe.get('items', [])
-        # Fix: Handle empty strings before converting to float
-        total_value = sum(float(item.get('V TOTAL', 0) or 0) for item in items)
-        total_icms = sum(float(item.get('V ICMS', 0) or 0) for item in items)
-        
-        summary_data.append({
-            'NF-e': nfe.get('nfe_number', 'S/N'),
-            'Série': nfe.get('nfe_series', '-'),
-            'Emitente': nfe.get('emitter_name', 'Desconhecido'),
-            'Data': nfe.get('emission_date', '-'),
-            'Total Itens': len(items),
-            'Valor Total': f"R$ {total_value:,.2f}",
-            'ICMS Total': f"R$ {total_icms:,.2f}"
-        })
-    
-    st.subheader("Resumo das NF-es")
-    st.dataframe(pd.DataFrame(summary_data), use_container_width=True)
+        ie = nfe.get('ie', 'Desconhecido')
+        if ie not in grouped_nfes:
+            grouped_nfes[ie] = []
+        grouped_nfes[ie].append(nfe)
 
+    for ie, nfes in grouped_nfes.items():
+        st.subheader(f"Inscrição Estadual: {ie}")
 
-def render_nfe_details(nfe: Dict):
-     
-    # Display NFE header
-    st.subheader(f"NF-e {nfe.get('nfe_number', 'S/N')}")
-    
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.info(f"**Emitente:** {nfe.get('emitter_name', 'Não informado')}")
-    with col2:
-        st.info(f"**CNPJ:** {nfe.get('emitter_cnpj', 'Não informado')}")
-    with col3:
-        st.info(f"**Data de Emissão:** {nfe.get('emission_date', 'Não informada')}")
-    
-    # Convert items to DataFrame and calculate taxes
-    if not nfe.get('items', []):
-        st.warning("Esta NF-e não possui itens ou não foi possível extraí-los.")
-        return None
-    
-    df = pd.DataFrame(nfe.get('items', []))
-    df = TaxCalculator.process_dataframe_taxes(df)
-    
-    # Display statistics
-    render_statistics(df)
-    
-    # Display items
-    st.subheader("Itens da NF-e")
-    st.dataframe(df, use_container_width=True)
-    
-    return df
+        total_nfes = len(nfes)
+        total_items = sum(len(nfe.get('items', [])) for nfe in nfes)
 
+        col1, col2 = st.columns(2)
+        with col1:
+            st.metric("Total de NF-es", total_nfes)
+        with col2:
+            st.metric("Total de Itens", total_items)
+
+        summary_data = []
+        for nfe in nfes:
+            items = nfe.get('items', [])
+            total_value = sum(float(item.get('V TOTAL', 0) or 0) for item in items)
+            total_icms = sum(float(item.get('V ICMS', 0) or 0) for item in items)
+
+            summary_data.append({
+                'NF-e': nfe.get('nfe_number', 'S/N'),
+                'Série': nfe.get('nfe_series', '-'),
+                'Emitente': nfe.get('emitter_name', 'Desconhecido'),
+                'UF': nfe.get('uf', 'Desconhecido'),
+                'Data': nfe.get('emission_date', '-'),
+                'Total Itens': len(items),
+                'Valor Total': f"R$ {total_value:,.2f}",
+                'ICMS Total': f"R$ {total_icms:,.2f}"
+            })
+
+        st.dataframe(pd.DataFrame(summary_data), use_container_width=True)
 
 def render_statistics(df: pd.DataFrame):
     col1, col2, col3, col4 = st.columns(4)
@@ -145,9 +122,12 @@ def render_statistics(df: pd.DataFrame):
         st.metric("Antecipação Total", f"R$ {(antecipacao_total + antecipacao_parcial):,.2f}")
 
 
-def render_download_button(df: pd.DataFrame, filename="icms_calculado.xlsx"):
-    excel_data = FileHandler.dataframe_to_excel(df)
+def render_download_button(df: pd.DataFrame, filename="icms_calculado.xlsx", emitter_name=None, period=None, ie=None, show_button=True):
+    if not show_button:
+        return
     
+    excel_data = FileHandler.dataframe_to_excel(df, emitter_name, period, ie)
+
     st.download_button(
         label="📥 Baixar Planilha Excel",
         data=excel_data,
@@ -166,8 +146,8 @@ def combine_all_nfes(nfe_list: List[Dict]) -> pd.DataFrame:
         for item in items:
             item_with_nfe = item.copy()
             item_with_nfe['NF-e'] = nfe.get('nfe_number', 'S/N')
-            item_with_nfe['Emitente'] = nfe.get('emitter_name', 'Desconhecido')
-            item_with_nfe['Data'] = nfe.get('emission_date', '-')
+            item_with_nfe['Inscrição Estadual'] = nfe.get('ie', 'Desconhecido')
+            item_with_nfe['UF'] = nfe.get('uf', '')
             all_items.append(item_with_nfe)
     
     if not all_items:
@@ -198,47 +178,75 @@ def process_uploaded_file(uploaded_file) -> List[Dict]:
 def main():
     configure_page()
     render_header()
-    
+
     # Upload do arquivo
     uploaded_file = render_file_uploader()
-    
+
+    selected_ie = None
+    df_filtered = pd.DataFrame()
+    filtered_nfes = []
+
     if uploaded_file is not None:
-        st.success(f"Arquivo carregado: {uploaded_file.name}")
         
-        # Processar arquivo
+
         nfe_list = process_uploaded_file(uploaded_file)
-        
+
         if nfe_list:
             st.success(f"Processamento concluído! {len(nfe_list)} NF-es encontradas.")
-            
-            # Mostrar seletor de NF-e
-            selected_nfe_key = render_nfe_selector(nfe_list)
-            
-            # Mostrar conteúdo com base na seleção
-            if selected_nfe_key == "all":
+           
+            selected_ie = render_nfe_selector(nfe_list)
+
+            if selected_ie == "all":
                 # Mostrar resumo de todas as NF-es
                 render_nfe_summary(nfe_list)
-                
+
                 # Combinar todos os itens em um único DataFrame
                 df_all = combine_all_nfes(nfe_list)
-                
+
                 if not df_all.empty:
                     render_statistics(df_all)
-                    
+
                     st.subheader("Todos os Itens")
                     st.dataframe(df_all, use_container_width=True)
                     
-                    # Download do arquivo completo
-                    render_download_button(df_all, "todas_nfes_icms.xlsx")
+                    # Não mostrar botão de download para "Todas as Inscrições"
+                    
+                else:
+                    st.warning("Nenhum item encontrado para download.")
             else:
-                # Mostrar detalhes de uma NF-e específica
-                selected_nfe = next((nfe for nfe in nfe_list if nfe['nfe_key'] == selected_nfe_key), None)
-                if selected_nfe:
-                    df = render_nfe_details(selected_nfe)
-                    if df is not None:
-                        # Download do arquivo individual
-                        nfe_number = selected_nfe.get('nfe_number', 'nfe')
-                        render_download_button(df, f"nfe_{nfe_number}_icms.xlsx")
+                # Filtrar NF-es pela inscrição estadual selecionada
+                filtered_nfes = [nfe for nfe in nfe_list if nfe.get('ie', 'Desconhecido') == selected_ie]
+
+                # Mostrar resumo das NF-es filtradas
+                render_nfe_summary(filtered_nfes)
+
+                if filtered_nfes:
+                    # Combinar todos os itens das NF-es filtradas em um único DataFrame
+                    df_filtered = combine_all_nfes(filtered_nfes)
+
+                    if not df_filtered.empty:
+                        render_statistics(df_filtered)
+
+                        st.subheader("Itens da Inscrição Estadual Selecionada")
+                        st.dataframe(df_filtered, use_container_width=True)
+
+                        # Download do arquivo filtrado somente quando uma inscrição específica for selecionada
+                        # Extrair mês e ano da data no formato DD/MM/YYYY
+                        emission_date = filtered_nfes[0].get('emission_date', '')
+                        period = ''
+                        if emission_date:
+                            # Se a data está no formato DD/MM/YYYY, extraímos MM/YYYY
+                            parts = emission_date.split('/')
+                            if len(parts) == 3:
+                                period = f"{parts[1]}/{parts[2]}"  # MM/YYYY
+                        
+                        render_download_button(df_filtered, f"inscricao_{selected_ie}_icms.xlsx", 
+                                              emitter_name=filtered_nfes[0].get('emitter_name', ''), 
+                                              period=period, 
+                                              ie=selected_ie)
+                else:
+                    st.warning("Nenhuma NF-e encontrada para a inscrição estadual selecionada.")
+
         else:
             st.error("Não foi possível processar os dados do arquivo.")
 

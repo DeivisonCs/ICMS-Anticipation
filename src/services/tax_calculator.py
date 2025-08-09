@@ -40,7 +40,7 @@ class TaxCalculator:
             return df
         
         # Converter colunas numéricas
-        numeric_columns = ['V TOTAL', 'BC ICMS', 'V ICMS', 'A ICMS', 'MVA-ST']
+        numeric_columns = ['V TOTAL', 'BC ICMS', 'V ICMS', 'A ICMS', 'MVA-ST', 'RED_BASE_CAL']
         for col in numeric_columns:
             df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
         

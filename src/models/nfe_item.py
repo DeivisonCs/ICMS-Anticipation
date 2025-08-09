@@ -5,9 +5,10 @@ from typing import Optional
 
 @dataclass
 class NFEItem: 
-    cod: str = ""
+    cProd: str = ""
     ncm: str = ""
     o_cst: str = ""
+    red_base_cal: Decimal = Decimal('0.0')
     cfop: str = ""
     v_total: Decimal = Decimal('0.0')
     bc_icms: Decimal = Decimal('0.0')
@@ -21,9 +22,10 @@ class NFEItem:
     
     def to_dict(self) -> dict: 
         return {
-            'COD': self.cod,
+            'CPROD': self.cProd,
             'NCM/SH': self.ncm,
             'O/CST': self.o_cst,
+            'RED_BASE_CAL': float(self.red_base_cal),
             'CFOP': self.cfop,
             'V TOTAL': float(self.v_total),
             'BC ICMS': float(self.bc_icms),
@@ -39,9 +41,10 @@ class NFEItem:
     @classmethod
     def from_xml_data(cls, xml_data: dict) -> 'NFEItem': 
         return cls(
-            cod=xml_data.get('COD', ''),
+            cProd=xml_data.get('CPROD', ''),
             ncm=xml_data.get('NCM/SH', ''),
             o_cst=xml_data.get('O/CST', ''),
+            red_base_cal=Decimal(str(xml_data.get('RED_BASE_CAL', '0'))),
             cfop=xml_data.get('CFOP', ''),
             v_total=Decimal(str(xml_data.get('V TOTAL', '0'))),
             bc_icms=Decimal(str(xml_data.get('BC ICMS', '0'))),
