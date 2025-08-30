@@ -31,6 +31,7 @@ class XMLProcessor:
             # Get emitter info
             emitter_name = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:xNome', NFE_NAMESPACE)
             emitter_cnpj = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:CNPJ', NFE_NAMESPACE)
+            emitter_uf = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:UF', NFE_NAMESPACE)
             uf = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:enderEmit//nfe:UF', NFE_NAMESPACE)
             ie = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:IE', NFE_NAMESPACE)
 
@@ -49,6 +50,7 @@ class XMLProcessor:
                 'emission_date': emission_date,
                 'emitter_name': emitter_name,
                 'emitter_cnpj': emitter_cnpj,
+                'emitter_uf': emitter_uf,
                 'filename': filename,
                 'items': items_data
             }

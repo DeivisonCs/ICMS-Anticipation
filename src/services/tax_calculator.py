@@ -77,3 +77,12 @@ class TaxCalculator:
             'total_bc_icms': total_bc_icms,
             'total_anticipation': total_anticipation
         }
+
+    @staticmethod
+    def is_supplier_uf_taxed(uf: str) -> bool:
+        taxed_uf_list = ['BA']
+
+        if uf.upper() in taxed_uf_list:
+            return True
+
+        return False
