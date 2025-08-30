@@ -2,12 +2,11 @@ import io
 import pandas as pd
 from typing import List, Dict
 from openpyxl.styles import Alignment, Font, PatternFill, Border, Side
+import csv
+import os
 
-from models.nfe_item import NFEItem
+class FileHandler:
 
-
-class FileHandler: 
-    
     @staticmethod
     def dataframe_to_excel(df: pd.DataFrame, emitter_name: str, period: str, ie: str) -> bytes:
         output = io.BytesIO()
@@ -104,3 +103,37 @@ class FileHandler:
 
         except Exception:
             return False
+
+    @staticmethod
+    def get_sj_list() -> List[str]:
+        ncm_list_path = "resources/ncm_sj.csv"
+
+        # caso o csv com a lista de NCM já exista
+        if os.path.exists(ncm_list_path):
+            with open(ncm_list_path, "r", encoding="utf-8") as f:
+                return [line.strip() for line in f if line.strip()]
+
+        import fitz
+        import re
+
+        pdf_path = "resources/anexo_1_mercadorias_sujeitas_st.pdf"
+        doc = fitz.open(pdf_path)
+
+        # Regex para capturar códigos NCM (ex.: 2201.1, 2201.99, 2106.90.1)
+        pattern = re.compile(r'\b\d{4}(?:\.\d+)*\b')
+
+        ncm_codes = set()
+
+        for page in doc:
+            text = page.get_text()
+            matches = pattern.findall(text)
+            for match in matches:
+                ncm_codes.add(match)
+
+        output_path = "resources/ncm_sj.csv"
+        with open(output_path, "w", encoding="utf-8", newline="") as f:
+            writer = csv.writer(f)
+            for ncm in ncm_codes:
+                writer.writerow([ncm])
+
+        return ncm_codes

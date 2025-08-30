@@ -1,14 +1,12 @@
 from decimal import Decimal
+from services.file_handler import FileHandler
 
 # Taxas de imposto
 INTERNAL_TAX_RATE_BA = Decimal('0.205')
 INTERSTATE_TAX_RATE = Decimal('0.07')
 
 # NCMs com substituição tributária
-NCM_SUBSTITUICAO_TRIBUTARIA = {
-    "27101932", "32082011", "39173900", "40069000", 
-    "68042211", "82015000", "84242000"
-}
+NCM_SUBSTITUICAO_TRIBUTARIA = FileHandler.get_sj_list()
 
 # Configurações de antecipação (percentuais)
 ANTECIPACAO_TOTAL_RATE = Decimal('0.02')  # 2% do valor total
