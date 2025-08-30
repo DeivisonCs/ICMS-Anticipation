@@ -20,22 +20,22 @@ class FileHandler:
             else:
                 # Prepare the custom table with required columns
                 table_df = pd.DataFrame()
-                
+
                 # Prepare the columns according to the required mapping
                 table_df['Notas'] = df['NF-e']
-                
+
                 # Calculate the sum of ANTECIPACAO_TOTAL and ANTECIPACAO_PARCIAL
                 table_df['Antecip.'] = df['ANTECIPACAO_TOTAL'] + df['ANTECIPACAO_PARCIAL']
-                
+
                 table_df['%'] = df['A ICMS']
-                
+
                 # UF column
                 table_df['UF'] = df['UF']
-                
+
                 # Observations based on RED_BASE_CAL (leave empty if no value)
                 table_df['Observações'] = ''
                 table_df.loc[df['RED_BASE_CAL'] > 0, 'Observações'] = df.loc[df['RED_BASE_CAL'] > 0, 'RED_BASE_CAL'].astype(str)
-                
+
                 # Replace any NaN values with empty strings
                 table_df = table_df.fillna('')
                 df = table_df
@@ -86,21 +86,21 @@ class FileHandler:
 
         output.seek(0)
         return output.getvalue()
-    
+
     @staticmethod
     def validate_zip_file(uploaded_file) -> bool:
-         
+
         try:
             # Verifica se o arquivo tem extensão .zip
             if not uploaded_file.name.lower().endswith('.zip'):
                 return False
-            
+
             # Tenta abrir como ZIP (validação básica)
             import zipfile
             with zipfile.ZipFile(uploaded_file, 'r') as zip_ref:
                 # Verifica se há pelo menos um arquivo XML
                 xml_files = [f for f in zip_ref.namelist() if f.endswith('.xml')]
                 return len(xml_files) > 0
-                
+
         except Exception:
             return False

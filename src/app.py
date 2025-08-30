@@ -9,14 +9,14 @@ from services.file_handler import FileHandler
 from models.nfe_item import NFEItem
 
 
-def configure_page(): 
+def configure_page():
     st.set_page_config(**STREAMLIT_CONFIG)
 
 
-def render_header(): 
+def render_header():
     st.title("📊 Calculadora de ICMS - NF-E")
     st.markdown("---")
-    
+
     st.markdown("""
     ### Como usar:
     1. Faça upload de um arquivo ZIP contendo uma ou mais NF-Es (arquivos XML)
@@ -104,7 +104,7 @@ def render_nfe_summary(nfe_list: List[Dict]):
 
 def render_statistics(df: pd.DataFrame):
     col1, col2, col3, col4 = st.columns(4)
-    
+
     with col1:
         st.metric("Total de Itens", len(df))
     with col2:
@@ -125,7 +125,7 @@ def render_statistics(df: pd.DataFrame):
 def render_download_button(df: pd.DataFrame, filename="icms_calculado.xlsx", emitter_name=None, period=None, ie=None, show_button=True):
     if not show_button:
         return
-    
+
     excel_data = FileHandler.dataframe_to_excel(df, emitter_name, period, ie)
 
     st.download_button(
@@ -137,9 +137,8 @@ def render_download_button(df: pd.DataFrame, filename="icms_calculado.xlsx", emi
 
 
 def combine_all_nfes(nfe_list: List[Dict]) -> pd.DataFrame:
-     
     all_items = []
-    
+
     for nfe in nfe_list:
         items = nfe.get('items', [])
         # Add NF-e info to each item
@@ -149,10 +148,10 @@ def combine_all_nfes(nfe_list: List[Dict]) -> pd.DataFrame:
             item_with_nfe['Inscrição Estadual'] = nfe.get('ie', 'Desconhecido')
             item_with_nfe['UF'] = nfe.get('uf', '')
             all_items.append(item_with_nfe)
-    
+
     if not all_items:
         return pd.DataFrame()
-    
+
     df = pd.DataFrame(all_items)
     df = TaxCalculator.process_dataframe_taxes(df)
     return df
@@ -163,15 +162,15 @@ def process_uploaded_file(uploaded_file) -> List[Dict]:
     if not FileHandler.validate_zip_file(uploaded_file):
         st.error("Arquivo ZIP inválido ou não contém arquivos XML.")
         return []
-    
+
     # Processar arquivo ZIP
     with st.spinner('Processando NF-Es...'):
         nfe_list = XMLProcessor.process_zip_file(uploaded_file)
-    
+
     if not nfe_list:
         st.error("Não foi possível extrair dados do arquivo.")
         return []
-    
+
     return nfe_list
 
 
@@ -187,8 +186,6 @@ def main():
     filtered_nfes = []
 
     if uploaded_file is not None:
-        
-
         nfe_list = process_uploaded_file(uploaded_file)
 
         if nfe_list:
@@ -208,9 +205,8 @@ def main():
 
                     st.subheader("Todos os Itens")
                     st.dataframe(df_all, use_container_width=True)
-                    
                     # Não mostrar botão de download para "Todas as Inscrições"
-                    
+
                 else:
                     st.warning("Nenhum item encontrado para download.")
             else:
@@ -239,7 +235,7 @@ def main():
                             parts = emission_date.split('/')
                             if len(parts) == 3:
                                 period = f"{parts[1]}/{parts[2]}"  # MM/YYYY
-                        
+
                         render_download_button(df_filtered, f"inscricao_{selected_ie}_icms.xlsx", 
                                               emitter_name=filtered_nfes[0].get('emitter_name', ''), 
                                               period=period, 

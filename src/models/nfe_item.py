@@ -19,7 +19,7 @@ class NFEItem:
     mva_adjusted: Decimal = Decimal('0.0')
     antecipacao_total: Optional[Decimal] = None
     antecipacao_parcial: Optional[Decimal] = None
-    
+
     def to_dict(self) -> dict: 
         return {
             'CPROD': self.cProd,
@@ -37,7 +37,7 @@ class NFEItem:
             'ANTECIPACAO_TOTAL': float(self.antecipacao_total) if self.antecipacao_total else 0.0,
             'ANTECIPACAO_PARCIAL': float(self.antecipacao_parcial) if self.antecipacao_parcial else 0.0
         }
-    
+
     @classmethod
     def from_xml_data(cls, xml_data: dict) -> 'NFEItem': 
         return cls(
