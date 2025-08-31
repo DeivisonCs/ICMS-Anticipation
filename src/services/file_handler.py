@@ -105,7 +105,7 @@ class FileHandler:
             return False
 
     @staticmethod
-    def get_sj_list() -> List[str]:
+    def get_tax_substitution_ncm_list() -> List[str]:
         ncm_list_path = "resources/ncm_sj.csv"
 
         # caso o csv com a lista de NCM já exista
