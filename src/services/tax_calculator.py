@@ -80,3 +80,9 @@ class TaxCalculator:
             'total_bc_icms': total_bc_icms,
             'total_anticipation': total_anticipation
         }
+
+    def is_st_already_paid_by_cst(cst: str) -> bool:
+        if cst in ALREADY_CHARGED_CST_LIST:
+            return True
+
+        return False
