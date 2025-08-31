@@ -4,10 +4,13 @@ from typing import List
 import pandas as pd
 
 from config.settings import (
-    INTERNAL_TAX_RATE_BA, 
+    INTERNAL_TAX_RATE_BA,
     INTERSTATE_TAX_RATE,
     ANTECIPACAO_TOTAL_RATE,
-    ANTECIPACAO_PARCIAL_RATE
+    ANTECIPACAO_PARCIAL_RATE,
+    EXEMPTED_CST_LIST,
+    REDUCTION_CST_LIST,
+    ALREADY_CHARGED_CST_LIST
 )
 from models.nfe_item import NFEItem
 
