@@ -6,7 +6,7 @@ INTERNAL_TAX_RATE_BA = Decimal('0.205')
 INTERSTATE_TAX_RATE = Decimal('0.07')
 
 # NCMs com substituição tributária
-NCM_SUBSTITUICAO_TRIBUTARIA = FileHandler.get_sj_list()
+NCM_SUBSTITUICAO_TRIBUTARIA = FileHandler.get_tax_substitution_ncm_list()
 
 # Configurações de antecipação (percentuais)
 ANTECIPACAO_TOTAL_RATE = Decimal('0.02')  # 2% do valor total
