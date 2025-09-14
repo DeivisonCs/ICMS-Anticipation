@@ -2,6 +2,7 @@
 from decimal import Decimal
 from typing import List
 import pandas as pd
+from utils.helpers import safe_decimal_converter
 
 from config.settings import (
     INTERNAL_TAX_RATE_BA, 
@@ -23,18 +24,17 @@ class TaxCalculator:
         b_step = a_step / (1 - INTERSTATE_TAX_RATE)
         return round((b_step - 1) * 100, 2)
 
-    @staticmethod
-    def calculate_anticipation_taxes(nfe_item: NFEItem) -> NFEItem: 
-        # Antecipação total (% do valor total)
-        nfe_item.antecipacao_total = nfe_item.v_total * ANTECIPACAO_TOTAL_RATE
+    def calculate_anticipation_taxes(self, products: List[NFEItem]) -> List[NFEItem]:
+        for item in products:
+            if not self.is_supplier_uf_taxed(item.uf_origin):
+                continue
 
-        # Antecipação parcial (% da base de cálculo)
-        nfe_item.antecipacao_parcial = nfe_item.bc_icms * ANTECIPACAO_PARCIAL_RATE
+            item.antecipacao_total = item.v_total * ANTECIPACAO_TOTAL_RATE
+            item.antecipacao_parcial = item.bc_icms * ANTECIPACAO_PARCIAL_RATE
 
-        return nfe_item
+        return products
 
-    @staticmethod
-    def process_dataframe_taxes(df: pd.DataFrame) -> pd.DataFrame: 
+    def process_dataframe_taxes(self, df: pd.DataFrame) -> pd.DataFrame:
         if df.empty:
             return df
 
@@ -46,6 +46,26 @@ class TaxCalculator:
         # Calcular antecipações
         df['ANTECIPACAO_TOTAL'] = df['V TOTAL'] * float(ANTECIPACAO_TOTAL_RATE)
         df['ANTECIPACAO_PARCIAL'] = df['BC ICMS'] * float(ANTECIPACAO_PARCIAL_RATE)
+
+        items = []
+        for index, row in df.iterrows():
+            nfe_item = NFEItem(
+                cProd=row['CPROD'],
+                uf_origin=row['UF'],
+                ncm=row['NCM/SH'],
+                o_cst=row['O/CST'],
+                red_base_cal=safe_decimal_converter(row['RED_BASE_CAL']),
+                cfop=row['CFOP'],
+                v_total=safe_decimal_converter(row['V TOTAL']),
+                bc_icms=safe_decimal_converter(row['BC ICMS']),
+                v_icms=safe_decimal_converter(row['V ICMS']),
+                a_icms=safe_decimal_converter(row['A ICMS']),
+                mva_st=safe_decimal_converter(row['MVA-ST']),
+                cest=row['CEST']
+            )
+            items.append(nfe_item)
+
+        self.calculate_anticipation_taxes(items)
 
         return df
 
@@ -78,11 +98,10 @@ class TaxCalculator:
             'total_anticipation': total_anticipation
         }
 
-    @staticmethod
-    def is_supplier_uf_taxed(uf: str) -> bool:
+    def is_supplier_uf_taxed(self, uf: str) -> bool:
         taxed_uf_list = ['BA']
 
         if uf.upper() in taxed_uf_list:
-            return True
+            return False
 
-        return False
+        return True
