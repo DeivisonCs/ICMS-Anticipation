@@ -1,8 +1,9 @@
  
+from dataclasses import asdict
 from decimal import Decimal
 from typing import List
 import pandas as pd
-from utils.helpers import safe_decimal_converter
+from utils.helpers import safe_decimal_converter, convert_nfe_list_to_dataframe
 
 from config.settings import (
     INTERNAL_TAX_RATE_BA, 
@@ -43,10 +44,6 @@ class TaxCalculator:
         for col in numeric_columns:
             df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
 
-        # Calcular antecipações
-        df['ANTECIPACAO_TOTAL'] = df['V TOTAL'] * float(ANTECIPACAO_TOTAL_RATE)
-        df['ANTECIPACAO_PARCIAL'] = df['BC ICMS'] * float(ANTECIPACAO_PARCIAL_RATE)
-
         items = []
         for index, row in df.iterrows():
             nfe_item = NFEItem(
@@ -65,9 +62,9 @@ class TaxCalculator:
             )
             items.append(nfe_item)
 
-        self.calculate_anticipation_taxes(items)
+        items = self.calculate_anticipation_taxes(items)
 
-        return df
+        return convert_nfe_list_to_dataframe(items)
 
     @staticmethod
     def calculate_summary_statistics(items: List[NFEItem]) -> dict:
