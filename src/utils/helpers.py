@@ -3,6 +3,9 @@ Funções auxiliares e utilitárias
 """
 from decimal import Decimal, getcontext
 from typing import Union
+from models.nfe_item import NFEItem
+from dataclasses import asdict
+import pandas as pd
 
 # Configurar precisão decimal
 getcontext().prec = 10
@@ -58,3 +61,27 @@ def clean_numeric_string(value: str) -> str:
     cleaned = cleaned.replace(',', '.')
 
     return cleaned if cleaned else '0'
+
+
+def convert_nfe_list_to_dataframe(items: list[NFEItem]):
+    df_result = pd.DataFrame([asdict(item) for item in items])
+
+    column_mapping = {
+        "cProd": "CPROD",
+        "uf_origin": "UF",
+        "ncm": "NCM/SH",
+        "o_cst": "O/CST",
+        "red_base_cal": "RED_BASE_CAL",
+        "cfop": "CFOP",
+        "v_total": "V TOTAL",
+        "bc_icms": "BC ICMS",
+        "v_icms": "V ICMS",
+        "a_icms": "A ICMS",
+        "mva_st": "MVA-ST",
+        "cest": "CEST",
+        "mva_adjusted": "MVA_ADJUSTED",
+        "antecipacao_total": "ANTECIPACAO_TOTAL",
+        "antecipacao_parcial": "ANTECIPACAO_PARCIAL"
+    }
+
+    return df_result.rename(columns=column_mapping)
