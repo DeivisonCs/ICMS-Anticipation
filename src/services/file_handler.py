@@ -108,7 +108,6 @@ class FileHandler:
     def get_tax_substitution_ncm_list() -> List[str]:
         ncm_list_path = "resources/ncm_sj.csv"
 
-        # caso o csv com a lista de NCM já exista
         if os.path.exists(ncm_list_path):
             with open(ncm_list_path, "r", encoding="utf-8") as f:
                 return [line.strip() for line in f if line.strip()]
@@ -119,7 +118,6 @@ class FileHandler:
         pdf_path = "resources/anexo_1_mercadorias_sujeitas_st.pdf"
         doc = fitz.open(pdf_path)
 
-        # Regex para capturar códigos NCM (ex.: 2201.1, 2201.99, 2106.90.1)
         pattern = re.compile(r'\b\d{4}(?:\.\d+)*\b')
 
         ncm_codes = set()
