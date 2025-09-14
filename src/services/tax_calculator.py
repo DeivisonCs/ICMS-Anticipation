@@ -30,7 +30,7 @@ class TaxCalculator:
 
     def calculate_anticipation_taxes(self, products: List[NFEItem]) -> List[NFEItem]:
         for item in products:
-            if not self.is_supplier_uf_taxed(item.uf_origin):
+            if not self.is_subject_to_tax(item):
                 continue
 
             item.antecipacao_total = item.v_total * ANTECIPACAO_TOTAL_RATE
@@ -98,7 +98,7 @@ class TaxCalculator:
             'total_anticipation': total_anticipation
         }
 
-    def is_st_already_paid_by_cst(cst: str) -> bool:
+    def is_st_already_paid_by_cst(self, cst: str) -> bool:
         if cst in ALREADY_CHARGED_CST_LIST:
             return True
 
@@ -111,3 +111,10 @@ class TaxCalculator:
             return False
 
         return True
+
+    def is_subject_to_tax(self, item: NFEItem):
+        if self.is_supplier_uf_taxed(item.uf_origin):
+            return True
+
+        if self.is_st_already_paid_by_cst(item.o_cst[1:]):
+            return False
