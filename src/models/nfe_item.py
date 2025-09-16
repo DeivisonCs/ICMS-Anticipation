@@ -18,6 +18,10 @@ class NFEItem:
     mva_st: Decimal = Decimal('0.0')
     cest: str = ""
     mva_adjusted: Decimal = Decimal('0.0')
+    frete: Decimal = Decimal('0.0')
+    ipi: Decimal = Decimal('0.0')
+    outros: Decimal = Decimal('0.0')
+    seguro: Decimal = Decimal('0.0')
     antecipacao_total: Optional[Decimal] = None
     antecipacao_parcial: Optional[Decimal] = None
 
@@ -37,7 +41,11 @@ class NFEItem:
             'CEST': self.cest,
             'MVA': float(self.mva_adjusted),
             'ANTECIPACAO_TOTAL': float(self.antecipacao_total) if self.antecipacao_total else 0.0,
-            'ANTECIPACAO_PARCIAL': float(self.antecipacao_parcial) if self.antecipacao_parcial else 0.0
+            'ANTECIPACAO_PARCIAL': float(self.antecipacao_parcial) if self.antecipacao_parcial else 0.0,
+            'FRETE': float(self.frete) if self.frete else 0.0,
+            'IPI': float(self.ipi) if self.ipi else 0.0,
+            'SEGURO': float(self.seguro) if self.seguro else 0.0,
+            'OUTROS': float(self.outros) if self.outros else 0.0
         }
 
     @classmethod
@@ -55,5 +63,9 @@ class NFEItem:
             a_icms=Decimal(str(xml_data.get('A ICMS', '0'))),
             mva_st=Decimal(str(xml_data.get('MVA-ST', '0'))),
             cest=xml_data.get('CEST', ''),
-            mva_adjusted=Decimal(str(xml_data.get('MVA', '0')))
+            mva_adjusted=Decimal(str(xml_data.get('MVA', '0'))),
+            frete=Decimal(str(xml_data.get('FRETE', '0'))),
+            ipi=Decimal(str(xml_data.get('IPI', '0'))),
+            seguro=Decimal(str(xml_data.get('SEGURO', '0'))),
+            outros=Decimal(str(xml_data.get('OUTROS', '0')))
         )
