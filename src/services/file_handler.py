@@ -2,6 +2,7 @@ import io
 import pandas as pd
 from typing import List, Dict
 from openpyxl.styles import Alignment, Font, PatternFill, Border, Side
+from utils.helpers import format_ncm
 import csv
 import os
 
@@ -126,7 +127,7 @@ class FileHandler:
             text = page.get_text()
             matches = pattern.findall(text)
             for match in matches:
-                ncm_codes.add(match)
+                ncm_codes.add(format_ncm(match))
 
         output_path = "resources/ncm_sj.csv"
         with open(output_path, "w", encoding="utf-8", newline="") as f:
