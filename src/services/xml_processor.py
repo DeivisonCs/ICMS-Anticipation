@@ -31,6 +31,7 @@ class XMLProcessor:
             # Get emitter info
             emitter_name = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:xNome', NFE_NAMESPACE)
             emitter_cnpj = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:CNPJ', NFE_NAMESPACE)
+            emitter_uf = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:UF', NFE_NAMESPACE)
             uf = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:enderEmit//nfe:UF', NFE_NAMESPACE)
             ie = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:IE', NFE_NAMESPACE)
 
@@ -49,6 +50,7 @@ class XMLProcessor:
                 'emission_date': emission_date,
                 'emitter_name': emitter_name,
                 'emitter_cnpj': emitter_cnpj,
+                'emitter_uf': emitter_uf,
                 'filename': filename,
                 'items': items_data
             }
@@ -78,6 +80,11 @@ class XMLProcessor:
         a_icms = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pICMS', ns)
         mva_st = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pMVAST', ns)
         pRedBC = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pRedBC', ns)
+        
+        v_freight = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vFrete', ns)
+        v_ipi = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vIPI', ns)
+        v_seg = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vSeg', ns)
+        v_others = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vOutro', ns)
 
         # Calcular MVA ajustado
         from services.tax_calculator import TaxCalculator
@@ -95,7 +102,11 @@ class XMLProcessor:
             'A ICMS': a_icms,
             'MVA-ST': mva_st,
             'CEST': cest,
-            'MVA': str(mva_adjusted)
+            'MVA': str(mva_adjusted),
+            'FRETE': v_freight,
+            'IPI': v_ipi,
+            'SEGURO': v_seg,
+            'OUTROS': v_others,
         }
 
     @staticmethod

@@ -1,21 +1,26 @@
  
+from dataclasses import asdict
 from decimal import Decimal
 from typing import List
 import pandas as pd
+from utils.helpers import safe_decimal_converter, convert_nfe_list_to_dataframe, format_ncm
 
 from config.settings import (
-    INTERNAL_TAX_RATE_BA, 
+    INTERNAL_TAX_RATE_BA,
     INTERSTATE_TAX_RATE,
     ANTECIPACAO_TOTAL_RATE,
-    ANTECIPACAO_PARCIAL_RATE
+    ANTECIPACAO_PARCIAL_RATE,
+    EXEMPTED_CST_LIST,
+    REDUCTION_CST_LIST,
+    ALREADY_CHARGED_CST_LIST,
+    NCM_SUBSTITUICAO_TRIBUTARIA
 )
 from models.nfe_item import NFEItem
 
-class TaxCalculator: 
+class TaxCalculator:
 
     @staticmethod
     def calculate_adjusted_mva(mva_st: Decimal) -> Decimal:
-
         if mva_st == Decimal('0'):
             return Decimal('0')
 
@@ -23,18 +28,21 @@ class TaxCalculator:
         b_step = a_step / (1 - INTERSTATE_TAX_RATE)
         return round((b_step - 1) * 100, 2)
 
-    @staticmethod
-    def calculate_anticipation_taxes(nfe_item: NFEItem) -> NFEItem: 
-        # Antecipação total (% do valor total)
-        nfe_item.antecipacao_total = nfe_item.v_total * ANTECIPACAO_TOTAL_RATE
+    def calculate_anticipation_taxes(self, products: List[NFEItem]) -> List[NFEItem]:
+        for item in products:
+            if not self.is_supplier_uf_taxed(item.uf_origin):
+                continue
 
-        # Antecipação parcial (% da base de cálculo)
-        nfe_item.antecipacao_parcial = nfe_item.bc_icms * ANTECIPACAO_PARCIAL_RATE
+            if self.is_ncm_taxed(item.ncm):
+                if not self.is_st_already_paid_by_cst(item.o_cst[1:]):
+                    item.antecipacao_total = self.calculate_total_anticipation(item)
 
-        return nfe_item
+            else:
+                item.antecipacao_parcial = item.bc_icms * ANTECIPACAO_PARCIAL_RATE
 
-    @staticmethod
-    def process_dataframe_taxes(df: pd.DataFrame) -> pd.DataFrame: 
+        return products
+
+    def process_dataframe_taxes(self, df: pd.DataFrame) -> pd.DataFrame:
         if df.empty:
             return df
 
@@ -43,11 +51,33 @@ class TaxCalculator:
         for col in numeric_columns:
             df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
 
-        # Calcular antecipações
-        df['ANTECIPACAO_TOTAL'] = df['V TOTAL'] * float(ANTECIPACAO_TOTAL_RATE)
-        df['ANTECIPACAO_PARCIAL'] = df['BC ICMS'] * float(ANTECIPACAO_PARCIAL_RATE)
+        items = []
+        for index, row in df.iterrows():
+            mva_st =safe_decimal_converter(row['MVA-ST'])
 
-        return df
+            nfe_item = NFEItem (
+                cProd=row['CPROD'],
+                uf_origin=row['UF'],
+                ncm=row['NCM/SH'],
+                o_cst=row['O/CST'],
+                red_base_cal=safe_decimal_converter(row['RED_BASE_CAL']),
+                cfop=row['CFOP'],
+                v_total=safe_decimal_converter(row['V TOTAL']),
+                bc_icms=safe_decimal_converter(row['BC ICMS']),
+                v_icms=safe_decimal_converter(row['V ICMS']),
+                a_icms=safe_decimal_converter(row['A ICMS']),
+                mva_st=mva_st,
+                mva_adjusted=TaxCalculator.calculate_adjusted_mva(mva_st),
+                cest=row['CEST'],
+                frete=safe_decimal_converter(row['FRETE']),
+                ipi=safe_decimal_converter(row['IPI']),
+                outros=safe_decimal_converter(row['OUTROS'])
+            )
+            items.append(nfe_item)
+
+        items = self.calculate_anticipation_taxes(items)
+
+        return convert_nfe_list_to_dataframe(items)
 
     @staticmethod
     def calculate_summary_statistics(items: List[NFEItem]) -> dict:
@@ -77,3 +107,35 @@ class TaxCalculator:
             'total_bc_icms': total_bc_icms,
             'total_anticipation': total_anticipation
         }
+
+    def is_st_already_paid_by_cst(self, cst: str) -> bool:
+        if cst in ALREADY_CHARGED_CST_LIST:
+            return True
+
+        return False
+
+    def is_exempted_cst(self, cst: str) -> bool:
+        if cst in EXEMPTED_CST_LIST:
+            return True
+
+        return False
+
+    def is_supplier_uf_taxed(self, uf: str) -> bool:
+        taxed_uf_list = ['BA']
+
+        if uf.upper() in taxed_uf_list:
+            return False
+
+        return True
+
+    def is_ncm_taxed(self, ncm) -> bool:
+        if format_ncm(ncm) in NCM_SUBSTITUICAO_TRIBUTARIA:
+            return True
+
+        return False
+
+    def calculate_total_anticipation(self, nfe: NFEItem) -> Decimal:
+        bc_ant = nfe.v_total + nfe.frete + nfe.ipi + nfe.seguro + nfe.outros
+        cred = nfe.bc_icms * INTERSTATE_TAX_RATE
+
+        return ((bc_ant + nfe.mva_adjusted) * INTERNAL_TAX_RATE_BA) - cred

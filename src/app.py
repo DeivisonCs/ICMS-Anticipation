@@ -137,6 +137,7 @@ def render_download_button(df: pd.DataFrame, filename="icms_calculado.xlsx", emi
 
 
 def combine_all_nfes(nfe_list: List[Dict]) -> pd.DataFrame:
+    tax_calculator = TaxCalculator()
     all_items = []
 
     for nfe in nfe_list:
@@ -153,7 +154,7 @@ def combine_all_nfes(nfe_list: List[Dict]) -> pd.DataFrame:
         return pd.DataFrame()
 
     df = pd.DataFrame(all_items)
-    df = TaxCalculator.process_dataframe_taxes(df)
+    df = tax_calculator.process_dataframe_taxes(df)
     return df
 
 
