@@ -12,6 +12,15 @@ NCM_SUBSTITUICAO_TRIBUTARIA = FileHandler.get_tax_substitution_ncm_list()
 ANTECIPACAO_TOTAL_RATE = Decimal('0.02')  # 2% do valor total
 ANTECIPACAO_PARCIAL_RATE = Decimal('0.01')  # 1% da base de cálculo
 
+# Lista de CST com isentos
+EXEMPTED_CST_LIST = {"40", "41", "50"}
+
+# Lista de CST com redução da base de cálculo
+REDUCTION_CST_LIST = {"20"}
+
+# Lista de CST com cobrança de ST ou ST cobrada anteriormente
+ALREADY_CHARGED_CST_LIST = {"10", "30", "60"}
+
 # Namespace XML da NF-E
 NFE_NAMESPACE = {'nfe': 'http://www.portalfiscal.inf.br/nfe'}
 

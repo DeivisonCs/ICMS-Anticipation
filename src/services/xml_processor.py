@@ -80,6 +80,11 @@ class XMLProcessor:
         a_icms = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pICMS', ns)
         mva_st = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pMVAST', ns)
         pRedBC = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pRedBC', ns)
+        
+        v_freight = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vFrete', ns)
+        v_ipi = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vIPI', ns)
+        v_seg = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vSeg', ns)
+        v_others = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vOutro', ns)
 
         # Calcular MVA ajustado
         from services.tax_calculator import TaxCalculator
@@ -97,7 +102,11 @@ class XMLProcessor:
             'A ICMS': a_icms,
             'MVA-ST': mva_st,
             'CEST': cest,
-            'MVA': str(mva_adjusted)
+            'MVA': str(mva_adjusted),
+            'FRETE': v_freight,
+            'IPI': v_ipi,
+            'SEGURO': v_seg,
+            'OUTROS': v_others,
         }
 
     @staticmethod

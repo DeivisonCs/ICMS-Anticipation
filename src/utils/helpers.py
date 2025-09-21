@@ -38,6 +38,8 @@ def validate_ncm(ncm: str) -> bool:
     # NCM deve ter 8 dígitos
     return len(ncm_clean) == 8 and ncm_clean.isdigit()
 
+def format_ncm(ncm: str) -> str:
+    return ncm.replace('.', '').replace(' ', '')
 
 def validate_cfop(cfop: str) -> bool:
     if not cfop:
@@ -81,7 +83,11 @@ def convert_nfe_list_to_dataframe(items: list[NFEItem]):
         "cest": "CEST",
         "mva_adjusted": "MVA_ADJUSTED",
         "antecipacao_total": "ANTECIPACAO_TOTAL",
-        "antecipacao_parcial": "ANTECIPACAO_PARCIAL"
+        "antecipacao_parcial": "ANTECIPACAO_PARCIAL",
+        "frete": "FRETE",
+        "ipi": "IPI",
+        "seguro": "SEGURO",
+        "outros": "OUTROS"
     }
 
     return df_result.rename(columns=column_mapping)
