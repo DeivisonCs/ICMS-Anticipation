@@ -161,6 +161,9 @@ class TaxedItemsExtractor():
 
         if os.path.exists(extracted_path):
             print("JSON file already exists.")
+            with open(self.json_extracted_items_path, "r", encoding="utf-8") as extracted_items:
+                result_json = json.load(extracted_items)
+                return [TaxedItem.from_dict(item) for item in result_json]
 
         df = pd.read_csv(self.csv_extracted_items_path)
         result_json = self._dataframe_to_dict(df)
