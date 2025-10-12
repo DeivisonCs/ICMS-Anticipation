@@ -13,7 +13,7 @@ from config.settings import (
     EXEMPTED_CST_LIST,
     REDUCTION_CST_LIST,
     ALREADY_CHARGED_CST_LIST,
-    NCM_SUBSTITUICAO_TRIBUTARIA
+    TAXED_ITEMS
 )
 from models.nfe_item import NFEItem
 
@@ -129,9 +129,11 @@ class TaxCalculator:
         return True
 
     def is_ncm_taxed(self, ncm) -> bool:
-        if format_ncm(ncm) in NCM_SUBSTITUICAO_TRIBUTARIA:
+        if any(ncm in list(item.ncm.keys()) for item in TAXED_ITEMS):
+            print(f'{ncm} taxed')
             return True
 
+        print("not taxed")
         return False
 
     def calculate_total_anticipation(self, nfe: NFEItem) -> Decimal:

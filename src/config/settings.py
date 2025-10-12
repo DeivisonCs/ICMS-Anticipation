@@ -9,7 +9,7 @@ INTERSTATE_TAX_RATE = Decimal('0.07')
 # NCMs com substituição tributária
 taxed_items_extractor = TaxedItemsExtractor()
 taxed_items_extractor.process_data_from_pdf()
-NCM_SUBSTITUICAO_TRIBUTARIA:List[TaxedItemsExtractor] = taxed_items_extractor.process_taxed_items()
+TAXED_ITEMS:List[TaxedItemsExtractor] = taxed_items_extractor.process_taxed_items()
 
 # Configurações de antecipação (percentuais)
 ANTECIPACAO_TOTAL_RATE = Decimal('0.02')  # 2% do valor total
