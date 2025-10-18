@@ -1,17 +1,13 @@
- 
-from dataclasses import asdict
 from decimal import Decimal
 from typing import List
 import pandas as pd
-from utils.helpers import safe_decimal_converter, convert_nfe_list_to_dataframe, format_ncm, add_dots_to_ncm_
+from utils.helpers import safe_decimal_converter, convert_nfe_list_to_dataframe, add_dots_to_ncm_
 
 from config.settings import (
     INTERNAL_TAX_RATE_BA,
     INTERSTATE_TAX_RATE,
-    ANTECIPACAO_TOTAL_RATE,
     ANTECIPACAO_PARCIAL_RATE,
     EXEMPTED_CST_LIST,
-    REDUCTION_CST_LIST,
     ALREADY_CHARGED_CST_LIST,
     TAXED_ITEMS
 )
