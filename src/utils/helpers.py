@@ -91,3 +91,22 @@ def convert_nfe_list_to_dataframe(items: list[NFEItem]):
     }
 
     return df_result.rename(columns=column_mapping)
+
+def add_dots_to_ncm_(ncm:str) -> str:
+    LENGTH_OF_FIRST_DOT = 4
+
+    if len(ncm) <= LENGTH_OF_FIRST_DOT:
+        return ncm
+
+    result = ''
+
+    if len(ncm) > LENGTH_OF_FIRST_DOT:
+        result += ncm[:LENGTH_OF_FIRST_DOT] + '.'
+
+    for index, value in enumerate(ncm[LENGTH_OF_FIRST_DOT:]):
+        result += value
+
+        if (index+1) % 2 == 0 and index+LENGTH_OF_FIRST_DOT+1 < len(ncm):
+            result += '.'
+
+    return result

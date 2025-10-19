@@ -1,19 +1,15 @@
- 
-from dataclasses import asdict
 from decimal import Decimal
 from typing import List
 import pandas as pd
-from utils.helpers import safe_decimal_converter, convert_nfe_list_to_dataframe, format_ncm
+from utils.helpers import safe_decimal_converter, convert_nfe_list_to_dataframe, add_dots_to_ncm_
 
 from config.settings import (
     INTERNAL_TAX_RATE_BA,
     INTERSTATE_TAX_RATE,
-    ANTECIPACAO_TOTAL_RATE,
     ANTECIPACAO_PARCIAL_RATE,
     EXEMPTED_CST_LIST,
-    REDUCTION_CST_LIST,
     ALREADY_CHARGED_CST_LIST,
-    NCM_SUBSTITUICAO_TRIBUTARIA
+    TAXED_ITEMS
 )
 from models.nfe_item import NFEItem
 
@@ -53,12 +49,19 @@ class TaxCalculator:
 
         items = []
         for index, row in df.iterrows():
-            mva_st =safe_decimal_converter(row['MVA-ST'])
+            cest = row['CEST']
+            ncm = row['NCM/SH']
+            mva_st = safe_decimal_converter(row['MVA-ST'])
+
+            for item in TAXED_ITEMS:
+                formated_ncm = add_dots_to_ncm_(ncm)
+                if cest == item.cest.replace('.', '') and formated_ncm in list(item.ncm.keys()):
+                    mva_st = item.ncm[formated_ncm].original
 
             nfe_item = NFEItem (
                 cProd=row['CPROD'],
                 uf_origin=row['UF'],
-                ncm=row['NCM/SH'],
+                ncm=ncm,
                 o_cst=row['O/CST'],
                 red_base_cal=safe_decimal_converter(row['RED_BASE_CAL']),
                 cfop=row['CFOP'],
@@ -68,7 +71,7 @@ class TaxCalculator:
                 a_icms=safe_decimal_converter(row['A ICMS']),
                 mva_st=mva_st,
                 mva_adjusted=TaxCalculator.calculate_adjusted_mva(mva_st),
-                cest=row['CEST'],
+                cest=cest,
                 frete=safe_decimal_converter(row['FRETE']),
                 ipi=safe_decimal_converter(row['IPI']),
                 outros=safe_decimal_converter(row['OUTROS'])
@@ -129,7 +132,7 @@ class TaxCalculator:
         return True
 
     def is_ncm_taxed(self, ncm) -> bool:
-        if format_ncm(ncm) in NCM_SUBSTITUICAO_TRIBUTARIA:
+        if any(ncm in list(item.ncm.keys()) for item in TAXED_ITEMS):
             return True
 
         return False

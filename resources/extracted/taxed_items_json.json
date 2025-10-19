@@ -1,0 +1,5160 @@
+[
+    {
+        "item": "3.3.",
+        "cest": "03.003.00",
+        "descrição": "Água mineral, gasosa ou não, ou potável, naturais, em embalagem de vidro descartável",
+        "ncm": {
+            "2201.1": {
+                "4": 158.42,
+                "7": 150.34,
+                "12": 136.88,
+                "original": 114.0
+            },
+            "2201.9": {
+                "4": 158.42,
+                "7": 150.34,
+                "12": 136.88,
+                "original": 114.0
+            }
+        }
+    },
+    {
+        "item": "3.3.1",
+        "cest": "03.003.01",
+        "descrição": "Água mineral, gasosa ou não, ou potável, naturais, adicionadas de sais, em embalagem de vidro descartável",
+        "ncm": {
+            "2201.1": {
+                "4": 158.42,
+                "7": 150.34,
+                "12": 136.88,
+                "original": 114.0
+            },
+            "2201.9": {
+                "4": 158.42,
+                "7": 150.34,
+                "12": 136.88,
+                "original": 114.0
+            }
+        }
+    },
+    {
+        "item": "3.5.0",
+        "cest": "03.005.00",
+        "descrição": "Água mineral, gasosa ou não, ou potável, naturais, em copo plástico descartável",
+        "ncm": {
+            "2201.1": {
+                "4": 158.42,
+                "7": 150.34,
+                "12": 136.88,
+                "original": 114.0
+            },
+            "2201.9": {
+                "4": 158.42,
+                "7": 150.34,
+                "12": 136.88,
+                "original": 114.0
+            }
+        }
+    },
+    {
+        "item": "3.5.1",
+        "cest": "03.005.01",
+        "descrição": "Água mineral, gasosa ou não, ou potável, naturais, adicionadas de sais, em copo plástico descartável",
+        "ncm": {
+            "2201.1": {
+                "4": 158.42,
+                "7": 150.34,
+                "12": 136.88,
+                "original": 114.0
+            },
+            "2201.9": {
+                "4": 158.42,
+                "7": 150.34,
+                "12": 136.88,
+                "original": 114.0
+            }
+        }
+    },
+    {
+        "item": "3.5.2",
+        "cest": "03.005.02",
+        "descrição": "Água mineral, gasosa ou não, ou potável, naturais, em jarra descartável",
+        "ncm": {
+            "2201.1": {
+                "4": 158.42,
+                "7": 150.34,
+                "12": 136.88,
+                "original": 114.0
+            },
+            "2201.9": {
+                "4": 158.42,
+                "7": 150.34,
+                "12": 136.88,
+                "original": 114.0
+            }
+        }
+    },
+    {
+        "item": "3.5.3",
+        "cest": "03.005.03",
+        "descrição": "Água mineral, gasosa ou não, ou potável, naturais, adicionadas de sais, em jarra descartável",
+        "ncm": {
+            "2201.1": {
+                "4": 158.42,
+                "7": 150.34,
+                "12": 136.88,
+                "original": 114.0
+            },
+            "2201.9": {
+                "4": 158.42,
+                "7": 150.34,
+                "12": 136.88,
+                "original": 114.0
+            }
+        }
+    },
+    {
+        "item": "3.5.4",
+        "cest": "03.005.04",
+        "descrição": "Água mineral, gasosa ou não, ou potável, naturais, em demais embalagens descartáveis",
+        "ncm": {
+            "2201.1": {
+                "4": 158.42,
+                "7": 150.34,
+                "12": 136.88,
+                "original": 114.0
+            },
+            "2201.9": {
+                "4": 158.42,
+                "7": 150.34,
+                "12": 136.88,
+                "original": 114.0
+            }
+        }
+    },
+    {
+        "item": "3.5.5",
+        "cest": "03.005.05",
+        "descrição": "Água mineral, gasosa ou não, ou potável, naturais, adicionadas de sais, em demais embalagens descartáveis",
+        "ncm": {
+            "2201.1": {
+                "4": 158.42,
+                "7": 150.34,
+                "12": 136.88,
+                "original": 114.0
+            },
+            "2201.9": {
+                "4": 158.42,
+                "7": 150.34,
+                "12": 136.88,
+                "original": 114.0
+            }
+        }
+    },
+    {
+        "item": "3.6",
+        "cest": "03.006.00",
+        "descrição": "Outras águas minerais, gasosas ou não, ou potáveis, naturais, exceto as classificadas no CEST 03.003.00, 03.003.01, 03.005.00 a 03.005.05, 03.024.00 e 03.025.00",
+        "ncm": {
+            "2201.1": {
+                "4": 158.42,
+                "7": 150.34,
+                "12": 136.88,
+                "original": 114.0
+            }
+        }
+    },
+    {
+        "item": "3.9",
+        "cest": "03.010.00",
+        "descrição": "Refrigerantes em vidro descartável",
+        "ncm": {
+            "2202.10": {
+                "4": 165.08,
+                "7": 156.8,
+                "12": 142.99,
+                "original": 114.0
+            },
+            "2202.99": {
+                "4": 165.08,
+                "7": 156.8,
+                "12": 142.99,
+                "original": 114.0
+            }
+        }
+    },
+    {
+        "item": "3.9.1",
+        "cest": "03.010.01",
+        "descrição": "Refrigerantes em embalagem pet",
+        "ncm": {
+            "2202.10": {
+                "4": 165.08,
+                "7": 156.8,
+                "12": 142.99,
+                "original": 114.0
+            },
+            "2202.99": {
+                "4": 165.08,
+                "7": 156.8,
+                "12": 142.99,
+                "original": 114.0
+            }
+        }
+    },
+    {
+        "item": "3.9.2",
+        "cest": "03.010.02",
+        "descrição": "Refrigerantes em lata",
+        "ncm": {
+            "2202.10": {
+                "4": 165.08,
+                "7": 156.8,
+                "12": 142.99,
+                "original": 114.0
+            },
+            "2202.99": {
+                "4": 165.08,
+                "7": 156.8,
+                "12": 142.99,
+                "original": 114.0
+            }
+        }
+    },
+    {
+        "item": "3.10",
+        "cest": "03.011.00",
+        "descrição": "Demais refrigerantes, exceto os classificados no CEST 03.010.00, 03.010.01, 03.010.02 e 03.011.01",
+        "ncm": {
+            "2202.10": {
+                "4": 165.08,
+                "7": 156.8,
+                "12": 142.99,
+                "original": 114.0
+            },
+            "2202.99": {
+                "4": 165.08,
+                "7": 156.8,
+                "12": 142.99,
+                "original": 114.0
+            }
+        }
+    },
+    {
+        "item": "3.11.0",
+        "cest": "03.012.00",
+        "descrição": "Xarope ou extrato concentrado destinados ao preparo de refrigerante em máquina “pré-mix” ou “post-mix”, exceto o classificado no CEST 03.012.01",
+        "ncm": {
+            "2106.90.1": {
+                "4": 165.08,
+                "7": 156.8,
+                "12": 142.99,
+                "original": 114.0
+            }
+        }
+    },
+    {
+        "item": "3.11.1",
+        "cest": "03.012.01",
+        "descrição": "Cápsula de refrigerante",
+        "ncm": {
+            "2106.90.1": {
+                "4": 165.08,
+                "7": 156.8,
+                "12": 142.99,
+                "original": 114.0
+            }
+        }
+    },
+    {
+        "item": "3.12.0",
+        "cest": "03.013.00",
+        "descrição": "Bebidas energéticas em lata",
+        "ncm": {
+            "2106.9": {
+                "4": 165.08,
+                "7": 156.8,
+                "12": 142.99,
+                "original": 114.0
+            },
+            "2202.99": {
+                "4": 165.08,
+                "7": 156.8,
+                "12": 142.99,
+                "original": 114.0
+            }
+        }
+    },
+    {
+        "item": "3.12.1",
+        "cest": "03.013.01",
+        "descrição": "Bebidas energéticas em embalagem PET",
+        "ncm": {
+            "2106.9": {
+                "4": 165.08,
+                "7": 156.8,
+                "12": 142.99,
+                "original": 114.0
+            },
+            "2202.99": {
+                "4": 165.08,
+                "7": 156.8,
+                "12": 142.99,
+                "original": 114.0
+            }
+        }
+    },
+    {
+        "item": "3.12.2",
+        "cest": "03.013.02",
+        "descrição": "Bebidas energéticas em vidro",
+        "ncm": {
+            "2106.9": {
+                "4": 165.08,
+                "7": 156.8,
+                "12": 142.99,
+                "original": 114.0
+            },
+            "2202.99": {
+                "4": 165.08,
+                "7": 156.8,
+                "12": 142.99,
+                "original": 114.0
+            }
+        }
+    },
+    {
+        "item": "3.14",
+        "cest": "03.015.00",
+        "descrição": "Bebidas hidroeletrolíticas",
+        "ncm": {
+            "2106.9": {
+                "4": 165.08,
+                "7": 156.8,
+                "12": 142.99,
+                "original": 114.0
+            },
+            "2202.99": {
+                "4": 165.08,
+                "7": 156.8,
+                "12": 142.99,
+                "original": 114.0
+            }
+        }
+    },
+    {
+        "item": "3.16.0",
+        "cest": "03.021.00",
+        "descrição": "Cerveja em garrafa de vidro retornável",
+        "ncm": {
+            "2203": {
+                "4": 215.62,
+                "7": 205.75,
+                "12": 189.32,
+                "original": 140.0
+            }
+        }
+    },
+    {
+        "item": "3.16.1",
+        "cest": "03.021.01",
+        "descrição": "Cerveja em garrafa de vidro descartável",
+        "ncm": {
+            "2203": {
+                "4": 215.62,
+                "7": 205.75,
+                "12": 189.32,
+                "original": 140.0
+            }
+        }
+    },
+    {
+        "item": "3.16.2",
+        "cest": "03.021.02",
+        "descrição": "Cerveja em garrafa de alumínio",
+        "ncm": {
+            "2203": {
+                "4": 215.62,
+                "7": 205.75,
+                "12": 189.32,
+                "original": 140.0
+            }
+        }
+    },
+    {
+        "item": "3.16.3",
+        "cest": "03.021.03",
+        "descrição": "Cerveja em lata",
+        "ncm": {
+            "2203": {
+                "4": 215.62,
+                "7": 205.75,
+                "12": 189.32,
+                "original": 140.0
+            }
+        }
+    },
+    {
+        "item": "3.16.4",
+        "cest": "03.021.04",
+        "descrição": "Cerveja em barril",
+        "ncm": {
+            "2203": {
+                "4": 215.62,
+                "7": 205.75,
+                "12": 189.32,
+                "original": 140.0
+            }
+        }
+    },
+    {
+        "item": "3.16.5",
+        "cest": "03.021.05",
+        "descrição": "Cerveja em embalagem PET",
+        "ncm": {
+            "2203": {
+                "4": 215.62,
+                "7": 205.75,
+                "12": 189.32,
+                "original": 140.0
+            }
+        }
+    },
+    {
+        "item": "3.16.6",
+        "cest": "03.021.06",
+        "descrição": "Cerveja em outras embalagens",
+        "ncm": {
+            "2203": {
+                "4": 215.62,
+                "7": 205.75,
+                "12": 189.32,
+                "original": 140.0
+            }
+        }
+    },
+    {
+        "item": "3.17.0",
+        "cest": "03.022.00",
+        "descrição": "Cerveja sem álcool em garrafa de vidro retornável",
+        "ncm": {
+            "2202.91": {
+                "4": 197.29,
+                "7": 188.0,
+                "12": 172.52,
+                "original": 140.0
+            }
+        }
+    },
+    {
+        "item": "3.17.1",
+        "cest": "03.022.01",
+        "descrição": "Cerveja sem álcool em garrafa de vidro descartável",
+        "ncm": {
+            "2202.91": {
+                "4": 197.29,
+                "7": 188.0,
+                "12": 172.52,
+                "original": 140.0
+            }
+        }
+    },
+    {
+        "item": "3.17.2",
+        "cest": "03.022.02",
+        "descrição": "Cerveja sem álcool em garrafa de alumínio",
+        "ncm": {
+            "2202.91": {
+                "4": 197.29,
+                "7": 188.0,
+                "12": 172.52,
+                "original": 140.0
+            }
+        }
+    },
+    {
+        "item": "3.17.3",
+        "cest": "03.022.03",
+        "descrição": "Cerveja sem álcool em lata",
+        "ncm": {
+            "2202.91": {
+                "4": 197.29,
+                "7": 188.0,
+                "12": 172.52,
+                "original": 140.0
+            }
+        }
+    },
+    {
+        "item": "3.17.4",
+        "cest": "03.022.04",
+        "descrição": "Cerveja sem álcool em barril",
+        "ncm": {
+            "2202.91": {
+                "4": 197.29,
+                "7": 188.0,
+                "12": 172.52,
+                "original": 140.0
+            }
+        }
+    },
+    {
+        "item": "3.17.5",
+        "cest": "03.022.05",
+        "descrição": "Cerveja sem álcool em embalagem PET",
+        "ncm": {
+            "2202.91": {
+                "4": 197.29,
+                "7": 188.0,
+                "12": 172.52,
+                "original": 140.0
+            }
+        }
+    },
+    {
+        "item": "3.17.6",
+        "cest": "03.022.06",
+        "descrição": "Cerveja sem álcool em outras embalagens",
+        "ncm": {
+            "2202.91": {
+                "4": 197.29,
+                "7": 188.0,
+                "12": 172.52,
+                "original": 140.0
+            }
+        }
+    },
+    {
+        "item": "3.18",
+        "cest": "03.023.00",
+        "descrição": "Chope",
+        "ncm": {
+            "2203": {
+                "4": 215.62,
+                "7": 205.75,
+                "12": 189.32,
+                "original": 140.0
+            }
+        }
+    },
+    {
+        "item": "3.19",
+        "cest": "02.003.00",
+        "descrição": "Bebida refrescante com teor alcoólico inferior a 8%",
+        "ncm": {
+            "2208.9": {
+                "4": 69.7,
+                "7": 64.39,
+                "12": 55.56,
+                "original": 29.04
+            }
+        }
+    },
+    {
+        "item": "3.20",
+        "cest": "03.024.00",
+        "descrição": "Água mineral em embalagens retornáveis com capacidade igual ou superior a 10 (dez) e inferior a 20 (vinte) litros",
+        "ncm": {
+            "2201.1": {
+                "4": 158.42,
+                "7": 150.34,
+                "12": 136.88,
+                "original": 114.0
+            }
+        }
+    },
+    {
+        "item": "3.21",
+        "cest": "03.025.00",
+        "descrição": "Água mineral em embalagens retornáveis com capacidade igual ou superior a 20 (vinte) litros",
+        "ncm": {
+            "2201.1": {
+                "4": 158.42,
+                "7": 150.34,
+                "12": 136.88,
+                "original": 114.0
+            }
+        }
+    },
+    {
+        "item": "4.1",
+        "cest": "04.001.00",
+        "descrição": "Charutos, cigarrilhas e cigarros, de tabaco ou dos seus sucedâneos",
+        "ncm": {
+            "2402": {
+                "4": 105.71,
+                "7": 99.29,
+                "12": 88.57,
+                "original": 50.0
+            }
+        }
+    },
+    {
+        "item": "4.2",
+        "cest": "04.002.00",
+        "descrição": "Tabaco para fumar, mesmo contendo sucedâneos de tabaco em qualquer proporção",
+        "ncm": {
+            "2403.1": {
+                "4": 105.71,
+                "7": 99.29,
+                "12": 88.57,
+                "original": 50.0
+            }
+        }
+    },
+    {
+        "item": "5.1",
+        "cest": "05.001.00",
+        "descrição": "Cimento",
+        "ncm": {
+            "2523": {
+                "4": 44.91,
+                "7": 40.38,
+                "12": 32.83,
+                "original": 20.0
+            }
+        }
+    },
+    {
+        "item": "6.1",
+        "cest": "06.001.01",
+        "descrição": "Álcool etílico não desnaturado, com um teor alcoólico em volume igual ou superior a 80% vol. - outros (álcool etílico hidratado combustível)",
+        "ncm": {
+            "2207.10.9": {
+                "4": 61.0,
+                "7": 61.0,
+                "12": 61.0,
+                "original": 61.0
+            }
+        }
+    },
+    {
+        "item": "6.4",
+        "cest": "06.004.00",
+        "descrição": "Querosenes, exceto de aviação",
+        "ncm": {
+            "2710.19.19": {
+                "4": 63.52,
+                "7": 63.52,
+                "12": 63.52,
+                "original": 32.0
+            }
+        }
+    },
+    {
+        "item": "6.5",
+        "cest": "06.005.00",
+        "descrição": "Querosene de aviação",
+        "ncm": {
+            "2710.19.11": {
+                "4": 63.0,
+                "7": 63.0,
+                "12": 63.0,
+                "original": 32.0
+            }
+        }
+    },
+    {
+        "item": "6.6.9",
+        "cest": "06.006.09",
+        "descrição": "Outros óleos combustíveis, exceto os classificados no CEST 06.006.10 e 06.006.11",
+        "ncm": {
+            "2710.19.2": {
+                "4": 61.0,
+                "7": 61.0,
+                "12": 61.0,
+                "original": 61.0
+            }
+        }
+    },
+    {
+        "item": "6.6.10",
+        "cest": "06.006.10",
+        "descrição": "Óleo combustível derivado de xisto",
+        "ncm": {
+            "2710.19.2": {
+                "4": 61.0,
+                "7": 61.0,
+                "12": 61.0,
+                "original": 61.0
+            }
+        }
+    },
+    {
+        "item": "6.6.11",
+        "cest": "06.006.11",
+        "descrição": "Óleo combustível pesado",
+        "ncm": {
+            "2710.19.22": {
+                "4": 61.0,
+                "7": 61.0,
+                "12": 61.0,
+                "original": 61.0
+            }
+        }
+    },
+    {
+        "item": "6.7",
+        "cest": "06.007.00",
+        "descrição": "Óleos lubrificantes",
+        "ncm": {
+            "2710.19.3": {
+                "4": 61.0,
+                "7": 61.0,
+                "12": 61.0,
+                "original": 61.0
+            }
+        }
+    },
+    {
+        "item": "6.8.0",
+        "cest": "06.008.00",
+        "descrição": "Outros óleos de petróleo ou de minerais betuminosos (exceto óleos brutos) e preparações não especificadas nem compreendidas noutras posições, que contenham, como constituintes básicos, 70% ou mais, em peso, de óleos de petróleo ou de minerais betuminosos, exceto os que contenham biodiesel, exceto os resíduos de óleos e exceto as",
+        "ncm": {
+            "2710.19.9": {
+                "4": 63.52,
+                "7": 63.52,
+                "12": 63.52,
+                "original": 32.5
+            }
+        }
+    },
+    {
+        "item": "6.8.1",
+        "cest": "06.008.01",
+        "descrição": "Graxa lubrificante",
+        "ncm": {
+            "2710.19.9": {
+                "4": 63.52,
+                "7": 63.52,
+                "12": 63.52,
+                "original": 32.5
+            }
+        }
+    },
+    {
+        "item": "6.9",
+        "cest": "06.009.00",
+        "descrição": "Resíduos de óleos",
+        "ncm": {
+            "2710.9": {
+                "4": 63.52,
+                "7": 63.52,
+                "12": 63.52,
+                "original": 32.5
+            }
+        }
+    },
+    {
+        "item": "6.10",
+        "cest": "06.010.00",
+        "descrição": "Gás de petróleo e outros hidrocarbonetos gasosos, exceto GLP, GLGN, Gás Natural e Gás de xisto",
+        "ncm": {
+            "2711": {
+                "4": 63.52,
+                "7": 63.52,
+                "12": 63.52,
+                "original": 32.5
+            }
+        }
+    },
+    {
+        "item": "6.12",
+        "cest": "06.012.00",
+        "descrição": "Gás Natural Liquefeito",
+        "ncm": {
+            "2711.11": {
+                "4": 207.44,
+                "7": 190.91,
+                "12": 217.36,
+                "original": 190.91
+            }
+        }
+    },
+    {
+        "item": "6.13",
+        "cest": "06.013.00",
+        "descrição": "Gás Natural Gasoso",
+        "ncm": {
+            "2711.21": {
+                "4": null,
+                "7": null,
+                "12": null,
+                "original": null
+            }
+        }
+    },
+    {
+        "item": "6.14",
+        "cest": "06.014.00",
+        "descrição": "Gás de xisto",
+        "ncm": {
+            "2711.29.9": {
+                "4": null,
+                "7": null,
+                "12": null,
+                "original": null
+            }
+        }
+    },
+    {
+        "item": "6.15",
+        "cest": "06.015.00",
+        "descrição": "Coque de petróleo e outros resíduos de óleo de petróleo ou de minerais betuminosos",
+        "ncm": {
+            "2713": {
+                "4": 63.52,
+                "7": 63.52,
+                "12": 63.52,
+                "original": 32.5
+            }
+        }
+    },
+    {
+        "item": "6.17",
+        "cest": "06.017.00",
+        "descrição": "Preparações lubrificantes, exceto as contendo, como constituintes de base, 70% ou mais, em peso, de óleos de petróleo ou de minerais betuminosos",
+        "ncm": {
+            "3403": {
+                "4": 61.0,
+                "7": 61.0,
+                "12": 61.0,
+                "original": 61.0
+            }
+        }
+    },
+    {
+        "item": "6.18",
+        "cest": "06.018.00",
+        "descrição": "Óleos de petróleo ou de minerais betuminosos (exceto óleos brutos) e preparações não especificadas nem compreendidas noutras posições, que contenham, como constituintes básicos, 70% ou mais, em peso, de óleos de petróleo ou de minerais betuminosos, que contenham biodiesel, exceto os resíduos de óleos",
+        "ncm": {
+            "2710.2": {
+                "4": 63.52,
+                "7": 63.52,
+                "12": 63.52,
+                "original": 32.5
+            }
+        }
+    },
+    {
+        "item": "6.19",
+        "cest": "06.019.00",
+        "descrição": "Naftas, exceto a Nafta petroquímica",
+        "ncm": {
+            "2710.12.49": {
+                "4": 181.0,
+                "7": 181.0,
+                "12": 181.0,
+                "original": 181.0
+            }
+        }
+    },
+    {
+        "item": "7.1",
+        "cest": "09.001.00",
+        "descrição": "Lâmpadas elétricas",
+        "ncm": {
+            "8539": {
+                "4": 93.24,
+                "7": 87.2,
+                "12": 77.14,
+                "original": 60.03
+            }
+        }
+    },
+    {
+        "item": "7.2",
+        "cest": "09.002.00",
+        "descrição": "Lâmpadas eletrônicas",
+        "ncm": {
+            "8540": {
+                "4": 144.3,
+                "7": 136.66,
+                "12": 123.94,
+                "original": 102.31
+            }
+        }
+    },
+    {
+        "item": "7.3",
+        "cest": "09.003.00",
+        "descrição": "Reatores para lâmpadas ou tubos de descargas",
+        "ncm": {
+            "8504.1": {
+                "4": 84.91,
+                "7": 79.13,
+                "12": 69.5,
+                "original": 53.13
+            }
+        }
+    },
+    {
+        "item": "7.4",
+        "cest": "09.004.00",
+        "descrição": "“Starter”",
+        "ncm": {
+            "8536.5": {
+                "4": 144.3,
+                "7": 136.66,
+                "12": 123.94,
+                "original": 102.31
+            }
+        }
+    },
+    {
+        "item": "7.5",
+        "cest": "09.005.00",
+        "descrição": "Lâmpadas de LED (diodos emissores de luz)",
+        "ncm": {
+            "8539.52": {
+                "4": 97.64,
+                "7": 91.46,
+                "12": 81.17,
+                "original": 63.67
+            }
+        }
+    },
+    {
+        "item": "8.1",
+        "cest": "10.001.00",
+        "descrição": "Cal",
+        "ncm": {
+            "2522": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.2",
+        "cest": "10.002.00",
+        "descrição": "Argamassas",
+        "ncm": {
+            "3816.00.1": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            },
+            "3824.5": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.3",
+        "cest": "10.003.00",
+        "descrição": "Outras argamassas",
+        "ncm": {
+            "3214.9": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.4",
+        "cest": "10.004.00",
+        "descrição": "Silicones em formas primárias, para uso na construção",
+        "ncm": {
+            "3910": {
+                "4": 87.17,
+                "7": 81.32,
+                "12": 71.57,
+                "original": 55.0
+            }
+        }
+    },
+    {
+        "item": "8.5",
+        "cest": "10.005.00",
+        "descrição": "Revestimentos de PVC e outros plásticos; forro, sancas e afins de PVC, para uso na construção",
+        "ncm": {
+            "3916": {
+                "4": 87.17,
+                "7": 81.32,
+                "12": 71.57,
+                "original": 55.0
+            }
+        }
+    },
+    {
+        "item": "8.6",
+        "cest": "10.006.00",
+        "descrição": "Tubos, e seus acessórios (por exemplo, juntas, cotovelos, flanges, uniões), de plásticos, para uso na construção",
+        "ncm": {
+            "3917": {
+                "4": 63.02,
+                "7": 57.92,
+                "12": 49.43,
+                "original": 35.0
+            }
+        }
+    },
+    {
+        "item": "8.7",
+        "cest": "10.007.00",
+        "descrição": "Revestimento de pavimento de PVC e outros plásticos",
+        "ncm": {
+            "3918": {
+                "4": 87.17,
+                "7": 81.32,
+                "12": 71.57,
+                "original": 55.0
+            }
+        }
+    },
+    {
+        "item": "8.8",
+        "cest": "10.008.00",
+        "descrição": "Chapas, folhas, tiras, fitas, películas e outras formas planas, autoadesivas, de plásticos, mesmo em rolos, para uso na construção",
+        "ncm": {
+            "3919": {
+                "4": 87.17,
+                "7": 81.32,
+                "12": 71.57,
+                "original": 55.0
+            }
+        }
+    },
+    {
+        "item": "8.9",
+        "cest": "10.009.00",
+        "descrição": "Veda rosca, lona plástica para uso na construção, fitas isolantes e afins",
+        "ncm": {
+            "3919": {
+                "4": 87.17,
+                "7": 81.32,
+                "12": 71.57,
+                "original": 55.0
+            },
+            "3920": {
+                "4": 87.17,
+                "7": 81.32,
+                "12": 71.57,
+                "original": 55.0
+            },
+            "3921": {
+                "4": 87.17,
+                "7": 81.32,
+                "12": 71.57,
+                "original": 55.0
+            }
+        }
+    },
+    {
+        "item": "8.10",
+        "cest": "10.010.00",
+        "descrição": "Telha de plástico, mesmo reforçada com fibra de vidro",
+        "ncm": {
+            "3921": {
+                "4": 87.17,
+                "7": 81.32,
+                "12": 71.57,
+                "original": 55.0
+            }
+        }
+    },
+    {
+        "item": "8.11",
+        "cest": "10.011.00",
+        "descrição": "Cumeeira de plástico, mesmo reforçada com fibra de vidro",
+        "ncm": {
+            "3921": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.12",
+        "cest": "10.012.00",
+        "descrição": "Chapas, laminados plásticos em bobina, para uso na construção, exceto os descritos nos CEST 10.010.00 e 10.011.00",
+        "ncm": {
+            "3921": {
+                "4": 87.17,
+                "7": 81.32,
+                "12": 71.57,
+                "original": 55.0
+            }
+        }
+    },
+    {
+        "item": "8.13",
+        "cest": "10.013.00",
+        "descrição": "Banheiras, boxes para chuveiros, pias, lavatórios, bidês, sanitários e seus assentos e tampas, caixas de descarga e artigos semelhantes para usos sanitários ou higiênicos, de plásticos",
+        "ncm": {
+            "3922": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.14",
+        "cest": "10.014.00",
+        "descrição": "Artefatos de higiene / toucador de plástico, para uso na construção",
+        "ncm": {
+            "3924": {
+                "4": 123.4,
+                "7": 116.42,
+                "12": 104.78,
+                "original": 85.0
+            }
+        }
+    },
+    {
+        "item": "8.15",
+        "cest": "10.015.00",
+        "descrição": "Caixa-d’água, inclusive sua tampa, de plástico, mesmo reforçadas com fibra de vidro",
+        "ncm": {
+            "3925.1": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.16",
+        "cest": "10.016.00",
+        "descrição": "Outras telhas, cumeeira e caixa-d’água, inclusive sua tampa, de plástico, mesmo reforçadas com fibra de vidro",
+        "ncm": {
+            "3925.9": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.17",
+        "cest": "10.017.00",
+        "descrição": "Artefatos para apetrechamento de construções, de plásticos, não especificados nem compreendidos em outras posições, incluindo persianas, sancas, molduras, apliques e rosetas, caixilhos de polietileno e outros plásticos, exceto os descritos nos CEST 10.015.00 e 10.016.00",
+        "ncm": {
+            "3925.1": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            },
+            "3925.9": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.18",
+        "cest": "10.018.00",
+        "descrição": "Portas, janelas e seus caixilhos, alizares e soleiras",
+        "ncm": {
+            "3925.2": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.19",
+        "cest": "10.019.00",
+        "descrição": "Postigos, estores (incluídas as venezianas) e artefatos semelhantes e suas partes",
+        "ncm": {
+            "3925.3": {
+                "4": 111.32,
+                "7": 104.72,
+                "12": 93.71,
+                "original": 75.0
+            }
+        }
+    },
+    {
+        "item": "8.20",
+        "cest": "10.020.00",
+        "descrição": "Outras obras de plástico, para uso na construção",
+        "ncm": {
+            "3926.9": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.21",
+        "cest": "10.021.00",
+        "descrição": "Papel de parede e revestimentos de parede semelhantes; papel para vitrais",
+        "ncm": {
+            "4814": {
+                "4": 111.32,
+                "7": 104.72,
+                "12": 93.71,
+                "original": 75.0
+            }
+        }
+    },
+    {
+        "item": "8.22",
+        "cest": "10.022.00",
+        "descrição": "Telhas de concreto",
+        "ncm": {
+            "6810.19": {
+                "4": 87.17,
+                "7": 81.32,
+                "12": 71.57,
+                "original": 55.0
+            }
+        }
+    },
+    {
+        "item": "8.24",
+        "cest": "10.024.00",
+        "descrição": "Caixas d’água, tanques e reservatórios e suas tampas, telhas, calhas, cumeeiras e afins, de fibrocimento, cimento-celulose ou semelhantes, contendo ou não amianto",
+        "ncm": {
+            "6811": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.25",
+        "cest": "10.025.00",
+        "descrição": "Tijolos, placas (lajes), ladrilhos e outras peças cerâmicas de farinhas siliciosas fósseis, (tripolita, diatomita, por exemplo) ou de terras siliciosas semelhantes",
+        "ncm": {
+            "6901": {
+                "4": 67.85,
+                "7": 62.6,
+                "12": 53.86,
+                "original": 39.0
+            }
+        }
+    },
+    {
+        "item": "8.26",
+        "cest": "10.026.00",
+        "descrição": "Tijolos, placas (lajes), ladrilhos e peças cerâmicas semelhantes, para construção, refratários, que não sejam de farinhas siliciosas fósseis nem de terras siliciosas semelhantes",
+        "ncm": {
+            "6902": {
+                "4": 67.85,
+                "7": 62.6,
+                "12": 53.86,
+                "original": 39.0
+            }
+        }
+    },
+    {
+        "item": "8.27",
+        "cest": "10.027.00",
+        "descrição": "Tijolos para construção, tijoleiras, tapa-vigas e produtos semelhantes, de cerâmica",
+        "ncm": {
+            "6904": {
+                "4": 67.85,
+                "7": 62.6,
+                "12": 53.86,
+                "original": 39.0
+            }
+        }
+    },
+    {
+        "item": "8.28",
+        "cest": "10.028.00",
+        "descrição": "Telhas, elementos de chaminés, condutores de fumaça, ornamentos arquitetônicos, de cerâmica, e outros produtos cerâmicos para construção",
+        "ncm": {
+            "6905": {
+                "4": 67.85,
+                "7": 62.6,
+                "12": 53.86,
+                "original": 39.0
+            }
+        }
+    },
+    {
+        "item": "8.29",
+        "cest": "10.029.00",
+        "descrição": "Tubos, calhas ou algerozes e acessórios para canalizações, de cerâmica",
+        "ncm": {
+            "6906": {
+                "4": 67.85,
+                "7": 62.6,
+                "12": 53.86,
+                "original": 39.0
+            }
+        }
+    },
+    {
+        "item": "8.30.0",
+        "cest": "10.030.00",
+        "descrição": "Ladrilhos e placas de cerâmica, exclusivamente para pavimentação ou revestimentos",
+        "ncm": {
+            "6907": {
+                "4": 87.17,
+                "7": 81.32,
+                "12": 71.57,
+                "original": 55.0
+            }
+        }
+    },
+    {
+        "item": "8.30.1",
+        "cest": "10.030.01",
+        "descrição": "Cubos, pastilhas e artigos semelhantes de cerâmica, mesmo com suporte, exceto os descritos CEST 10.030.00",
+        "ncm": {
+            "6907": {
+                "4": 87.17,
+                "7": 81.32,
+                "12": 71.57,
+                "original": 55.0
+            }
+        }
+    },
+    {
+        "item": "8.31",
+        "cest": "10.031.00",
+        "descrição": "Pias, lavatórios, colunas para lavatórios, banheiras, bidês, sanitários, caixas de descarga, mictórios e aparelhos fixos semelhantes para usos sanitários, de cerâmica",
+        "ncm": {
+            "6910": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.32",
+        "cest": "10.032.00",
+        "descrição": "Artefatos de higiene/toucador de cerâmica",
+        "ncm": {
+            "6912": {
+                "4": 123.4,
+                "7": 116.42,
+                "12": 104.78,
+                "original": 85.0
+            }
+        }
+    },
+    {
+        "item": "8.33",
+        "cest": "10.033.00",
+        "descrição": "Vidro vazado ou laminado, em chapas, folhas ou perfis, mesmo com camada absorvente, refletora ou não, mas sem qualquer outro trabalho",
+        "ncm": {
+            "7003": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.34",
+        "cest": "10.034.00",
+        "descrição": "Vidro estirado ou soprado, em folhas, mesmo com camada absorvente, refletora ou não, mas sem qualquer outro trabalho",
+        "ncm": {
+            "7004": {
+                "4": 142.72,
+                "7": 135.13,
+                "12": 122.49,
+                "original": 101.0
+            }
+        }
+    },
+    {
+        "item": "8.35",
+        "cest": "10.035.00",
+        "descrição": "Vidro flotado e vidro desbastado ou polido em uma ou em ambas as faces, em chapas ou em folhas, mesmo com camada absorvente, refletora ou não, mas sem qualquer outro trabalho",
+        "ncm": {
+            "7005": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.36",
+        "cest": "10.036.00",
+        "descrição": "Vidros temperados",
+        "ncm": {
+            "7007.19": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.37",
+        "cest": "10.037.00",
+        "descrição": "Vidros laminados",
+        "ncm": {
+            "7007.29": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.38",
+        "cest": "10.038.00",
+        "descrição": "Vidros isolantes de paredes múltiplas",
+        "ncm": {
+            "7008": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.39",
+        "cest": "10.039.00",
+        "descrição": "Blocos, placas, tijolos, ladrilhos, telhas e outros artefatos, de vidro prensado ou moldado, mesmo armado, para construção; cubos, pastilhas e outros artigos semelhantes",
+        "ncm": {
+            "7016": {
+                "4": 99.25,
+                "7": 93.02,
+                "12": 82.64,
+                "original": 65.0
+            }
+        }
+    },
+    {
+        "item": "8.40",
+        "cest": "10.040.00",
+        "descrição": "Barras próprias para construções, excetos vergalhões",
+        "ncm": {
+            "7214.2": {
+                "4": 47.27,
+                "7": 42.67,
+                "12": null,
+                "original": 35.0
+            }
+        }
+    },
+    {
+        "item": "8.41",
+        "cest": "10.041.00",
+        "descrição": "Outras barras próprias para construções, excetos vergalhões",
+        "ncm": {
+            "7308.90.1": {
+                "4": 63.02,
+                "7": 57.92,
+                "12": 49.43,
+                "original": 35.0
+            }
+        }
+    },
+    {
+        "item": "8.41.1",
+        "cest": "10.041.01",
+        "descrição": "Outros vergalhões",
+        "ncm": {
+            "7308.90.1": {
+                "4": 63.02,
+                "7": 57.92,
+                "12": 49.43,
+                "original": 35.0
+            }
+        }
+    },
+    {
+        "item": "8.42",
+        "cest": "10.042.00",
+        "descrição": "Vergalhões",
+        "ncm": {
+            "7214.2": {
+                "4": 58.18,
+                "7": 53.24,
+                "12": null,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.43",
+        "cest": "10.043.00",
+        "descrição": "Outros vergalhões",
+        "ncm": {
+            "7213": {
+                "4": 58.18,
+                "7": 53.24,
+                "12": null,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.44",
+        "cest": "10.044.00",
+        "descrição": "Fios de ferro ou aço não ligados, não revestidos, mesmo polidos;",
+        "ncm": {
+            "7217.10.9": {
+                "4": 58.18,
+                "7": 53.24,
+                "12": null,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.44.1",
+        "cest": "10.044.00",
+        "descrição": "Cordas, cabos, tranças (entrançados), lingas e artefatos semelhantes, de ferro ou aço, não isolados para usos elétricos",
+        "ncm": {
+            "7312": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.45.0",
+        "cest": "10.045.00",
+        "descrição": "Outros fios de ferro ou aço, não ligados, galvanizados com um teor de carbono superior ou igual a 0,6%, em peso",
+        "ncm": {
+            "7217.20.1": {
+                "4": 58.18,
+                "7": 53.24,
+                "12": null,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.45.1",
+        "cest": "10.045.01",
+        "descrição": "Outros fios de ferro ou aço, não ligados, galvanizados",
+        "ncm": {
+            "7217.20.9": {
+                "4": 58.18,
+                "7": 53.24,
+                "12": null,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.46",
+        "cest": "10.046.00",
+        "descrição": "Acessórios para tubos (inclusive uniões, cotovelos, luvas ou mangas), de ferro fundido, ferro ou aço",
+        "ncm": {
+            "7307": {
+                "4": 63.02,
+                "7": 57.92,
+                "12": 49.43,
+                "original": 35.0
+            }
+        }
+    },
+    {
+        "item": "8.47",
+        "cest": "10.047.00",
+        "descrição": "Portas e janelas, e seus caixilhos, alizares e soleiras de ferro fundido, ferro ou aço",
+        "ncm": {
+            "7308.3": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.48",
+        "cest": "10.048.00",
+        "descrição": "Material para andaimes, para armações (cofragens) e para escoramentos, (inclusive armações prontas, para estruturas de concreto armado ou argamassa armada), eletrocalhas e perfilados de ferro fundido, ferro ou aço, próprios para construção, exceto treliças de aço",
+        "ncm": {
+            "7308.4": {
+                "4": 99.25,
+                "7": 93.02,
+                "12": 82.64,
+                "original": 65.0
+            },
+            "7308.9": {
+                "4": 99.25,
+                "7": 93.02,
+                "12": 82.64,
+                "original": 65.0
+            }
+        }
+    },
+    {
+        "item": "8.49",
+        "cest": "10.049.00",
+        "descrição": "Treliças de aço",
+        "ncm": {
+            "7308.4": {
+                "4": 99.25,
+                "7": 93.02,
+                "12": 82.64,
+                "original": 65.0
+            }
+        }
+    },
+    {
+        "item": "8.50",
+        "cest": "10.050.00",
+        "descrição": "Telhas metálicas",
+        "ncm": {
+            "7308.90.9": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.51",
+        "cest": "10.051.00",
+        "descrição": "Caixas diversas (tais como caixa de correio, de entrada de água, de energia, de instalação) de ferro fundido, ferro ou aço; próprias para a construção",
+        "ncm": {
+            "7310": {
+                "4": 123.4,
+                "7": 116.42,
+                "12": 104.78,
+                "original": 85.0
+            }
+        }
+    },
+    {
+        "item": "8.52",
+        "cest": "10.052.00",
+        "descrição": "Arame farpado, de ferro ou aço arames ou tiras, retorcidos, mesmo farpados, de ferro ou aço, dos tipos utilizados em cercas",
+        "ncm": {
+            "7313": {
+                "4": 47.27,
+                "7": 42.67,
+                "12": null,
+                "original": 35.0
+            }
+        }
+    },
+    {
+        "item": "8.53",
+        "cest": "10.053.00",
+        "descrição": "Telas metálicas, grades e redes, de fios de ferro ou aço",
+        "ncm": {
+            "7314": {
+                "4": 63.02,
+                "7": 57.92,
+                "12": 49.43,
+                "original": 35.0
+            }
+        }
+    },
+    {
+        "item": "8.54",
+        "cest": "10.054.00",
+        "descrição": "Correntes de rolos, de ferro fundido, ferro ou aço",
+        "ncm": {
+            "7315.11": {
+                "4": 142.72,
+                "7": 135.13,
+                "12": 122.49,
+                "original": 101.0
+            }
+        }
+    },
+    {
+        "item": "8.55",
+        "cest": "10.055.00",
+        "descrição": "Outras correntes de elos articulados, de ferro fundido, ferro ou aço",
+        "ncm": {
+            "7315.12.9": {
+                "4": 142.72,
+                "7": 135.13,
+                "12": 122.49,
+                "original": 101.0
+            }
+        }
+    },
+    {
+        "item": "8.56",
+        "cest": "10.056.00",
+        "descrição": "Correntes de elos soldados, de ferro fundido, de ferro ou aço",
+        "ncm": {
+            "7315.82": {
+                "4": 99.25,
+                "7": 93.02,
+                "12": 82.64,
+                "original": 65.0
+            }
+        }
+    },
+    {
+        "item": "8.57",
+        "cest": "10.057.00",
+        "descrição": "Tachas, pregos, percevejos, escápulas, grampos ondulados ou biselados e artefatos semelhantes, de ferro fundido, ferro ou aço, mesmo com a cabeça de outra matéria, exceto cobre",
+        "ncm": {
+            "7317": {
+                "4": 58.18,
+                "7": 53.24,
+                "12": null,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.58",
+        "cest": "10.058.00",
+        "descrição": "Parafusos, pinos ou pernos, roscados, porcas, tira-fundos, ganchos roscados, rebites, chavetas, contrapinos ou troços, arruelas (anilhas) (incluindo as de pressão) e artigos semelhantes, de ferro fundido, ferro ou aço",
+        "ncm": {
+            "7318": {
+                "4": 87.17,
+                "7": 81.32,
+                "12": 71.57,
+                "original": 55.0
+            }
+        }
+    },
+    {
+        "item": "8.59.0",
+        "cest": "10.059.00",
+        "descrição": "Palha de ferro ou aço, exceto os de uso doméstico classificados na posição NCM 7323.10.00",
+        "ncm": {
+            "7323": {
+                "4": 142.72,
+                "7": 135.13,
+                "12": 122.49,
+                "original": 101.0
+            }
+        }
+    },
+    {
+        "item": "8.59.1",
+        "cest": "10.059.01",
+        "descrição": "Esponjas, esfregões, luvas e artefatos semelhantes para limpeza, polimento e usos semelhantes, de ferro ou aço, exceto os de uso doméstico classificados na posição NCM 7323.10.00",
+        "ncm": {
+            "7323": {
+                "4": 142.72,
+                "7": 135.13,
+                "12": 122.49,
+                "original": 101.0
+            }
+        }
+    },
+    {
+        "item": "8.60",
+        "cest": "10.060.00",
+        "descrição": "Artefatos de higiene ou de toucador, e suas partes, de ferro fundido, ferro ou aço, incluídas as pias, banheiras, lavatórios, cubas, mictórios, tanques e afins de ferro fundido, ferro ou aço, para uso na construção",
+        "ncm": {
+            "7324": {
+                "4": 99.25,
+                "7": 93.02,
+                "12": 82.64,
+                "original": 65.0
+            }
+        }
+    },
+    {
+        "item": "8.61",
+        "cest": "10.061.00",
+        "descrição": "Outras obras moldadas, de ferro fundido, ferro ou aço, para uso na construção civil",
+        "ncm": {
+            "7325": {
+                "4": 123.4,
+                "7": 116.42,
+                "12": 104.78,
+                "original": 85.0
+            }
+        }
+    },
+    {
+        "item": "8.62",
+        "cest": "10.062.00",
+        "descrição": "Abraçadeiras",
+        "ncm": {
+            "7326": {
+                "4": 123.4,
+                "7": 116.42,
+                "12": 104.78,
+                "original": 85.0
+            }
+        }
+    },
+    {
+        "item": "8.63",
+        "cest": "10.063.00",
+        "descrição": "Barras de cobre",
+        "ncm": {
+            "7407": {
+                "4": 63.02,
+                "7": 57.92,
+                "12": 49.43,
+                "original": 35.0
+            }
+        }
+    },
+    {
+        "item": "8.64",
+        "cest": "10.064.00",
+        "descrição": "Tubos de cobre e suas ligas, para instalações de água quente e gás, de uso na construção",
+        "ncm": {
+            "7411.10.1": {
+                "4": 63.02,
+                "7": 57.92,
+                "12": 49.43,
+                "original": 35.0
+            }
+        }
+    },
+    {
+        "item": "8.65",
+        "cest": "10.065.00",
+        "descrição": "Acessórios para tubos (por exemplo, uniões, cotovelos, luvas ou mangas) de cobre e suas ligas, para uso na construção",
+        "ncm": {
+            "7412": {
+                "4": 63.02,
+                "7": 57.92,
+                "12": 49.43,
+                "original": 35.0
+            }
+        }
+    },
+    {
+        "item": "8.66",
+        "cest": "10.066.00",
+        "descrição": "Tachas, pregos, percevejos, escápulas e artefatos semelhantes, de cobre, ou de ferro ou aço com cabeça de cobre, parafusos, pinos ou pernos, roscados, porcas, ganchos roscados, rebites, chavetas, cavilhas, contrapinos, arruelas (incluídas as de pressão), e artefatos semelhantes, de cobre",
+        "ncm": {
+            "7415": {
+                "4": 99.25,
+                "7": 93.02,
+                "12": 82.64,
+                "original": 65.0
+            }
+        }
+    },
+    {
+        "item": "8.67",
+        "cest": "10.067.00",
+        "descrição": "Artefatos de higiene/toucador de cobre, para uso na construção",
+        "ncm": {
+            "7418.2": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.68",
+        "cest": "10.068.00",
+        "descrição": "Manta de subcobertura aluminizada",
+        "ncm": {
+            "7607.19.9": {
+                "4": 87.17,
+                "7": 81.32,
+                "12": 71.57,
+                "original": 55.0
+            }
+        }
+    },
+    {
+        "item": "8.69",
+        "cest": "10.069.00",
+        "descrição": "Tubos de alumínio e suas ligas, para refrigeração e ar condicionado, de uso na construção",
+        "ncm": {
+            "7608": {
+                "4": 99.25,
+                "7": 93.02,
+                "12": 82.64,
+                "original": 65.0
+            }
+        }
+    },
+    {
+        "item": "8.70",
+        "cest": "10.070.00",
+        "descrição": "Acessórios para tubos (por exemplo, uniões, cotovelos, luvas ou mangas), de alumínio, para uso na construção",
+        "ncm": {
+            "7609.00.00": {
+                "4": 99.25,
+                "7": 93.02,
+                "12": 82.64,
+                "original": 65.0
+            }
+        }
+    },
+    {
+        "item": "8.71",
+        "cest": "10.071.00",
+        "descrição": "Construções e suas partes (por exemplo, pontes e elementos de pontes, torres, pórticos ou pilones, pilares, colunas, armações, estruturas para telhados, portas e janelas, e seus caixilhos, alizares e soleiras, balaustradas), de alumínio, exceto as construções pré-fabricadas da posição 9406; chapas, barras, perfis, tubos e semelhantes, de alumínio, próprios para construções",
+        "ncm": {
+            "7610": {
+                "4": 63.02,
+                "7": 57.92,
+                "12": 49.43,
+                "original": 35.0
+            }
+        }
+    },
+    {
+        "item": "8.72",
+        "cest": "10.072.00",
+        "descrição": "Artefatos de higiene / toucador de alumínio, para uso na construção",
+        "ncm": {
+            "7615.20.00": {
+                "4": 111.32,
+                "7": 104.72,
+                "12": 93.71,
+                "original": 75.0
+            }
+        }
+    },
+    {
+        "item": "8.73",
+        "cest": "10.073.00",
+        "descrição": "Outras obras de alumínio, próprias para construções, incluídas as persianas",
+        "ncm": {
+            "7616": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.74",
+        "cest": "10.074.00",
+        "descrição": "Outras guarnições, ferragens e artigos semelhantes de metais comuns, para construções, inclusive puxadores.",
+        "ncm": {
+            "8302.41.00": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.75",
+        "cest": "10.075.00",
+        "descrição": "Fechaduras e ferrolhos (de chave, de segredo ou elétricos), de metais comuns, incluídas as suas partes fechos e armações com fecho, com fechadura, de metais comuns chaves para estes artigos, de metais comuns excluídos os de uso automotivo",
+        "ncm": {
+            "8301": {
+                "4": 87.17,
+                "7": 81.32,
+                "12": 71.57,
+                "original": 55.0
+            }
+        }
+    },
+    {
+        "item": "8.76",
+        "cest": "10.076.00",
+        "descrição": "Dobradiças de metais comuns, de qualquer tipo",
+        "ncm": {
+            "8302.10.00": {
+                "4": 87.17,
+                "7": 81.32,
+                "12": 71.57,
+                "original": 55.0
+            }
+        }
+    },
+    {
+        "item": "8.77",
+        "cest": "10.077.00",
+        "descrição": "Tubos flexíveis de metais comuns, mesmo com acessórios, para uso na construção",
+        "ncm": {
+            "8307": {
+                "4": 99.25,
+                "7": 93.02,
+                "12": 82.64,
+                "original": 65.0
+            }
+        }
+    },
+    {
+        "item": "8.78",
+        "cest": "10.078.00",
+        "descrição": "Fios, varetas, tubos, chapas, eletrodos e artefatos semelhantes, de metais comuns ou de carbonetos metálicos, revestidos exterior ou interiormente de decapantes ou de fundentes, para soldagem (soldadura) ou depósito de metal ou de carbonetos metálicos fios e varetas de pós de metais comuns aglomerados, para metalização por projeção",
+        "ncm": {
+            "8311": {
+                "4": 99.25,
+                "7": 93.02,
+                "12": 82.64,
+                "original": 65.0
+            }
+        }
+    },
+    {
+        "item": "8.79",
+        "cest": "10.079.00",
+        "descrição": "Torneiras, válvulas (incluídas as redutoras de pressão e as termostáticas) e dispositivos semelhantes, para canalizações, caldeiras, reservatórios, cubas e outros recipientes",
+        "ncm": {
+            "8481": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "8.80",
+        "cest": "10.080.00",
+        "descrição": "Espelhos de vidro, mesmo emoldurados, exceto os de uso automotivo",
+        "ncm": {
+            "7009": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "9.1.0",
+        "cest": "13.001.00",
+        "descrição": "Medicamentos de referência - positiva, exceto para uso veterinário",
+        "ncm": {
+            "3003": {
+                "4": 66.93,
+                "7": 61.71,
+                "12": 53.02,
+                "original": 38.24
+            },
+            "3004": {
+                "4": 66.93,
+                "7": 61.71,
+                "12": 53.02,
+                "original": 38.24
+            }
+        }
+    },
+    {
+        "item": "9.1.1",
+        "cest": "13.001.01",
+        "descrição": "Medicamentos de referência - negativa, exceto para uso veterinário",
+        "ncm": {
+            "3003": {
+                "4": 60.6,
+                "7": 55.58,
+                "12": 47.22,
+                "original": 33.0
+            },
+            "3004": {
+                "4": 60.6,
+                "7": 55.58,
+                "12": 47.22,
+                "original": 33.0
+            }
+        }
+    },
+    {
+        "item": "9.1.2",
+        "cest": "13.001.02",
+        "descrição": "Medicamentos de referência - neutra, exceto para uso veterinário",
+        "ncm": {
+            "3003": {
+                "4": 70.72,
+                "7": 65.39,
+                "12": 56.5,
+                "original": 41.38
+            },
+            "3004": {
+                "4": 70.72,
+                "7": 65.39,
+                "12": 56.5,
+                "original": 41.38
+            }
+        }
+    },
+    {
+        "item": "9.2.0",
+        "cest": "13.002.00",
+        "descrição": "Medicamentos genérico - positiva, exceto para uso veterinário",
+        "ncm": {
+            "3003": {
+                "4": 66.93,
+                "7": 61.71,
+                "12": 53.02,
+                "original": 38.24
+            },
+            "3004": {
+                "4": 66.93,
+                "7": 61.71,
+                "12": 53.02,
+                "original": 38.24
+            }
+        }
+    },
+    {
+        "item": "9.2.1",
+        "cest": "13.002.01",
+        "descrição": "Medicamentos genérico - negativa, exceto para uso veterinário",
+        "ncm": {
+            "3003": {
+                "4": 60.6,
+                "7": 55.58,
+                "12": 47.22,
+                "original": 33.0
+            },
+            "3004": {
+                "4": 60.6,
+                "7": 55.58,
+                "12": 47.22,
+                "original": 33.0
+            }
+        }
+    },
+    {
+        "item": "9.2.2",
+        "cest": "13.002.02",
+        "descrição": "Medicamentos genérico - neutra, exceto para uso veterinário",
+        "ncm": {
+            "3003": {
+                "4": 70.72,
+                "7": 65.39,
+                "12": 56.5,
+                "original": 41.38
+            },
+            "3004": {
+                "4": 70.72,
+                "7": 65.39,
+                "12": 56.5,
+                "original": 41.38
+            }
+        }
+    },
+    {
+        "item": "9.3.0",
+        "cest": "13.003.00",
+        "descrição": "Medicamentos similar - positiva, exceto para uso veterinário",
+        "ncm": {
+            "3003": {
+                "4": 66.93,
+                "7": 61.71,
+                "12": 53.02,
+                "original": 38.24
+            },
+            "3004": {
+                "4": 66.93,
+                "7": 61.71,
+                "12": 53.02,
+                "original": 38.24
+            }
+        }
+    },
+    {
+        "item": "9.3.1",
+        "cest": "13.003.01",
+        "descrição": "Medicamentos similar - negativa, exceto para uso veterinário",
+        "ncm": {
+            "3003": {
+                "4": 60.6,
+                "7": 55.58,
+                "12": 47.22,
+                "original": 33.0
+            },
+            "3004": {
+                "4": 60.6,
+                "7": 55.58,
+                "12": 47.22,
+                "original": 33.0
+            }
+        }
+    },
+    {
+        "item": "9.3.2",
+        "cest": "13.003.02",
+        "descrição": "Medicamentos similar - neutra, exceto para uso veterinário",
+        "ncm": {
+            "3003": {
+                "4": 70.72,
+                "7": 65.39,
+                "12": 56.5,
+                "original": 41.38
+            },
+            "3004": {
+                "4": 70.72,
+                "7": 65.39,
+                "12": 56.5,
+                "original": 41.38
+            }
+        }
+    },
+    {
+        "item": "9.4.0",
+        "cest": "13.004.00",
+        "descrição": "Outros tipos de medicamentos - positiva, exceto para uso veterinário",
+        "ncm": {
+            "3003": {
+                "4": 66.93,
+                "7": 61.71,
+                "12": 53.02,
+                "original": 38.24
+            },
+            "3004": {
+                "4": 66.93,
+                "7": 61.71,
+                "12": 53.02,
+                "original": 38.24
+            }
+        }
+    },
+    {
+        "item": "9.4.1",
+        "cest": "13.004.01",
+        "descrição": "Outros tipos de medicamentos - negativa, exceto para uso veterinário",
+        "ncm": {
+            "3003": {
+                "4": 60.6,
+                "7": 55.58,
+                "12": 47.22,
+                "original": 33.0
+            },
+            "3004": {
+                "4": 60.6,
+                "7": 55.58,
+                "12": 47.22,
+                "original": 33.0
+            }
+        }
+    },
+    {
+        "item": "9.4.2",
+        "cest": "13.004.02",
+        "descrição": "Outros tipos de medicamentos - neutra, exceto para uso veterinário",
+        "ncm": {
+            "3003": {
+                "4": 70.72,
+                "7": 65.39,
+                "12": 56.5,
+                "original": 41.38
+            },
+            "3004": {
+                "4": 70.72,
+                "7": 65.39,
+                "12": 56.5,
+                "original": 41.38
+            }
+        }
+    },
+    {
+        "item": "9.5.0",
+        "cest": "13.005.00",
+        "descrição": "Preparações químicas contraceptivas de referência, à base de hormônios, de outros produtos da posição 29.37 ou de espermicidas - positiva.",
+        "ncm": {
+            "3006.6": {
+                "4": 66.93,
+                "7": 61.71,
+                "12": 53.02,
+                "original": 38.24
+            }
+        }
+    },
+    {
+        "item": "9.5.1",
+        "cest": "13.005.01",
+        "descrição": "Preparações químicas contraceptivas de referência, à base de hormônios, de outros produtos da posição 29.37 ou de espermicidas - negativa.",
+        "ncm": {
+            "3006.6": {
+                "4": 60.6,
+                "7": 55.58,
+                "12": 47.22,
+                "original": 33.0
+            }
+        }
+    },
+    {
+        "item": "9.5.2",
+        "cest": "13.005.02",
+        "descrição": "Preparações químicas contraceptivas genérico, à base de hormônios, de outros produtos da posição 29.37 ou de espermicidas – positiva.",
+        "ncm": {
+            "3006.6": {
+                "4": 66.93,
+                "7": 61.71,
+                "12": 53.02,
+                "original": 38.24
+            }
+        }
+    },
+    {
+        "item": "9.5.3",
+        "cest": "13.005.03",
+        "descrição": "Preparações químicas contraceptivas genérico, à base de hormônios, de outros produtos da posição 29.37 ou de espermicidas – negativa.",
+        "ncm": {
+            "3006.6": {
+                "4": 60.6,
+                "7": 55.58,
+                "12": 47.22,
+                "original": 33.0
+            }
+        }
+    },
+    {
+        "item": "9.5.4",
+        "cest": "13.005.04",
+        "descrição": "Preparações químicas contraceptivas similar, à base de hormônios, de outros produtos da posição 29.37 ou de espermicidas – positiva.",
+        "ncm": {
+            "3006.6": {
+                "4": 66.93,
+                "7": 61.71,
+                "12": 53.02,
+                "original": 38.24
+            }
+        }
+    },
+    {
+        "item": "9.5.5",
+        "cest": "13.005.05",
+        "descrição": "Preparações químicas contraceptivas similar, à base de hormônios, de outros produtos da posição 29.37 ou de espermicidas – negativa.",
+        "ncm": {
+            "3006.6": {
+                "4": 60.6,
+                "7": 55.58,
+                "12": 47.22,
+                "original": 33.0
+            }
+        }
+    },
+    {
+        "item": "9.6",
+        "cest": "13.006.00",
+        "descrição": "Provitaminas e vitaminas, naturais ou reproduzidas por síntese (incluídos os concentrados naturais), bem como os seus derivados utilizados principalmente como vitaminas, misturados ou não entre si, mesmo em quaisquer soluções",
+        "ncm": {
+            "2936": {
+                "4": 70.72,
+                "7": 65.39,
+                "12": 56.5,
+                "original": 41.38
+            }
+        }
+    },
+    {
+        "item": "9.7.0",
+        "cest": "13.007.00",
+        "descrição": "Preparações opacificantes (contrastantes) para exames radiográficos e reagentes de diagnóstico concebidos para serem administrados ao paciente – Lista Positiva",
+        "ncm": {
+            "3006.3": {
+                "4": 66.93,
+                "7": 61.71,
+                "12": 53.02,
+                "original": 38.24
+            }
+        }
+    },
+    {
+        "item": "9.7.1",
+        "cest": "13.007.01",
+        "descrição": "Preparações opacificantes (contrastantes) para exames radiográficos e reagentes de diagnóstico concebidos para serem administrados ao paciente – Lista Negativa",
+        "ncm": {
+            "3006.3": {
+                "4": 60.6,
+                "7": 55.58,
+                "12": 47.22,
+                "original": 33.0
+            }
+        }
+    },
+    {
+        "item": "9.8.0",
+        "cest": "13.008.00",
+        "descrição": "Antissoro, outras frações do sangue, produtos imunológicos modificados, mesmo obtidos por via biotecnológica, exceto para uso veterinário - Lista Positiva",
+        "ncm": {
+            "3002": {
+                "4": 66.93,
+                "7": 61.71,
+                "12": 53.02,
+                "original": 38.24
+            }
+        }
+    },
+    {
+        "item": "9.8.1",
+        "cest": "13.008.01",
+        "descrição": "Antissoro, outras frações do sangue, produtos imunológicos modificados, mesmo obtidos por via biotecnológica, exceto para uso veterinário – Lista Negativa",
+        "ncm": {
+            "3002": {
+                "4": 60.6,
+                "7": 55.58,
+                "12": 47.22,
+                "original": 33.0
+            }
+        }
+    },
+    {
+        "item": "9.9.0",
+        "cest": "13.009.00",
+        "descrição": "Vacinas, exceto para uso veterinário - Lista Positiva",
+        "ncm": {
+            "3002": {
+                "4": 66.93,
+                "7": 61.71,
+                "12": 53.02,
+                "original": 38.24
+            }
+        }
+    },
+    {
+        "item": "9.9.1",
+        "cest": "13.009.01",
+        "descrição": "Vacinas, exceto para uso veterinário – Lista Negativa",
+        "ncm": {
+            "3002": {
+                "4": 60.6,
+                "7": 55.58,
+                "12": 47.22,
+                "original": 33.0
+            }
+        }
+    },
+    {
+        "item": "9.10.0",
+        "cest": "13.010.00",
+        "descrição": "Curativos (pensos) adesivos e outros artigos com uma camada adesiva, impregnados ou recobertos de substâncias farmacêuticas - Lista Positiva",
+        "ncm": {
+            "3005.10.1": {
+                "4": 66.93,
+                "7": 61.71,
+                "12": 53.02,
+                "original": 38.24
+            }
+        }
+    },
+    {
+        "item": "9.10.1",
+        "cest": "13.010.01",
+        "descrição": "Curativos (pensos) adesivos e outros artigos com uma camada adesiva, impregnados ou recobertos de substâncias farmacêuticas - Lista Negativa",
+        "ncm": {
+            "3005.10.1": {
+                "4": 60.6,
+                "7": 55.58,
+                "12": 47.22,
+                "original": 33.0
+            }
+        }
+    },
+    {
+        "item": "9.11",
+        "cest": "13.011.00",
+        "descrição": "Algodão, atadura, esparadrapo, gazes, pensos, sinapismos, e outros, acondicionados para venda a retalho para usos medicinais, cirúrgicos ou dentários, não impregnados ou recobertos de substâncias farmacêuticas - Lista Neutra",
+        "ncm": {
+            "3005": {
+                "4": 70.72,
+                "7": 65.39,
+                "12": 56.5,
+                "original": 41.38
+            }
+        }
+    },
+    {
+        "item": "9.12",
+        "cest": "13.012.00",
+        "descrição": "Luvas cirúrgicas e luvas de procedimento - neutra",
+        "ncm": {
+            "4015.12 \n4015.19": {
+                "4": 70.72,
+                "7": 65.39,
+                "12": 56.5,
+                "original": 41.38
+            }
+        }
+    },
+    {
+        "item": "9.13",
+        "cest": "13.013.00",
+        "descrição": "Preservativo – neutra",
+        "ncm": {
+            "4014.1": {
+                "4": 70.72,
+                "7": 65.39,
+                "12": 56.5,
+                "original": 41.38
+            }
+        }
+    },
+    {
+        "item": "9.14",
+        "cest": "13.014.00",
+        "descrição": "Seringas, mesmo com agulhas – neutra",
+        "ncm": {
+            "9018.31": {
+                "4": 70.72,
+                "7": 65.39,
+                "12": 56.5,
+                "original": 41.38
+            }
+        }
+    },
+    {
+        "item": "9.15",
+        "cest": "13.015.00",
+        "descrição": "Agulhas para seringas – neutra",
+        "ncm": {
+            "9018.32.1": {
+                "4": 70.72,
+                "7": 65.39,
+                "12": 56.5,
+                "original": 41.38
+            }
+        }
+    },
+    {
+        "item": "9.16",
+        "cest": "13.016.00",
+        "descrição": "Contraceptivos (dispositivos intrauterinos - DIU) – neutra",
+        "ncm": {
+            "3926.90.9 \n9018.90.99": {
+                "4": 70.72,
+                "7": 65.39,
+                "12": 56.5,
+                "original": 41.38
+            }
+        }
+    },
+    {
+        "item": "10.1",
+        "cest": "16.001.00",
+        "descrição": "Pneus novos, dos tipos utilizados em automóveis de passageiros (incluídos os veículos de uso misto - camionetas e os automóveis de corrida",
+        "ncm": {
+            "4011": {
+                "4": 71.47,
+                "7": 66.11,
+                "12": 57.18,
+                "original": 42.0
+            }
+        }
+    },
+    {
+        "item": "10.2",
+        "cest": "16.002.00",
+        "descrição": "Pneus novos, dos tipos utilizados em caminhões (inclusive para os fora-de-estrada), ônibus, aviões, máquinas de terraplenagem, de construção e conservação de estradas, máquinas e tratores agrícolas, pá-carregadeira",
+        "ncm": {
+            "4011": {
+                "4": 59.4,
+                "7": 54.42,
+                "12": 46.11,
+                "original": 32.0
+            }
+        }
+    },
+    {
+        "item": "10.3",
+        "cest": "16.003.00",
+        "descrição": "Pneus novos para motocicletas",
+        "ncm": {
+            "4011": {
+                "4": 93.21,
+                "7": 87.17,
+                "12": 77.11,
+                "original": 60.0
+            }
+        }
+    },
+    {
+        "item": "10.4",
+        "cest": "16.004.00",
+        "descrição": "Outros tipos de pneus novos, exceto os itens classificados no CEST 16.005.00",
+        "ncm": {
+            "4011": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "10.5",
+        "cest": "16.005.00",
+        "descrição": "Pneus novos de borracha dos tipos utilizados em bicicletas",
+        "ncm": {
+            "4011.5": {
+                "4": 98.85,
+                "7": 92.63,
+                "12": 82.28,
+                "original": 64.67
+            }
+        }
+    },
+    {
+        "item": "10.6.0",
+        "cest": "16.007.00",
+        "descrição": "Protetores de borracha, exceto os itens classificados no CEST 16.007.01",
+        "ncm": {
+            "4012.9": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "10.6.1",
+        "cest": "16.007.01",
+        "descrição": "Protetores de borracha para bicicletas",
+        "ncm": {
+            "4012.9": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "10.7",
+        "cest": "16.008.00",
+        "descrição": "Câmaras de ar de borracha, exceto os itens classificados no CEST 16.009.00",
+        "ncm": {
+            "4013": {
+                "4": 75.09,
+                "7": 69.62,
+                "12": 60.5,
+                "original": 45.0
+            }
+        }
+    },
+    {
+        "item": "10.8",
+        "cest": "16.009.00",
+        "descrição": "Câmaras de ar de borracha dos tipos utilizados em bicicletas",
+        "ncm": {
+            "4013.2": {
+                "4": 98.85,
+                "7": 92.63,
+                "12": 82.28,
+                "original": 64.67
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.00",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.01",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.02",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.03",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.04",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.05",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.06",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.07",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.08",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.09",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.10",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.11",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.12",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.13",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.14",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.15",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.16",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.17",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.18",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.19",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.20",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.21",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.22",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.23",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.24",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.25",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.26",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.1",
+        "cest": "17.044.27",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.00",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.01",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.02",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.03",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.04",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.05",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.06",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.07",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.08",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.09",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.10",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.11",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.12",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.13",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.14",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.15",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.16",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.17",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.18",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.19",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.20",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.21",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.22",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.23",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.24",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.25",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.26",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.1",
+        "cest": "17.044.27",
+        "descrição": "Farinha de trigo, em qualquer embalagem",
+        "ncm": {
+            "1101.00.1": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.2",
+        "cest": "17.045.00",
+        "descrição": "Farinha de mistura de trigo com centeio (méteil)",
+        "ncm": {
+            "1101.00.2": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.2",
+        "cest": "17.045.00",
+        "descrição": "Farinha de mistura de trigo com centeio (méteil)",
+        "ncm": {
+            "1101.00.2": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.3",
+        "cest": "17.046.05",
+        "descrição": "Misturas e preparações para pães com menos de 80% de farinha de trigo na sua composição final, em qualquer embalagem",
+        "ncm": {
+            "1901.2 \n1901.90.9": {
+                "4": 143.92,
+                "7": 136.3,
+                "12": 123.6,
+                "original": 102.0
+            }
+        }
+    },
+    {
+        "item": "11.3",
+        "cest": "17.046.06",
+        "descrição": "Misturas e preparações para pães com menos de 80% de farinha de trigo na sua composição final, em qualquer embalagem",
+        "ncm": {
+            "1901.2 \n1901.90.9": {
+                "4": 143.92,
+                "7": 136.3,
+                "12": 123.6,
+                "original": 102.0
+            }
+        }
+    },
+    {
+        "item": "11.3",
+        "cest": "17.046.07",
+        "descrição": "Misturas e preparações para pães com menos de 80% de farinha de trigo na sua composição final, em qualquer embalagem",
+        "ncm": {
+            "1901.2 \n1901.90.9": {
+                "4": 143.92,
+                "7": 136.3,
+                "12": 123.6,
+                "original": 102.0
+            }
+        }
+    },
+    {
+        "item": "11.3",
+        "cest": "17.046.08",
+        "descrição": "Misturas e preparações para pães com menos de 80% de farinha de trigo na sua composição final, em qualquer embalagem",
+        "ncm": {
+            "1901.2 \n1901.90.9": {
+                "4": 143.92,
+                "7": 136.3,
+                "12": 123.6,
+                "original": 102.0
+            }
+        }
+    },
+    {
+        "item": "11.3",
+        "cest": "17.046.09",
+        "descrição": "Misturas e preparações para pães com menos de 80% de farinha de trigo na sua composição final, em qualquer embalagem",
+        "ncm": {
+            "1901.2 \n1901.90.9": {
+                "4": 143.92,
+                "7": 136.3,
+                "12": 123.6,
+                "original": 102.0
+            }
+        }
+    },
+    {
+        "item": "11.4",
+        "cest": "17.046.10",
+        "descrição": "Misturas e preparações para pães com, no mínimo, 80% de farinha de trigo na sua composição final, em qualquer embalagem",
+        "ncm": {
+            "1901": {
+                "4": 46.0,
+                "7": 46.0,
+                "12": 46.0,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.4",
+        "cest": "17.046.11",
+        "descrição": "Misturas e preparações para pães com, no mínimo, 80% de farinha de trigo na sua composição final, em qualquer embalagem",
+        "ncm": {
+            "1901": {
+                "4": 46.0,
+                "7": 46.0,
+                "12": 46.0,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.4",
+        "cest": "17.046.12",
+        "descrição": "Misturas e preparações para pães com, no mínimo, 80% de farinha de trigo na sua composição final, em qualquer embalagem",
+        "ncm": {
+            "1901": {
+                "4": 46.0,
+                "7": 46.0,
+                "12": 46.0,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.4",
+        "cest": "17.046.13",
+        "descrição": "Misturas e preparações para pães com, no mínimo, 80% de farinha de trigo na sua composição final, em qualquer embalagem",
+        "ncm": {
+            "1901": {
+                "4": 46.0,
+                "7": 46.0,
+                "12": 46.0,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.4",
+        "cest": "17.046.14",
+        "descrição": "Misturas e preparações para pães com, no mínimo, 80% de farinha de trigo na sua composição final, em qualquer embalagem",
+        "ncm": {
+            "1901": {
+                "4": 46.0,
+                "7": 46.0,
+                "12": 46.0,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "”11.4",
+        "cest": "17.046.10",
+        "descrição": "Misturas e preparações para pães com, no mínimo, 80% de farinha de trigo na sua composição final, em qualquer embalagem",
+        "ncm": {
+            "1901": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "”11.4",
+        "cest": "17.046.11",
+        "descrição": "Misturas e preparações para pães com, no mínimo, 80% de farinha de trigo na sua composição final, em qualquer embalagem",
+        "ncm": {
+            "1901": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "”11.4",
+        "cest": "17.046.12",
+        "descrição": "Misturas e preparações para pães com, no mínimo, 80% de farinha de trigo na sua composição final, em qualquer embalagem",
+        "ncm": {
+            "1901": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "”11.4",
+        "cest": "17.046.13",
+        "descrição": "Misturas e preparações para pães com, no mínimo, 80% de farinha de trigo na sua composição final, em qualquer embalagem",
+        "ncm": {
+            "1901": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "”11.4",
+        "cest": "17.046.14",
+        "descrição": "Misturas e preparações para pães com, no mínimo, 80% de farinha de trigo na sua composição final, em qualquer embalagem",
+        "ncm": {
+            "1901": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.4.1",
+        "cest": "17.046.16",
+        "descrição": "Misturas e preparações com, no mínimo, 80% de farinha de trigo na sua composição final, exceto as descritas nos CEST 17.046.10 a 17.046.15.",
+        "ncm": {
+            "1901.2 \n1901.90.9": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "“11.4.1",
+        "cest": "17.046.16",
+        "descrição": "Misturas e preparações com, no mínimo, 80% de farinha de trigo na sua composição final, exceto as descritas nos CEST 17.046.10 a 17.046.15.",
+        "ncm": {
+            "1901.2 \n1901.90.9": {
+                "4": 77.37,
+                "7": 70.27,
+                "12": 64.95,
+                "original": 77.37
+            }
+        }
+    },
+    {
+        "item": "11.6.0",
+        "cest": "17.047.01",
+        "descrição": "Massas alimentícias tipo instantânea, derivadas de farinha de trigo",
+        "ncm": {
+            "1902.3": {
+                "4": 44.91,
+                "7": 40.38,
+                "12": 32.83,
+                "original": 20.0
+            }
+        }
+    },
+    {
+        "item": "11.6.1",
+        "cest": "17.048.00",
+        "descrição": "Massas alimentícias, cozidas ou recheadas (de carne ou de outras substâncias) ou preparadas de outro modo, exceto as descritas nos CEST 17.047.00, 17.048.01 e 17.048.02",
+        "ncm": {
+            "1902": {
+                "4": 44.91,
+                "7": 40.38,
+                "12": 32.83,
+                "original": 20.0
+            }
+        }
+    },
+    {
+        "item": "11.6.2",
+        "cest": "17.048.02",
+        "descrição": "Massas alimentícias recheadas (mesmo cozidas ou preparadas de outro modo)",
+        "ncm": {
+            "1902.20.00": {
+                "4": 44.91,
+                "7": 40.38,
+                "12": 32.83,
+                "original": 20.0
+            }
+        }
+    },
+    {
+        "item": "11.7.2",
+        "cest": "17.049.02",
+        "descrição": "Massas alimentícias do tipo grano duro, não cozidas, nem recheadas, nem preparadas de outro modo, que contenham ovos",
+        "ncm": {
+            "1902.11": {
+                "4": 23.87,
+                "7": 23.87,
+                "12": 23.87,
+                "original": 20.0
+            }
+        }
+    },
+    {
+        "item": "11.7.3",
+        "cest": "17.049.03",
+        "descrição": "Outras massas alimentícias do tipo comum, não cozidas, nem recheadas, nem preparadas de outro modo, que não contenham ovos, derivadas de farinha de trigo",
+        "ncm": {
+            "1902.19": {
+                "4": 23.87,
+                "7": 23.87,
+                "12": 23.87,
+                "original": 20.0
+            }
+        }
+    },
+    {
+        "item": "11.7.4",
+        "cest": "17.049.04",
+        "descrição": "Outras massas alimentícias do tipo sêmola, não cozidas, nem recheadas, nem preparadas de outro modo, que não contenham ovos, derivadas do trigo",
+        "ncm": {
+            "1902.19": {
+                "4": 23.87,
+                "7": 23.87,
+                "12": 23.87,
+                "original": 20.0
+            }
+        }
+    },
+    {
+        "item": "11.7.5",
+        "cest": "17.049.05",
+        "descrição": "Outras massas alimentícias do tipo grano duro, não cozidas, nem recheadas, nem preparadas de outro modo, que não contenham ovos",
+        "ncm": {
+            "1902.19": {
+                "4": 23.87,
+                "7": 23.87,
+                "12": 23.87,
+                "original": 20.0
+            }
+        }
+    },
+    {
+        "item": "11.7.6",
+        "cest": "17.049.06",
+        "descrição": "Massas alimentícias do tipo comum, não cozidas, nem recheadas, nem preparadas de outro modo, que contenham ovos, derivadas de farinha de trigo",
+        "ncm": {
+            "1902.11.": {
+                "4": 23.87,
+                "7": 23.87,
+                "12": 23.87,
+                "original": 20.0
+            }
+        }
+    },
+    {
+        "item": "11.7.7",
+        "cest": "17.049.07",
+        "descrição": "Massas alimentícias do tipo sêmola, não cozidas, nem recheadas, nem preparadas de outro modo, que contenham ovos, derivadas do trigo",
+        "ncm": {
+            "1902.11.": {
+                "4": 23.87,
+                "7": 23.87,
+                "12": 23.87,
+                "original": 20.0
+            }
+        }
+    },
+    {
+        "item": "11.8",
+        "cest": "17.050.00",
+        "descrição": "Pães industrializados, inclusive de especiarias, exceto panetones e bolo de forma",
+        "ncm": {
+            "1905.2": {
+                "4": 44.91,
+                "7": 40.38,
+                "12": 32.83,
+                "original": 20.0
+            }
+        }
+    },
+    {
+        "item": "11.9",
+        "cest": "17.051.00",
+        "descrição": "Bolo de forma, inclusive de especiarias",
+        "ncm": {
+            "1905.20.9": {
+                "4": 56.98,
+                "7": 52.08,
+                "12": 43.9,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "11.10",
+        "cest": "17.052.00",
+        "descrição": "Panetones",
+        "ncm": {
+            "1905.20.1": {
+                "4": 44.91,
+                "7": 40.38,
+                "12": 32.83,
+                "original": 20.0
+            }
+        }
+    },
+    {
+        "item": "11.16",
+        "cest": "17.059.00",
+        "descrição": "Torradas, pão torrado e produtos semelhantes torrados",
+        "ncm": {
+            "1905.4": {
+                "4": 56.98,
+                "7": 52.08,
+                "12": 43.9,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "11.17",
+        "cest": "17.060.00",
+        "descrição": "Outros pães de forma",
+        "ncm": {
+            "1905.90.1": {
+                "4": 44.91,
+                "7": 40.38,
+                "12": 32.83,
+                "original": 20.0
+            }
+        }
+    },
+    {
+        "item": "11.18.0",
+        "cest": "17.062.00",
+        "descrição": "Outros pães, exceto o classificado no CEST 17.062.03",
+        "ncm": {
+            "1905.90.90": {
+                "4": 44.91,
+                "7": 40.38,
+                "12": 32.83,
+                "original": 20.0
+            }
+        }
+    },
+    {
+        "item": "11.18.1",
+        "cest": "17.062.01",
+        "descrição": "Outros bolos industrializados e produtos de panificação não especificados anteriormente, incluindo as pizzas; exceto os classificados nos CEST 17.062.02 e 17.062.03",
+        "ncm": {
+            "1905.90.90": {
+                "4": 56.98,
+                "7": 52.08,
+                "12": 43.9,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "11.18.2",
+        "cest": "17.062.02",
+        "descrição": "Casquinhas para sorvete",
+        "ncm": {
+            "1905.90.2": {
+                "4": 56.98,
+                "7": 52.08,
+                "12": 43.9,
+                "original": 30.0
+            },
+            "1905.90.9": {
+                "4": 56.98,
+                "7": 52.08,
+                "12": 43.9,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "11.18.3",
+        "cest": "17.062.03",
+        "descrição": "Pão francês até 200g",
+        "ncm": {
+            "1905.90.9": {
+                "4": 44.91,
+                "7": 40.38,
+                "12": 32.83,
+                "original": 20.0
+            }
+        }
+    },
+    {
+        "item": "11.19",
+        "cest": "17.063.00",
+        "descrição": "Pão denominado knackebrot",
+        "ncm": {
+            "1905.1": {
+                "4": 44.91,
+                "7": 40.38,
+                "12": 32.83,
+                "original": 20.0
+            }
+        }
+    },
+    {
+        "item": "11.20",
+        "cest": "17.064.00",
+        "descrição": "Demais pães industrializados",
+        "ncm": {
+            "1905.9": {
+                "4": 44.91,
+                "7": 40.38,
+                "12": 32.83,
+                "original": 20.0
+            }
+        }
+    },
+    {
+        "item": "11.21",
+        "cest": "17.083.00",
+        "descrição": "Carne de gado bovino, ovino e bufalino e produtos comestíveis resultantes da matança desse gado submetidos à salga, secagem ou desidratação (exceto charque e jerked beef)",
+        "ncm": {
+            "0210.2": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            },
+            "0210.99": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            },
+            "1502": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            }
+        }
+    },
+    {
+        "item": "11.22",
+        "cest": "17.084.00",
+        "descrição": "Carne de gado bovino, ovino e bufalino e demais produtos comestíveis resultantes da matança desse gado frescos, refrigerados ou congelados",
+        "ncm": {
+            "0201": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            },
+            "0202": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            },
+            "0204": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            },
+            "0206": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            }
+        }
+    },
+    {
+        "item": "11.23",
+        "cest": "17.085.00",
+        "descrição": "Carnes de animais das espécies caprina, frescas, refrigeradas ou congeladas",
+        "ncm": {
+            "0204": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            }
+        }
+    },
+    {
+        "item": "11.24",
+        "cest": "17.086.00",
+        "descrição": "Carnes e demais produtos comestíveis frescos, resfriados, congelados, salgados ou salmourados resultantes do abate de caprinos",
+        "ncm": {
+            "0210.99": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            },
+            "1502.10.19": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            },
+            "1502.9": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            }
+        }
+    },
+    {
+        "item": "11.25.0",
+        "cest": "17.087.00",
+        "descrição": "Carnes e demais produtos comestíveis frescos, resfriados, congelados, salgados, em salmoura, simplesmente temperados, secos ou defumados, resultantes do abate de aves, exceto os descritos no CEST 17.087.02",
+        "ncm": {
+            "0207": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            },
+            "0209": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            },
+            "0210.99": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            },
+            "1501": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            }
+        }
+    },
+    {
+        "item": "11.25.1",
+        "cest": "17.087.01",
+        "descrição": "Carnes e demais produtos comestíveis frescos, resfriados, congelados, salgados, em salmoura, simplesmente temperados, secos ou defumados, resultantes do abate de suínos",
+        "ncm": {
+            "0203": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            },
+            "0206": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            },
+            "0209": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            },
+            "0210.1": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            },
+            "0210.99": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            },
+            "1501": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            }
+        }
+    },
+    {
+        "item": "11.25.2",
+        "cest": "17.087.02",
+        "descrição": "Carnes de aves inteiras com peso unitário superior a 3Kg, temperadas",
+        "ncm": {
+            "0207.1": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            },
+            "0207.2": {
+                "4": 50.94,
+                "7": 46.23,
+                "12": 38.36,
+                "original": 25.0
+            }
+        }
+    },
+    {
+        "item": "12.1",
+        "cest": "19.001.00",
+        "descrição": "Tinta guache",
+        "ncm": {
+            "3213.1": {
+                "4": 118.98,
+                "7": 112.13,
+                "12": 100.73,
+                "original": 81.34
+            }
+        }
+    },
+    {
+        "item": "12.2",
+        "cest": "19.002.00",
+        "descrição": "Espiral - perfil para encadernação, de plástico e outros materiais das posições3901 a 3914",
+        "ncm": {
+            "3916.2": {
+                "4": 120.06,
+                "7": 113.19,
+                "12": 101.72,
+                "original": 82.24
+            }
+        }
+    },
+    {
+        "item": "12.3",
+        "cest": "19.003.00",
+        "descrição": "Outros espirais - perfil para encadernação, de plástico e outros materiais classificados nas posições 3901 a 3914",
+        "ncm": {
+            "3916.10.00": {
+                "4": 120.06,
+                "7": 113.19,
+                "12": 101.72,
+                "original": 82.24
+            },
+            "3916.90": {
+                "4": 120.06,
+                "7": 113.19,
+                "12": 101.72,
+                "original": 82.24
+            }
+        }
+    },
+    {
+        "item": "12.4",
+        "cest": "19.004.00",
+        "descrição": "Artigos de escritório e artigos escolares de plástico e outros materiais das posições3901 a 914, exceto estojos",
+        "ncm": {
+            "3926.1": {
+                "4": 98.18,
+                "7": 91.99,
+                "12": 81.67,
+                "original": 64.12
+            }
+        }
+    },
+    {
+        "item": "12.5.0",
+        "cest": "19.005.00",
+        "descrição": "Maletas e pastas para documentos e de estudante, e artefatos semelhantes",
+        "ncm": {
+            "4202.1": {
+                "4": 94.31,
+                "7": 88.23,
+                "12": 78.11,
+                "original": 60.91
+            },
+            "4202.9": {
+                "4": 94.31,
+                "7": 88.23,
+                "12": 78.11,
+                "original": 60.91
+            }
+        }
+    },
+    {
+        "item": "12.5.1",
+        "cest": "19.005.01",
+        "descrição": "Baús, malas e maletas para viagem",
+        "ncm": {
+            "4202.1": {
+                "4": 94.31,
+                "7": 88.23,
+                "12": 78.11,
+                "original": 60.91
+            },
+            "4202.9": {
+                "4": 94.31,
+                "7": 88.23,
+                "12": 78.11,
+                "original": 60.91
+            }
+        }
+    },
+    {
+        "item": "12.6",
+        "cest": "19.006.00",
+        "descrição": "Prancheta de plástico",
+        "ncm": {
+            "3926.90.9": {
+                "4": 120.06,
+                "7": 113.19,
+                "12": 101.72,
+                "original": 82.24
+            }
+        }
+    },
+    {
+        "item": "12.7",
+        "cest": "19.007.00",
+        "descrição": "Bobina para fax",
+        "ncm": {
+            "4802.20.9": {
+                "4": 79.67,
+                "7": 74.06,
+                "12": 64.7,
+                "original": 48.79
+            },
+            "4811.90.9": {
+                "4": 79.67,
+                "7": 74.06,
+                "12": 64.7,
+                "original": 48.79
+            }
+        }
+    },
+    {
+        "item": "12.8",
+        "cest": "19.008.00",
+        "descrição": "Papel seda",
+        "ncm": {
+            "4802.54.9": {
+                "4": 120.06,
+                "7": 113.19,
+                "12": 101.72,
+                "original": 82.24
+            }
+        }
+    },
+    {
+        "item": "12.9",
+        "cest": "19.009.00",
+        "descrição": "Bobina para máquina de calcular, PDV ou equipamentos similares",
+        "ncm": {
+            "4802.54.99": {
+                "4": 135.47,
+                "7": 128.11,
+                "12": 115.85,
+                "original": 95.0
+            },
+            "4802.57.99": {
+                "4": 135.47,
+                "7": 128.11,
+                "12": 115.85,
+                "original": 95.0
+            },
+            "4816.2": {
+                "4": 135.47,
+                "7": 128.11,
+                "12": 115.85,
+                "original": 95.0
+            }
+        }
+    },
+    {
+        "item": "12.10",
+        "cest": "19.010.00",
+        "descrição": "Cartolina escolar e papel cartão, brancos e coloridos, cortados em folhas em que um lado seja inferior ou igual a 500 mm e o outro inferior ou igual a 700 mm, quando não dobradas, e peso igual ou superior a 120g/m²; recados autoadesivos (LP note); papéis de presente; todos cortados em tamanho pronto para uso escolar e doméstico",
+        "ncm": {
+            "4802.56.9 \n4802.57.9 \n4802.58.9": {
+                "4": 109.33,
+                "7": 102.79,
+                "12": 91.88,
+                "original": 73.35
+            }
+        }
+    },
+    {
+        "item": "12.11",
+        "cest": "19.011.00",
+        "descrição": "Papel fotográfico, exceto: (i) os papéis fotográficos emulsionados com haleto de prata tipo brilhante, matte ou lustre, em rolo e, com largura igual ou superior a 102 mm e comprimento igual ou inferior a 350 m, (ii) os papéis fotográficos emulsionados com haleto de prata tipo brilhante",
+        "ncm": {
+            "3703.10.1": {
+                "4": 120.06,
+                "7": 113.19,
+                "12": 101.72,
+                "original": 82.24
+            },
+            "3703.10.29": {
+                "4": 120.06,
+                "7": 113.19,
+                "12": 101.72,
+                "original": 82.24
+            },
+            "3703.2": {
+                "4": 120.06,
+                "7": 113.19,
+                "12": 101.72,
+                "original": 82.24
+            },
+            "3703.90.1": {
+                "4": 120.06,
+                "7": 113.19,
+                "12": 101.72,
+                "original": 82.24
+            },
+            "3704": {
+                "4": 120.06,
+                "7": 113.19,
+                "12": 101.72,
+                "original": 82.24
+            },
+            "802.2": {
+                "4": 120.06,
+                "7": 113.19,
+                "12": 101.72,
+                "original": 82.24
+            }
+        }
+    },
+    {
+        "item": "12.12",
+        "cest": "19.012.00",
+        "descrição": "Papel almaço",
+        "ncm": {
+            "4810.13.9": {
+                "4": 120.06,
+                "7": 113.19,
+                "12": 101.72,
+                "original": 82.24
+            }
+        }
+    },
+    {
+        "item": "12.13",
+        "cest": "19.013.00",
+        "descrição": "Papel hectográfico",
+        "ncm": {
+            "4816.90.1": {
+                "4": 120.06,
+                "7": 113.19,
+                "12": 101.72,
+                "original": 82.24
+            }
+        }
+    },
+    {
+        "item": "12.14",
+        "cest": "19.014.00",
+        "descrição": "Papel celofane e tipo celofane",
+        "ncm": {
+            "3920.20.19": {
+                "4": 120.06,
+                "7": 113.19,
+                "12": 101.72,
+                "original": 82.24
+            }
+        }
+    },
+    {
+        "item": "12.15",
+        "cest": "19.015.00",
+        "descrição": "Papel impermeável",
+        "ncm": {
+            "4806.2": {
+                "4": 120.06,
+                "7": 113.19,
+                "12": 101.72,
+                "original": 82.24
+            }
+        }
+    },
+    {
+        "item": "12.16",
+        "cest": "19.016.00",
+        "descrição": "Papel crepon",
+        "ncm": {
+            "4808.1": {
+                "4": 120.06,
+                "7": 113.19,
+                "12": 101.72,
+                "original": 82.24
+            }
+        }
+    },
+    {
+        "item": "12.17",
+        "cest": "19.017.00",
+        "descrição": "Papel fantasia",
+        "ncm": {
+            "4810.22.9": {
+                "4": 72.7,
+                "7": 67.31,
+                "12": 58.31,
+                "original": 43.02
+            }
+        }
+    },
+    {
+        "item": "12.18",
+        "cest": "19.018.00",
+        "descrição": "Papel-carbono, papel autocopiativo (exceto os vendidos em rolos de diâmetro igual ou maior do que 60 cm e os vendidos em folhas de formato igual ou maior do que 60 cm de altura e igual ou maior que 90 cm de largura) e outros papéis para cópia ou duplicação (incluídos os papéis para estênceis ou para chapas ofsete), estênceis completos e chapas ofsete, de papel, em folhas, mesmo acondicionados em caixas",
+        "ncm": {
+            "4809": {
+                "4": 140.83,
+                "7": 133.31,
+                "12": 120.76,
+                "original": 99.44
+            },
+            "4816": {
+                "4": 140.83,
+                "7": 133.31,
+                "12": 120.76,
+                "original": 99.44
+            }
+        }
+    },
+    {
+        "item": "12.19",
+        "cest": "19.019.00",
+        "descrição": "Envelopes, aerogramas, bilhetes-postais não ilustrados e cartões para correspondência, de papel ou cartão, caixas, sacos e semelhantes, de papel ou cartão, contendo um sortido de artigos para correspondência",
+        "ncm": {
+            "4817": {
+                "4": 65.08,
+                "7": 59.92,
+                "12": 51.33,
+                "original": 36.71
+            }
+        }
+    },
+    {
+        "item": "12.20",
+        "cest": "19.020.00",
+        "descrição": "Livros de registro e de contabilidade, blocos de notas, de encomendas, de recibos, de apontamentos, de papel para cartas, agendas e artigos semelhantes",
+        "ncm": {
+            "4820.1": {
+                "4": 125.68,
+                "7": 118.63,
+                "12": 106.87,
+                "original": 86.89
+            }
+        }
+    },
+    {
+        "item": "12.21",
+        "cest": "19.021.00",
+        "descrição": "Cadernos",
+        "ncm": {
+            "4820.2": {
+                "4": 100.37,
+                "7": 94.11,
+                "12": 83.67,
+                "original": 65.93
+            }
+        }
+    },
+    {
+        "item": "12.22",
+        "cest": "19.022.00",
+        "descrição": "Classificadores, capas para encadernação (exceto as capas para livros) e capas de processos",
+        "ncm": {
+            "4820.3": {
+                "4": 125.68,
+                "7": 118.63,
+                "12": 106.87,
+                "original": 86.89
+            }
+        }
+    },
+    {
+        "item": "12.23",
+        "cest": "19.023.00",
+        "descrição": "Formulários em blocos tipo \"manifold\", mesmo com folhas intercaladas de papel-carbono",
+        "ncm": {
+            "4820.4": {
+                "4": 125.68,
+                "7": 118.63,
+                "12": 106.87,
+                "original": 86.89
+            }
+        }
+    },
+    {
+        "item": "12.24",
+        "cest": "19.024.00",
+        "descrição": "Álbuns para amostras ou para coleções",
+        "ncm": {
+            "4820.5": {
+                "4": 125.68,
+                "7": 118.63,
+                "12": 106.87,
+                "original": 86.89
+            }
+        }
+    },
+    {
+        "item": "12.25",
+        "cest": "19.025.00",
+        "descrição": "Pastas para documentos, outros artigos escolares, de escritório ou de papelaria, de papel ou cartão e capas para livros, de papel ou cartão",
+        "ncm": {
+            "4820.9": {
+                "4": 125.68,
+                "7": 118.63,
+                "12": 106.87,
+                "original": 86.89
+            }
+        }
+    },
+    {
+        "item": "12.26",
+        "cest": "19.026.00",
+        "descrição": "Cartões postais impressos ou ilustrados, cartões impressos com votos ou mensagens pessoais, mesmo ilustrados, com ou sem envelopes, guarnições ou aplicações (conhecidos como cartões de expressão social - de época / sentimento)",
+        "ncm": {
+            "4909": {
+                "4": 155.09,
+                "7": 147.12,
+                "12": 133.84,
+                "original": 111.25
+            }
+        }
+    },
+    {
+        "item": "12.27",
+        "cest": "19.027.00",
+        "descrição": "Canetas esferográficas",
+        "ncm": {
+            "9608.1": {
+                "4": 98.29,
+                "7": 92.09,
+                "12": 81.77,
+                "original": 64.21
+            }
+        }
+    },
+    {
+        "item": "12.28",
+        "cest": "19.028.00",
+        "descrição": "Canetas e marcadores, com ponta de feltro ou com outras pontas porosas",
+        "ncm": {
+            "9608.2": {
+                "4": 98.29,
+                "7": 92.09,
+                "12": 81.77,
+                "original": 64.21
+            }
+        }
+    },
+    {
+        "item": "12.29",
+        "cest": "19.029.00",
+        "descrição": "Canetas tinteiro",
+        "ncm": {
+            "9608.3": {
+                "4": 89.58,
+                "7": 83.66,
+                "12": 73.79,
+                "original": 57.0
+            }
+        }
+    },
+    {
+        "item": "12.30",
+        "cest": "19.030.00",
+        "descrição": "Outras canetas; sortidos de canetas",
+        "ncm": {
+            "9608": {
+                "4": 89.58,
+                "7": 83.66,
+                "12": 73.79,
+                "original": 57.0
+            }
+        }
+    },
+    {
+        "item": "12.31",
+        "cest": "19.031.00",
+        "descrição": "Papel cortado \"cutsize\" (tipo A3, A4, ofício I e II, carta e outros)",
+        "ncm": {
+            "4802.56": {
+                "4": 64.61,
+                "7": 59.47,
+                "12": 50.9,
+                "original": 36.32
+            }
+        }
+    },
+    {
+        "item": "12.32",
+        "cest": "19.032.00",
+        "descrição": "Papel camurça",
+        "ncm": {
+            "5210.59.90": {
+                "4": 120.06,
+                "7": 113.19,
+                "12": 101.72,
+                "original": 82.24
+            }
+        }
+    },
+    {
+        "item": "12.33",
+        "cest": "19.033.00",
+        "descrição": "Papel laminado e papel espelho",
+        "ncm": {
+            "7607.11.90": {
+                "4": 120.06,
+                "7": 113.19,
+                "12": 101.72,
+                "original": 82.24
+            }
+        }
+    },
+    {
+        "item": "15.1",
+        "cest": "23.001.00",
+        "descrição": "Sorvetes de qualquer espécie",
+        "ncm": {
+            "2105": {
+                "4": 105.28,
+                "7": 98.87,
+                "12": null,
+                "original": 70.0
+            }
+        }
+    },
+    {
+        "item": "16.1",
+        "cest": "24.001.00",
+        "descrição": "Tintas, vernizes",
+        "ncm": {
+            "3208": {
+                "4": 63.02,
+                "7": 57.92,
+                "12": 49.43,
+                "original": 35.0
+            },
+            "3209": {
+                "4": 63.02,
+                "7": 57.92,
+                "12": 49.43,
+                "original": 35.0
+            },
+            "3210": {
+                "4": 63.02,
+                "7": 57.92,
+                "12": 49.43,
+                "original": 35.0
+            }
+        }
+    },
+    {
+        "item": "16.2",
+        "cest": "24.002.00",
+        "descrição": "Xadrez e pós assemelhados, em embalagem de conteúdo inferior ou igual a 1 kg, exceto pigmentos à base de dióxido de titânio classificados no código NCM 3206.11.10",
+        "ncm": {
+            "2821": {
+                "4": 63.02,
+                "7": 57.92,
+                "12": 49.43,
+                "original": 35.0
+            },
+            "3204.17": {
+                "4": 63.02,
+                "7": 57.92,
+                "12": 49.43,
+                "original": 35.0
+            },
+            "3206": {
+                "4": 63.02,
+                "7": 57.92,
+                "12": 49.43,
+                "original": 35.0
+            }
+        }
+    },
+    {
+        "item": "16.2.1",
+        "cest": "24.002.01",
+        "descrição": "Xadrez e pós assemelhados, em embalagem de conteúdo superior a 1 kg, exceto pigmentos à base de dióxido de titânio classificados no código NCM 3206.11.10",
+        "ncm": {
+            "2821": {
+                "4": 63.02,
+                "7": 57.92,
+                "12": 49.43,
+                "original": 35.0
+            },
+            "3204.17": {
+                "4": 63.02,
+                "7": 57.92,
+                "12": 49.43,
+                "original": 35.0
+            },
+            "3206": {
+                "4": 63.02,
+                "7": 57.92,
+                "12": 49.43,
+                "original": 35.0
+            }
+        }
+    },
+    {
+        "item": "16.3",
+        "cest": "24.003.00",
+        "descrição": "Corantes para aplicação em bases, tintas e vernizes",
+        "ncm": {
+            "3204": {
+                "4": 81.13,
+                "7": 75.47,
+                "12": 66.04,
+                "original": 50.0
+            },
+            "3205": {
+                "4": 81.13,
+                "7": 75.47,
+                "12": 66.04,
+                "original": 50.0
+            },
+            "3206": {
+                "4": 81.13,
+                "7": 75.47,
+                "12": 66.04,
+                "original": 50.0
+            },
+            "3212": {
+                "4": 81.13,
+                "7": 75.47,
+                "12": 66.04,
+                "original": 50.0
+            }
+        }
+    },
+    {
+        "item": "17.1",
+        "cest": "25.001.00",
+        "descrição": "Veículos automóveis para transporte de 10 pessoas ou mais, incluindo o motorista, unicamente com motor de pistão, de ignição por compressão (diesel ou semidiesel), com volume interno de habitáculo, destinado a passageiros e motorista, superior a 6m³, mas inferior a 9m³",
+        "ncm": {
+            "8702.1": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": 30.0,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.2",
+        "cest": "25.002.00",
+        "descrição": "Veículos automóveis para transporte de 10 pessoas ou mais, incluindo o motorista, unicamente com motor elétrico para propulsão, com volume interno de habitáculo, destinado a passageiros e motorista, superior a 6 m³, mas inferior a 9 m³",
+        "ncm": {
+            "8702.40.9": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.3",
+        "cest": "25.003.00",
+        "descrição": "Automóveis unicamente com motor de pistão alternativo de ignição por centelha (faísca*), de cilindrada não superior a 1000 cm³",
+        "ncm": {
+            "8703.21": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.4",
+        "cest": "25.004.00",
+        "descrição": "Automóveis unicamente com motor de pistão alternativo de ignição por centelha (faísca*), de cilindrada superior a 1000 cm³, mas não superior a 1500 cm³, com capacidade de transporte de pessoas sentadas inferior ou igual a 6, incluído o condutor, exceto carro celular",
+        "ncm": {
+            "8703.22.1": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.5",
+        "cest": "25.005.00",
+        "descrição": "Outros automóveis unicamente com motor de pistão alternativo de ignição por centelha (faísca*), de cilindrada superior a 1000 cm³, mas não superior a 1500 cm³, exceto",
+        "ncm": {
+            "8703.22.9": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.6",
+        "cest": "25.006.00",
+        "descrição": "Automóveis unicamente com motor de pistão alternativo de ignição por centelha (faísca*), de cilindrada superior a 1500 cm³, mas não superior a 3000 cm³, com capacidade de transporte de pessoas sentadas inferior ou igual a 6, incluído o condutor, exceto carro celular, carro funerário e automóveis de corrida",
+        "ncm": {
+            "8703.23.1": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.7",
+        "cest": "25.007.00",
+        "descrição": "Outros automóveis unicamente com motor de pistão alternativo de ignição por centelha (faísca*), de cilindrada superior a 1500 cm³, mas não superior a 3000 cm³, exceto carro celular, carro funerário e automóveis de corrida",
+        "ncm": {
+            "8703.23.9": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.8",
+        "cest": "25.008.00",
+        "descrição": "Automóveis unicamente com motor de pistão alternativo de ignição por centelha (faísca*), de cilindrada superior a 3000 cm³, com capacidade de transporte de pessoas sentadas inferior ou igual a 6, incluído o condutor, exceto carro celular, carro funerário e automóveis de corrida",
+        "ncm": {
+            "8703.24.1": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.9",
+        "cest": "25.009.00",
+        "descrição": "Outros automóveis unicamente com motor de pistão alternativo de ignição por centelha (faísca*), de cilindrada superior a 3000 cm³, exceto carro celular, carro funerário e automóveis de corrida",
+        "ncm": {
+            "8703.24.9": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.10",
+        "cest": "25.010.00",
+        "descrição": "Automóveis unicamente com motor diesel ou semidiesel, de cilindrada superior a 1500 cm³, mas não superior a 2500 cm³, com capacidade de transporte de pessoas sentadas inferior ou igual a 6, incluído o condutor, exceto ambulância, carro celular e carro funerário",
+        "ncm": {
+            "8703.32.1": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.11",
+        "cest": "25.011.00",
+        "descrição": "Outros automóveis unicamente com motor diesel ou semidiesel, de cilindrada superior a 1500 cm³, mas não superior a 2500 cm³, exceto ambulância, carro celular e carro funerário",
+        "ncm": {
+            "8703.32.9": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.12",
+        "cest": "25.012.00",
+        "descrição": "Automóveis unicamente com motor diesel ou semidiesel, de cilindrada superior a 2500 cm³, com capacidade de transporte de pessoas sentadas inferior ou igual a 6, incluído o condutor, exceto carro celular e carro funerário",
+        "ncm": {
+            "8703.33.1": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.13",
+        "cest": "25.013.00",
+        "descrição": "Outros automóveis unicamente com motor diesel ou semidiesel, de cilindrada superior a 2500 cm³, exceto carro celular e carro funerário",
+        "ncm": {
+            "8703.33.9": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.14",
+        "cest": "25.014.00",
+        "descrição": "Veículos automóveis para transporte de mercadorias, de peso em carga máxima não superior a 5 toneladas, chassis com motor diesel ou semidiesel e cabina, exceto caminhão de peso em carga máxima superior a 3,9 toneladas",
+        "ncm": {
+            "8704.21.1": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.15",
+        "cest": "25.015.00",
+        "descrição": "Veículos automóveis para transporte de mercadorias, de peso em carga máxima não superior a 5 toneladas, com motor diesel ou semidiesel, com caixa basculante, exceto caminhão de peso em carga máxima superior a 3,9 toneladas",
+        "ncm": {
+            "8704.21.2": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.16",
+        "cest": "25.016.00",
+        "descrição": "Veículos automóveis para transporte de mercadorias, de peso em carga máxima não superior a 5 toneladas, frigoríficos ou isotérmicos, com motor diesel ou semidiesel, exceto caminhão de peso em carga máxima superior a 3,9 toneladas",
+        "ncm": {
+            "8704.21.3": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.17",
+        "cest": "25.017.00",
+        "descrição": "Outros veículos automóveis para transporte de mercadorias, de peso em carga máxima não superior a 5 toneladas, com motor diesel ou semidiesel, exceto carro-forte para transporte de valores e caminhão de peso em carga máxima superior a 3,9 toneladas",
+        "ncm": {
+            "8704.21.9": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.18",
+        "cest": "25.018.00",
+        "descrição": "Veículos automóveis para transporte de mercadorias, de peso em carga máxima não superior a 5 toneladas, com motor a explosão, chassis e cabina, exceto caminhão de peso em carga máxima superior a 3,9 toneladas",
+        "ncm": {
+            "8704.31.1": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.19",
+        "cest": "25.019.00",
+        "descrição": "Veículos automóveis para transporte de mercadorias, de peso em carga máxima não superior a 5 toneladas, com motor explosão com caixa basculante, exceto caminhão de peso em carga máxima superior a 3,9 toneladas",
+        "ncm": {
+            "8704.31.2": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.20",
+        "cest": "25.020.00",
+        "descrição": "Veículos automóveis para transporte de mercadorias, de peso em carga máxima não superior a 5 toneladas, frigoríficos ou isotérmicos com motor explosão, exceto caminhão de peso em carga máxima superior a 3,9 toneladas",
+        "ncm": {
+            "8704.31.3": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.21",
+        "cest": "25.021.00",
+        "descrição": "Outros veículos automóveis para transporte de mercadorias, de peso em carga máxima não superior a 5 toneladas, com motor a explosão, exceto carro-forte para transporte de valores e caminhão de peso em carga máxima superior a 3,9 toneladas",
+        "ncm": {
+            "8704.31.9": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.22",
+        "cest": "25.022.00",
+        "descrição": "Veículos automóveis para transporte de 10 pessoas ou mais, incluindo o motorista, com motor de pistão, de ignição por compressão (diesel ou semidiesel) e um motor elétrico, com",
+        "ncm": {
+            "8702.2": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.23",
+        "cest": "25.023.00",
+        "descrição": "Veículos automóveis para transporte de 10 pessoas ou mais, incluindo o motorista, com motor de pistão alternativo, de ignição por centelha (faísca) e um motor elétrico, com volume interno de habitáculo, destinado a passageiros e motorista, superior a 6 m³, mas inferior a 9 m³",
+        "ncm": {
+            "8702.3": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.24",
+        "cest": "25.024.00",
+        "descrição": "Outros veículos automóveis para transporte de 10 pessoas ou mais, incluindo o motorista, com volume interno de habitáculo, destinado a passageiros e motorista, superior a 6 m³, mas inferior a 9 m³",
+        "ncm": {
+            "8702.9": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.25",
+        "cest": "25.025.00",
+        "descrição": "Automóveis equipados para propulsão, simultaneamente, com um motor de pistão alternativo de ignição por centelha (faísca*) e um motor elétrico, exceto os suscetíveis de serem carregados por conexão a uma fonte externa de energia elétrica, o carro celular e o carro funerário",
+        "ncm": {
+            "8703.4": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": 30.0,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.26",
+        "cest": "25.026.00",
+        "descrição": "Automóveis equipados para propulsão, simultaneamente, com um motor de pistão por compressão (diesel ou semidiesel) e um motor elétrico, exceto os suscetíveis de serem carregados por conexão a uma fonte externa de energia elétrica, exceto o carro celular e o carro funerário",
+        "ncm": {
+            "8703.5": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": 30.0,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.27",
+        "cest": "25.027.00",
+        "descrição": "Automóveis equipados para propulsão, simultaneamente, com um motor de pistão alternativo de ignição por centelha (faísca*) e um motor elétrico, suscetíveis de serem carregados por conexão a uma fonte externa de energia elétrica, exceto o carro celular e o carro funerário",
+        "ncm": {
+            "8703.6": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": 30.0,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.28",
+        "cest": "25.028.00",
+        "descrição": "Automóveis equipados para propulsão, simultaneamente, com um motor de pistão por compressão (diesel ou semidiesel) e um motor elétrico, suscetíveis de serem carregados por conexão a uma fonte externa de energia elétrica, exceto o carro celular e o carro funerário",
+        "ncm": {
+            "8703.7": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": 30.0,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.29",
+        "cest": "25.029.00",
+        "descrição": "Outros veículos, equipados unicamente com motor elétrico para propulsão",
+        "ncm": {
+            "8703.80.00": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": 30.0,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.30",
+        "cest": "25.030.00",
+        "descrição": "Outros veículos para transportes de mercadorias equipados para propulsão, simultaneamente, com motor de pistão de ignição por compressão (diesel ou semidiesel) e motor elétrico de peso em carga máxima (bruto) não superior a 5 toneladas, exceto caminhão de peso em carga máxima superior a 3,9 toneladas",
+        "ncm": {
+            "8704.41": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": 30.0,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.31",
+        "cest": "25.031.00",
+        "descrição": "Outros veículos para transportes de mercadorias equipados para propulsão, simultaneamente, com motor de pistão de ignição por",
+        "ncm": {
+            "8704.51": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": null,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "17.32",
+        "cest": "25.032.00",
+        "descrição": "Outros veículos para transporte de mercadorias, unicamente com motor elétrico para propulsão, exceto veículo de peso em carga máxima superior a 3,9 toneladas",
+        "ncm": {
+            "8704.60.00": {
+                "4": 41.82,
+                "7": 37.39,
+                "12": 30.0,
+                "original": 30.0
+            }
+        }
+    },
+    {
+        "item": "18.1",
+        "cest": "26.001.00",
+        "descrição": "Motocicletas (incluídos os ciclomotores) e outros ciclos equipados com motor auxiliar, mesmo com carro lateral, exceto os classificados no CEST 26.001.01; carros laterais.",
+        "ncm": {
+            "8711": {
+                "4": 46.18,
+                "7": 41.61,
+                "12": null,
+                "original": 34.0
+            }
+        }
+    },
+    {
+        "item": "18.2",
+        "cest": "26.001.00",
+        "descrição": "Bicicletas e outros ciclos (incluídos os triciclos) com propulsão de motor elétrico auxiliar assistido pela força humana.",
+        "ncm": {
+            "8711": {
+                "4": 46.18,
+                "7": 41.61,
+                "12": null,
+                "original": 34.0
+            }
+        }
+    }
+]
