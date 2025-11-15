@@ -26,7 +26,7 @@ class TaxCalculator:
         b_step = a_step / (1 - INTERSTATE_TAX_RATE)
         return round((b_step - 1) * 100, 2)
 
-    def calculate_anticipation_taxes(self, products: List[NFEItem]) -> List[NFEItem]:
+    def calculate_anticipation_taxes(self, nfe:Nfe, products: List[NFEItem]) -> List[NFEItem]:
         for item in products:
             if not self.is_supplier_uf_taxed(item.uf_origin):
                 continue
@@ -44,8 +44,11 @@ class TaxCalculator:
         if not nfe_list:
             return nfe_list
 
-        items = []
+        calculated_items:List[NFEItem] = []
+
         for nfe in nfe_list:
+            items = []
+
             for item in nfe.items:
                 formated_ncm = add_dots_to_ncm_(item.ncm)
                 item.mva_st = self.search_mva(item.cest, formated_ncm)
@@ -71,9 +74,9 @@ class TaxCalculator:
                 )
                 items.append(nfe_item)
 
-        items = self.calculate_anticipation_taxes(items)
+            calculated_items.extend(self.calculate_anticipation_taxes(nfe, items))
 
-        return convert_nfe_list_to_dataframe(items)
+        return convert_nfe_list_to_dataframe(calculated_items)
 
     @staticmethod
     def calculate_summary_statistics(items: List[NFEItem]) -> dict:

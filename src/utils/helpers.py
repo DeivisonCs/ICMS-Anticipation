@@ -2,7 +2,7 @@
 Funções auxiliares e utilitárias
 """
 from decimal import Decimal, getcontext
-from typing import Union
+from typing import Union, List
 from models.nfe_item import NFEItem
 from dataclasses import asdict
 import pandas as pd
@@ -65,7 +65,7 @@ def clean_numeric_string(value: str) -> str:
     return cleaned if cleaned else '0'
 
 
-def convert_nfe_list_to_dataframe(items: list[NFEItem]):
+def convert_nfe_list_to_dataframe(items: List[NFEItem]):
     df_result = pd.DataFrame([asdict(item) for item in items])
 
     column_mapping = {

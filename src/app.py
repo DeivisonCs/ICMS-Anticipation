@@ -1,13 +1,11 @@
 import streamlit as st
 import pandas as pd
 from typing import List, Dict
-import copy
 
 from config.settings import STREAMLIT_CONFIG
 from services.xml_processor import XMLProcessor
 from services.tax_calculator import TaxCalculator
 from services.file_handler import FileHandler
-from models.nfe_item import NFEItem
 from models.nfe import Nfe
 
 
@@ -142,25 +140,12 @@ def render_download_button(df: pd.DataFrame, filename="icms_calculado.xlsx", emi
 
 def combine_all_nfes(nfe_list: List[Nfe]) -> pd.DataFrame:
     tax_calculator = TaxCalculator()
-    all_items = []
 
-    for nfe in nfe_list:
-        items = nfe.items or []
-        # Add NF-e info to each item
-        for item in items:
-            item_with_nfe = item.to_dict()
-            item_with_nfe['NF-e'] = nfe.number or 'S/N'
-            item_with_nfe['Inscrição Estadual'] = nfe.ie or 'Desconhecido'
-            item_with_nfe['UF'] = nfe.uf
-            all_items.append(item_with_nfe)
-
-    if not all_items:
+    if not nfe_list:
         return pd.DataFrame()
 
-    df = pd.DataFrame(all_items)
-    # df = tax_calculator.process_dataframe_taxes(df)
-    teste = tax_calculator.process_dataframe_taxes(nfe_list)
-    return df
+    result = tax_calculator.process_dataframe_taxes(nfe_list)
+    return pd.DataFrame(result)
 
 
 def process_uploaded_file(uploaded_file) -> List[Dict]:
