@@ -3,6 +3,8 @@ import zipfile
 from typing import List, Dict
 import streamlit as st
 from datetime import datetime
+from models.nfe import Nfe
+from models.nfe_item import NFEItem
 
 from config.settings import NFE_NAMESPACE
 from utils.helpers import safe_decimal_converter
@@ -10,7 +12,7 @@ from utils.helpers import safe_decimal_converter
 class XMLProcessor:
 
     @staticmethod
-    def extract_nfe_data(xml_content: bytes, filename: str) -> Dict:
+    def extract_nfe_data(xml_content: bytes, filename: str) -> Nfe:
         try:
             root = ET.fromstring(xml_content)
 
@@ -36,33 +38,35 @@ class XMLProcessor:
             ie = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:IE', NFE_NAMESPACE)
 
             # Get items data
-            items_data = []
+            items_data:List[NFEItem] = []
             for item in root.findall('.//nfe:det', NFE_NAMESPACE):
-                item_data = XMLProcessor._extract_item_data(item)
+                item_data:NFEItem = XMLProcessor._extract_item_data(item)
                 items_data.append(item_data)
 
-            return {
-                'nfe_key': nfe_key or filename,
-                'nfe_number': nfe_number,
-                'nfe_series': nfe_series,
-                'uf': uf,
-                'ie': ie,
-                'emission_date': emission_date,
-                'emitter_name': emitter_name,
-                'emitter_cnpj': emitter_cnpj,
-                'emitter_uf': emitter_uf,
-                'filename': filename,
-                'items': items_data
-            }
+            nfe: Nfe = Nfe(
+                ie=ie,
+                number=nfe_number,
+                key=nfe_key,
+                series=nfe_series,
+                emitter_name=emitter_name,
+                emitter_cnpj=emitter_cnpj,
+                emission_date=emission_date,
+                emitter_uf=emitter_uf,
+                uf=uf,
+                filename=filename,
+                items=items_data
+            )
+
+            return nfe
 
         except Exception as e:
             st.error(f"Erro ao processar XML {filename}: {str(e)}")
             return {'nfe_key': filename, 'items': [], 'error': str(e)}
 
     @staticmethod
-    def _extract_item_data(item) -> Dict:
+    def _extract_item_data(item) -> NFEItem:
         ns = NFE_NAMESPACE
-        
+
         # Extrair dados básicos do produto
         cProd = XMLProcessor._get_text_safe(item, 'nfe:prod/nfe:cProd', ns)
         ncm = XMLProcessor._get_text_safe(item, 'nfe:prod/nfe:NCM', ns)
@@ -83,31 +87,34 @@ class XMLProcessor:
         
         v_freight = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vFrete', ns)
         v_ipi = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vIPI', ns)
-        v_seg = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vSeg', ns)
+        v_insurance = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vSeg', ns)
         v_others = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vOutro', ns)
 
         # Calcular MVA ajustado
         from services.tax_calculator import TaxCalculator
         mva_adjusted = TaxCalculator.calculate_adjusted_mva(safe_decimal_converter(mva_st))
 
-        return {
-            'CPROD': cProd,
-            'NCM/SH': ncm,
-            'O/CST': o_cst,
-            'RED_BASE_CAL': str(safe_decimal_converter(pRedBC)),
-            'CFOP': cfop,
-            'V TOTAL': v_total,
-            'BC ICMS': bc_icms,
-            'V ICMS': v_icms,
-            'A ICMS': a_icms,
-            'MVA-ST': mva_st,
-            'CEST': cest,
-            'MVA': str(mva_adjusted),
-            'FRETE': v_freight,
-            'IPI': v_ipi,
-            'SEGURO': v_seg,
-            'OUTROS': v_others,
-        }
+        nfe_item = NFEItem(
+            c_prod=cProd,
+            ncm=ncm,
+            uf_origin=None,
+            o_cst=o_cst,
+            red_base_cal=safe_decimal_converter(pRedBC),
+            cfop=cfop,
+            v_total=v_total,
+            bc_icms=bc_icms,
+            v_icms=v_icms,
+            a_icms=a_icms,
+            mva_st=mva_st,
+            cest=cest,
+            mva_adjusted=mva_adjusted,
+            freight=v_freight,
+            ipi=v_ipi,
+            others=v_others,
+            insurance=v_insurance
+        )
+
+        return nfe_item
 
     @staticmethod
     def _get_text_safe(element, xpath: str, namespace: Dict) -> str:
@@ -116,9 +123,9 @@ class XMLProcessor:
         return found.text if found is not None else ''
 
     @staticmethod
-    def process_zip_file(uploaded_file) -> List[Dict]:
+    def process_zip_file(uploaded_file) -> List[Nfe]:
 
-        all_nfes = []
+        all_nfes: List[Nfe] = []
 
         try:
             with zipfile.ZipFile(uploaded_file, 'r') as zip_ref:
@@ -136,7 +143,7 @@ class XMLProcessor:
 
                     with zip_ref.open(xml_file) as xml_content:
                         xml_data = xml_content.read()
-                        nfe_data = XMLProcessor.extract_nfe_data(xml_data, xml_file)
+                        nfe_data: Nfe = XMLProcessor.extract_nfe_data(xml_data, xml_file)
                         all_nfes.append(nfe_data)
 
                     progress_bar.progress((i + 1) / len(xml_files))

@@ -2,7 +2,6 @@ from dataclasses import dataclass
 from decimal import Decimal
 from typing import Optional
 
-
 @dataclass
 class NFEItem: 
     cProd: str = ""
@@ -25,27 +24,46 @@ class NFEItem:
     antecipacao_total: Optional[Decimal] = None
     antecipacao_parcial: Optional[Decimal] = None
 
-    def to_dict(self) -> dict: 
+    def __init__(self, c_prod:str, uf_origin:str, ncm:str, o_cst:str, red_base_cal:Decimal, cfop:str, v_total:Decimal, bc_icms:Decimal, v_icms:Decimal, a_icms:Decimal, mva_st:Decimal, cest:str, mva_adjusted:Decimal, freight:Decimal, ipi:Decimal, others:Decimal, insurance:Decimal):
+        self.c_prod = c_prod
+        self.ncm = ncm
+        self.o_cst = o_cst
+        self.red_base_cal = red_base_cal
+        self.cfop = cfop
+        self.v_total = v_total
+        self.bc_icms = bc_icms
+        self.v_icms = v_icms
+        self.a_icms = a_icms
+        self.mva_st = mva_st
+        self.cest = cest
+        self.mva_adjusted = mva_adjusted
+        self.frete = freight
+        self.ipi = ipi
+        self.others = others
+        self.seguro = insurance
+        self.uf_origin = uf_origin
+
+    def to_dict(self) -> dict:
         return {
             'CPROD': self.cProd,
             'NCM/SH': self.ncm,
             'UF': self.uf_origin,
             'O/CST': self.o_cst,
-            'RED_BASE_CAL': float(self.red_base_cal),
+            'RED_BASE_CAL': Decimal(self.red_base_cal or '0.0'),
             'CFOP': self.cfop,
-            'V TOTAL': float(self.v_total),
-            'BC ICMS': float(self.bc_icms),
-            'V ICMS': float(self.v_icms),
-            'A ICMS': float(self.a_icms),
-            'MVA-ST': float(self.mva_st),
+            'V TOTAL': Decimal(self.v_total or '0.0'),
+            'BC ICMS': Decimal(self.bc_icms or '0.0'),
+            'V ICMS': Decimal(self.v_icms or '0.0'),
+            'A ICMS': Decimal(self.a_icms or '0.0'),
+            'MVA-ST': Decimal(self.mva_st or '0.0'),
             'CEST': self.cest,
-            'MVA': float(self.mva_adjusted),
-            'ANTECIPACAO_TOTAL': float(self.antecipacao_total) if self.antecipacao_total else 0.0,
-            'ANTECIPACAO_PARCIAL': float(self.antecipacao_parcial) if self.antecipacao_parcial else 0.0,
-            'FRETE': float(self.frete) if self.frete else 0.0,
-            'IPI': float(self.ipi) if self.ipi else 0.0,
-            'SEGURO': float(self.seguro) if self.seguro else 0.0,
-            'OUTROS': float(self.outros) if self.outros else 0.0
+            'MVA': Decimal(self.mva_adjusted or '0.0'),
+            'ANTECIPACAO_TOTAL': Decimal(self.antecipacao_total or '0.0') if self.antecipacao_total else 0.0,
+            'ANTECIPACAO_PARCIAL': Decimal(self.antecipacao_parcial or '0.0') if self.antecipacao_parcial else 0.0,
+            'FRETE': Decimal(self.frete or '0.0') if self.frete else 0.0,
+            'IPI': Decimal(self.ipi or '0.0') if self.ipi else 0.0,
+            'SEGURO': Decimal(self.seguro or '0.0') if self.seguro else 0.0,
+            'OUTROS': Decimal(self.outros or '0.0') if self.outros else 0.0
         }
 
     @classmethod

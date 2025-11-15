@@ -3,6 +3,8 @@ from typing import List
 import pandas as pd
 from utils.helpers import safe_decimal_converter, convert_nfe_list_to_dataframe, add_dots_to_ncm_
 
+from models.nfe import Nfe
+
 from config.settings import (
     INTERNAL_TAX_RATE_BA,
     INTERSTATE_TAX_RATE,
@@ -38,45 +40,36 @@ class TaxCalculator:
 
         return products
 
-    def process_dataframe_taxes(self, df: pd.DataFrame) -> pd.DataFrame:
-        if df.empty:
-            return df
-
-        # Converter colunas numéricas
-        numeric_columns = ['V TOTAL', 'BC ICMS', 'V ICMS', 'A ICMS', 'MVA-ST', 'RED_BASE_CAL']
-        for col in numeric_columns:
-            df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
+    def process_dataframe_taxes(self, nfe_list: List[Nfe]) -> pd.DataFrame:
+        if not nfe_list:
+            return nfe_list
 
         items = []
-        for index, row in df.iterrows():
-            cest = row['CEST']
-            ncm = row['NCM/SH']
-            mva_st = safe_decimal_converter(row['MVA-ST'])
+        for nfe in nfe_list:
+            for item in nfe.items:
+                formated_ncm = add_dots_to_ncm_(item.ncm)
+                item.mva_st = self.search_mva(item.cest, formated_ncm)
 
-            for item in TAXED_ITEMS:
-                formated_ncm = add_dots_to_ncm_(ncm)
-                if cest == item.cest.replace('.', '') and formated_ncm in list(item.ncm.keys()):
-                    mva_st = item.ncm[formated_ncm].original
-
-            nfe_item = NFEItem (
-                cProd=row['CPROD'],
-                uf_origin=row['UF'],
-                ncm=ncm,
-                o_cst=row['O/CST'],
-                red_base_cal=safe_decimal_converter(row['RED_BASE_CAL']),
-                cfop=row['CFOP'],
-                v_total=safe_decimal_converter(row['V TOTAL']),
-                bc_icms=safe_decimal_converter(row['BC ICMS']),
-                v_icms=safe_decimal_converter(row['V ICMS']),
-                a_icms=safe_decimal_converter(row['A ICMS']),
-                mva_st=mva_st,
-                mva_adjusted=TaxCalculator.calculate_adjusted_mva(mva_st),
-                cest=cest,
-                frete=safe_decimal_converter(row['FRETE']),
-                ipi=safe_decimal_converter(row['IPI']),
-                outros=safe_decimal_converter(row['OUTROS'])
-            )
-            items.append(nfe_item)
+                nfe_item = NFEItem (
+                    c_prod=item.cProd,
+                    uf_origin=nfe.emitter_uf,
+                    ncm=item.ncm,
+                    o_cst=item.o_cst,
+                    red_base_cal=safe_decimal_converter(item.red_base_cal),
+                    cfop=item.cfop,
+                    v_total=safe_decimal_converter(item.v_total),
+                    bc_icms=safe_decimal_converter(item.bc_icms),
+                    v_icms=safe_decimal_converter(item.v_icms),
+                    a_icms=safe_decimal_converter(item.a_icms),
+                    mva_st=item.mva_st,
+                    mva_adjusted=item.mva_st,
+                    cest=item.cest,
+                    freight=safe_decimal_converter(item.frete),
+                    ipi=safe_decimal_converter(item.ipi),
+                    others=safe_decimal_converter(item.others),
+                    insurance=item.seguro
+                )
+                items.append(nfe_item)
 
         items = self.calculate_anticipation_taxes(items)
 
@@ -116,6 +109,11 @@ class TaxCalculator:
             return True
 
         return False
+
+    def search_mva(self, cest:str, ncm:str):
+        for taxed_item in TAXED_ITEMS:
+            if cest == taxed_item.cest.replace('.', '') and ncm in list(taxed_item.ncm.keys()):
+                return taxed_item.ncm[ncm].original
 
     def is_exempted_cst(self, cst: str) -> bool:
         if cst in EXEMPTED_CST_LIST:
