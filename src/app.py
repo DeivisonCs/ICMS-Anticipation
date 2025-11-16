@@ -95,7 +95,7 @@ def render_nfe_summary(nfe_list: List[Nfe]):
                 'NF-e': nfe.number or 'S/N',
                 'Série': nfe.series or '-',
                 'Emitente': nfe.emitter_name or 'Desconhecido',
-                'UF': nfe.uf or 'Desconhecido',
+                'UF': nfe.emitter_uf or 'Desconhecido',
                 'Data': nfe.emission_date or '-',
                 'Total Itens': len(items),
                 'Valor Total': f"R$ {total_value:,.2f}",
