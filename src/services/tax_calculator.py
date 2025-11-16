@@ -33,7 +33,7 @@ class TaxCalculator:
 
             if self.is_ncm_taxed(item.ncm):
                 if not self.is_st_already_paid_by_cst(item.o_cst[1:]):
-                    item.antecipacao_total = self.calculate_total_anticipation(item)
+                    item.antecipacao_total = self.calculate_total_anticipation(nfe, item)
 
             else:
                 item.antecipacao_parcial = item.bc_icms * ANTECIPACAO_PARCIAL_RATE
@@ -67,11 +67,12 @@ class TaxCalculator:
                     mva_st=item.mva_st,
                     mva_adjusted=item.mva_st,
                     cest=item.cest,
-                    freight=safe_decimal_converter(item.frete),
+                    freight=safe_decimal_converter(nfe.freight),
                     ipi=safe_decimal_converter(item.ipi),
                     others=safe_decimal_converter(item.others),
                     insurance=item.seguro
                 )
+                print(item)
                 items.append(nfe_item)
 
             calculated_items.extend(self.calculate_anticipation_taxes(nfe, items))
@@ -138,8 +139,8 @@ class TaxCalculator:
 
         return False
 
-    def calculate_total_anticipation(self, nfe: NFEItem) -> Decimal:
-        bc_ant = nfe.v_total + nfe.frete + nfe.ipi + nfe.seguro + nfe.outros
-        cred = nfe.bc_icms * INTERSTATE_TAX_RATE
+    def calculate_total_anticipation(self, nfe:Nfe, item: NFEItem) -> Decimal:
+        bc_ant = item.v_total + nfe.freight + item.ipi + item.seguro + item.outros
+        cred = item.bc_icms * INTERSTATE_TAX_RATE
 
-        return ((bc_ant + nfe.mva_adjusted) * INTERNAL_TAX_RATE_BA) - cred
+        return ((bc_ant + item.mva_adjusted) * INTERNAL_TAX_RATE_BA) - cred

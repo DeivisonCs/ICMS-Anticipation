@@ -34,6 +34,7 @@ class XMLProcessor:
             emitter_name = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:xNome', NFE_NAMESPACE)
             emitter_cnpj = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:CNPJ', NFE_NAMESPACE)
             emitter_uf = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:enderEmit//nfe:UF', NFE_NAMESPACE)
+            v_freight = XMLProcessor._get_text_safe(item, './/nfe:total/nfe:ICMSTot//nfe:vFrete', NFE_NAMESPACE)
             ie = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:IE', NFE_NAMESPACE)
 
             # Get items data
@@ -52,7 +53,8 @@ class XMLProcessor:
                 emission_date=emission_date,
                 emitter_uf=emitter_uf,
                 filename=filename,
-                items=items_data
+                items=items_data,
+                freight=v_freight
             )
 
             return nfe
@@ -82,8 +84,7 @@ class XMLProcessor:
         a_icms = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pICMS', ns)
         mva_st = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pMVAST', ns)
         pRedBC = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pRedBC', ns)
-        
-        v_freight = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vFrete', ns)
+
         v_ipi = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vIPI', ns)
         v_insurance = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vSeg', ns)
         v_others = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vOutro', ns)
@@ -106,7 +107,7 @@ class XMLProcessor:
             mva_st=mva_st,
             cest=cest,
             mva_adjusted=mva_adjusted,
-            freight=v_freight,
+            freight=None,
             ipi=v_ipi,
             others=v_others,
             insurance=v_insurance
