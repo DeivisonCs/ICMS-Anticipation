@@ -25,7 +25,7 @@ class NFEItem:
     antecipacao_parcial: Optional[Decimal] = None
 
     def __init__(self, c_prod:str, uf_origin:str, ncm:str, o_cst:str, red_base_cal:Decimal, cfop:str, v_total:Decimal, bc_icms:Decimal, v_icms:Decimal, a_icms:Decimal, mva_st:Decimal, cest:str, mva_adjusted:Decimal, freight:Decimal, ipi:Decimal, others:Decimal, insurance:Decimal):
-        self.c_prod = c_prod
+        self.cProd = c_prod
         self.ncm = ncm
         self.o_cst = o_cst
         self.red_base_cal = red_base_cal
