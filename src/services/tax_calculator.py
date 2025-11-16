@@ -72,7 +72,7 @@ class TaxCalculator:
                     others=safe_decimal_converter(item.others),
                     insurance=item.seguro
                 )
-                print(item)
+
                 items.append(nfe_item)
 
             calculated_items.extend(self.calculate_anticipation_taxes(nfe, items))

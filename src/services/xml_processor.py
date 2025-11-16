@@ -34,7 +34,7 @@ class XMLProcessor:
             emitter_name = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:xNome', NFE_NAMESPACE)
             emitter_cnpj = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:CNPJ', NFE_NAMESPACE)
             emitter_uf = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:enderEmit//nfe:UF', NFE_NAMESPACE)
-            v_freight = XMLProcessor._get_text_safe(item, './/nfe:total/nfe:ICMSTot//nfe:vFrete', NFE_NAMESPACE)
+            v_freight = XMLProcessor._get_text_safe(root, './/nfe:total/nfe:ICMSTot//nfe:vFrete', NFE_NAMESPACE)
             ie = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:IE', NFE_NAMESPACE)
 
             # Get items data

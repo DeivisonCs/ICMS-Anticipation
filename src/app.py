@@ -181,7 +181,6 @@ def main():
 
         if nfe_list:
             st.success(f"Processamento concluído! {len(nfe_list)} NF-es encontradas.")
-           
             selected_ie = render_nfe_selector(nfe_list)
 
             if selected_ie == "all":
