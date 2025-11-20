@@ -7,7 +7,11 @@ from models.nfe import Nfe
 from models.nfe_item import NFEItem
 
 from config.settings import NFE_NAMESPACE
-from utils.helpers import safe_decimal_converter
+from utils.helpers import safe_decimal_converter, add_dots_to_ncm_
+
+from config.settings import (
+    TAXED_ITEMS
+)
 
 class XMLProcessor:
 
@@ -89,9 +93,13 @@ class XMLProcessor:
         v_insurance = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vSeg', ns)
         v_others = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vOutro', ns)
 
-        # Calcular MVA ajustado
-        from services.tax_calculator import TaxCalculator
-        mva_adjusted = TaxCalculator.calculate_adjusted_mva(safe_decimal_converter(mva_st))
+        mva_adjusted = None
+        if not mva_st:
+            percentage = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pICMS', ns)
+            mva_adjusted = XMLProcessor.search_mva(cest=cest, ncm=ncm, percentage=percentage)
+
+        if not mva_st and not mva_adjusted:
+            mva_st = "0.0"
 
         nfe_item = NFEItem(
             c_prod=cProd,
@@ -154,3 +162,17 @@ class XMLProcessor:
             return []
 
         return all_nfes
+
+    @staticmethod
+    def search_mva(cest:str, ncm:str, percentage:str=None):
+        formatted_cest = cest.replace('.', '')
+        formatted_ncm = ncm.replace('.', '')
+
+        for taxed_item in TAXED_ITEMS:
+            if formatted_cest == taxed_item.cest.replace('.', ''):
+                for key in taxed_item.ncm.keys():
+                    if key.replace('.', '') == formatted_ncm:
+                        if percentage:
+                            return taxed_item.ncm[key][percentage]
+
+                        return taxed_item.ncm[key].original

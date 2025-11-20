@@ -192,16 +192,18 @@ def main():
 
                 if not df_all.empty:
                     render_statistics(df_all)
+                    df_to_show = df_all.drop(["MVA_ADJUSTED"], axis=1)
+                    df_to_show = df_to_show.rename(columns={"MVA-ST":"MVA"})
 
                     st.subheader("Todos os Itens")
-                    st.dataframe(df_all, use_container_width=True)
+                    st.dataframe(df_to_show, use_container_width=True)
                     # Não mostrar botão de download para "Todas as Inscrições"
 
                 else:
                     st.warning("Nenhum item encontrado para download.")
             else:
                 # Filtrar NF-es pela inscrição estadual selecionada
-                filtered_nfes = [nfe for nfe in nfe_list if nfe.ie or 'Desconhecido' == selected_ie]    
+                filtered_nfes = [nfe for nfe in nfe_list if nfe.ie or 'Desconhecido' == selected_ie]
 
                 # Mostrar resumo das NF-es filtradas
                 render_nfe_summary(filtered_nfes)

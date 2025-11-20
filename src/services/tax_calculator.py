@@ -50,9 +50,6 @@ class TaxCalculator:
             items = []
 
             for item in nfe.items:
-                formated_ncm = add_dots_to_ncm_(item.ncm)
-                item.mva_st = self.search_mva(item.cest, formated_ncm)
-
                 nfe_item = NFEItem (
                     c_prod=item.cProd,
                     uf_origin=nfe.emitter_uf,
@@ -114,11 +111,6 @@ class TaxCalculator:
 
         return False
 
-    def search_mva(self, cest:str, ncm:str):
-        for taxed_item in TAXED_ITEMS:
-            if cest == taxed_item.cest.replace('.', '') and ncm in list(taxed_item.ncm.keys()):
-                return taxed_item.ncm[ncm].original
-
     def is_exempted_cst(self, cst: str) -> bool:
         if cst in EXEMPTED_CST_LIST:
             return True
@@ -143,4 +135,8 @@ class TaxCalculator:
         bc_ant = item.v_total + nfe.freight + item.ipi + item.seguro + item.outros
         cred = item.bc_icms * INTERSTATE_TAX_RATE
 
-        return ((bc_ant + item.mva_adjusted) * INTERNAL_TAX_RATE_BA) - cred
+        mva = item.mva_st
+        if item.mva_adjusted:
+            mva = item.mva_adjusted
+
+        return ((bc_ant + mva) * INTERNAL_TAX_RATE_BA) - cred
