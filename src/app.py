@@ -122,7 +122,7 @@ def render_statistics(df: pd.DataFrame):
         # Ensure we have numeric values
         antecipacao_total = df['ANTECIPACAO_TOTAL'].replace('', 0).astype(float).sum()
         antecipacao_parcial = df['ANTECIPACAO_PARCIAL'].replace('', 0).astype(float).sum()
-        st.metric("Antecipação Total", f"R$ {(antecipacao_total + antecipacao_parcial):,.2f}")
+        st.metric("Antecipação", f"R$ {(antecipacao_total + antecipacao_parcial):,.2f}")
 
 
 def render_download_button(df: pd.DataFrame, filename="icms_calculado.xlsx", emitter_name=None, period=None, ie=None, show_button=True):
