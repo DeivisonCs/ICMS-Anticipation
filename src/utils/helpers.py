@@ -15,7 +15,7 @@ def safe_decimal_converter(value: Union[str, None]) -> Decimal:
     if value == '' or value is None:
         return Decimal('0.0')
     try:
-        return Decimal(str(value))
+        return round(Decimal(str(value)), 2)
     except Exception:
         return Decimal('0.0')
 

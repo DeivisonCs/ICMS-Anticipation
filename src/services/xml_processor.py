@@ -66,7 +66,7 @@ class XMLProcessor:
                 items=items_data,
                 isSimple=is_simples_optant,
                 isSimei=is_simei_optant,
-                freight=v_freight
+                freight=safe_decimal_converter(v_freight)
             )
 
             return nfe
