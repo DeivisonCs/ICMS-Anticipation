@@ -110,3 +110,12 @@ def add_dots_to_ncm_(ncm:str) -> str:
             result += '.'
 
     return result
+
+def format_decimal_to_monetary(value) -> str:
+    result = value
+
+    if isinstance(value, Decimal):
+        result = f"{value:.2f}"
+
+    result = "R$ " + result
+    return result.replace(".", ",")

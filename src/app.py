@@ -6,6 +6,7 @@ from config.settings import STREAMLIT_CONFIG
 from services.xml_processor import XMLProcessor
 from services.tax_calculator import TaxCalculator
 from services.file_handler import FileHandler
+from utils.helpers import format_decimal_to_monetary
 from models.nfe import Nfe
 
 
@@ -194,6 +195,7 @@ def main():
                     render_statistics(df_all)
                     df_to_show = df_all.drop(["MVA_ADJUSTED"], axis=1)
                     df_to_show = df_to_show.rename(columns={"MVA-ST":"MVA"})
+                    df_to_show.iloc[:, -2:] = df_to_show.iloc[:, -2:].applymap(format_decimal_to_monetary)
 
                     st.subheader("Todos os Itens")
                     st.dataframe(df_to_show, use_container_width=True)
