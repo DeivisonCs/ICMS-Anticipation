@@ -41,11 +41,11 @@ class TaxCalculator:
             else:
                 item.antecipacao_parcial = self.calculate_partial_anticipation_outside(nfe, item)
 
-        if item.antecipacao_parcial is None:
-            item.antecipacao_parcial = Decimal("0.0")
+            if not item.antecipacao_parcial:
+                item.antecipacao_parcial = Decimal("0.0")
 
-        if item.antecipacao_total is None:
-            item.antecipacao_total = Decimal("0.0")
+            if not item.antecipacao_total:
+                item.antecipacao_total = Decimal("0.0")
 
         return products
 
