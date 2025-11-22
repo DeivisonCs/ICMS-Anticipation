@@ -6,8 +6,10 @@ from datetime import datetime
 from models.nfe import Nfe
 from models.nfe_item import NFEItem
 
+from services.fetch_handler import FetchHandler
+
 from config.settings import NFE_NAMESPACE
-from utils.helpers import safe_decimal_converter, add_dots_to_ncm_
+from utils.helpers import safe_decimal_converter
 
 from config.settings import (
     TAXED_ITEMS
@@ -47,6 +49,10 @@ class XMLProcessor:
                 item_data:NFEItem = XMLProcessor._extract_item_data(item)
                 items_data.append(item_data)
 
+            fetch_data = FetchHandler.fetch_data(emitter_cnpj)
+            is_simples_optant = fetch_data['company']['simples']['optant']
+            is_simei_optant = fetch_data['company']['simei']['optant']
+
             nfe: Nfe = Nfe(
                 ie=ie,
                 number=nfe_number,
@@ -58,6 +64,8 @@ class XMLProcessor:
                 emitter_uf=emitter_uf,
                 filename=filename,
                 items=items_data,
+                isSimple=is_simples_optant,
+                isSimei=is_simei_optant,
                 freight=v_freight
             )
 
