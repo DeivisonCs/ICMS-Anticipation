@@ -127,8 +127,15 @@ class TaxCalculator:
         return True
 
     def is_ncm_taxed(self, ncm) -> bool:
-        if any(ncm in list(item.ncm.keys()) for item in TAXED_ITEMS):
-            return True
+        for item in TAXED_ITEMS:
+            ncms_values = item.ncm.keys()
+            if ncm in ncms_values:
+                return True
+
+            for ncm_value in ncms_values:
+                ncm_value_start = ncm_value.split('.')[0]
+                if ncm.startswith(ncm_value_start):
+                    return True
 
         return False
 
