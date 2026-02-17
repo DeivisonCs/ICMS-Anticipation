@@ -15,12 +15,13 @@ class Nfe:
     emitter_uf: str
     filename: str
     freight: Decimal
+    insurance: Decimal
     ipi: Decimal
     isSimple: bool
     isSimei: bool
     items: List[NFEItem]
 
-    def __init__(self, key:str, ie:str, number:str, series:str, emitter_name:str, emitter_cnpj:str, emission_date:str, emitter_uf:str, freight:Decimal, filename: str, isSimple: bool, isSimei: bool, items: List[NFEItem], ipi:Decimal):
+    def __init__(self, key:str, ie:str, number:str, series:str, emitter_name:str, emitter_cnpj:str, emission_date:str, emitter_uf:str, freight:Decimal, insurance: Decimal, filename: str, isSimple: bool, isSimei: bool, items: List[NFEItem], ipi:Decimal):
         self.emitter_name = emitter_name
         self.emitter_cnpj = emitter_cnpj
         self.ie = ie
@@ -32,6 +33,7 @@ class Nfe:
         self.items = items
         self.filename = filename
         self.freight = freight
+        self.insurance = insurance
         self.ipi = ipi
         self.isSimple = isSimple
         self.isSimei = isSimei

@@ -70,8 +70,7 @@ class TaxCalculator:
                     mva_st=safe_decimal_converter(item.mva_st),
                     mva_adjusted=safe_decimal_converter(item.mva_adjusted),
                     cest=item.cest,
-                    others=safe_decimal_converter(item.others),
-                    insurance=safe_decimal_converter(item.seguro)
+                    others=safe_decimal_converter(item.others)
                 )
 
                 items.append(nfe_item)
@@ -137,7 +136,7 @@ class TaxCalculator:
 
     def calculate_total_anticipation(self, nfe:Nfe, item: NFEItem) -> Decimal:
         print("---------------- Calculando Antecipação Total ----------------")
-        bc_ant = item.v_total + nfe.freight + nfe.ipi + item.seguro + item.outros
+        bc_ant = item.v_total + nfe.freight + nfe.ipi + nfe.insurance + item.outros
         cred = item.bc_icms * INTERSTATE_TAX_RATE
 
         mva = item.mva_st
@@ -149,14 +148,14 @@ class TaxCalculator:
 
     def calculate_partial_anticipation_inside(self, nfe:Nfe, item: NFEItem) -> Decimal:
         print("---------------- Calculando Antecipação Parcial por Dentro ----------------")
-        bc_ant = item.v_total + nfe.freight + nfe.ipi + item.seguro + item.outros
+        bc_ant = item.v_total + nfe.freight + nfe.ipi + nfe.insurance + item.outros
         result: Decimal = bc_ant * (INTERNAL_TAX_RATE_BA - INTERSTATE_TAX_RATE)
 
         return result.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
 
     def calculate_partial_anticipation_outside(self, nfe:Nfe, item: NFEItem) -> Decimal:
         print("---------------- Calculando Antecipação Parcial por Fora ----------------")
-        bc_ant = item.v_total + nfe.freight + nfe.ipi + item.seguro + item.outros
+        bc_ant = item.v_total + nfe.freight + nfe.ipi + nfe.insurance + item.outros
         result: Decimal = (bc_ant * INTERNAL_TAX_RATE_BA) - INTERSTATE_TAX_RATE
 
         return result.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
