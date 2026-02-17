@@ -124,7 +124,6 @@ class XMLProcessor:
             mva_st=mva_st,
             cest=cest,
             mva_adjusted=mva_adjusted,
-            freight=None,
             others=v_others,
             insurance=v_insurance
         )

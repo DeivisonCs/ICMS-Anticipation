@@ -70,7 +70,6 @@ class TaxCalculator:
                     mva_st=safe_decimal_converter(item.mva_st),
                     mva_adjusted=safe_decimal_converter(item.mva_adjusted),
                     cest=item.cest,
-                    freight=safe_decimal_converter(nfe.freight),
                     others=safe_decimal_converter(item.others),
                     insurance=safe_decimal_converter(item.seguro)
                 )

@@ -84,8 +84,6 @@ def convert_nfe_list_to_dataframe(items: List[NFEItem]):
         "mva_adjusted": "MVA_ADJUSTED",
         "antecipacao_total": "ANTECIPACAO_TOTAL",
         "antecipacao_parcial": "ANTECIPACAO_PARCIAL",
-        "frete": "FRETE",
-        "ipi": "IPI",
         "seguro": "SEGURO",
         "outros": "OUTROS"
     }
