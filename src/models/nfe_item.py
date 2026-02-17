@@ -5,7 +5,6 @@ from typing import Optional
 @dataclass
 class NFEItem: 
     cProd: str = ""
-    uf_origin: str = ""
     ncm: str = ""
     o_cst: str = ""
     red_base_cal: Decimal = Decimal('0.0')
@@ -20,7 +19,7 @@ class NFEItem:
     antecipacao_total: Optional[Decimal] = None
     antecipacao_parcial: Optional[Decimal] = None
 
-    def __init__(self, c_prod:str, uf_origin:str, ncm:str, o_cst:str, red_base_cal:Decimal, cfop:str, v_total:Decimal, bc_icms:Decimal, v_icms:Decimal, a_icms:Decimal, mva_st:Decimal, cest:str, mva_adjusted:Decimal):
+    def __init__(self, c_prod:str, ncm:str, o_cst:str, red_base_cal:Decimal, cfop:str, v_total:Decimal, bc_icms:Decimal, v_icms:Decimal, a_icms:Decimal, mva_st:Decimal, cest:str, mva_adjusted:Decimal):
         self.cProd = c_prod
         self.ncm = ncm
         self.o_cst = o_cst
@@ -33,13 +32,11 @@ class NFEItem:
         self.mva_st = mva_st
         self.cest = cest
         self.mva_adjusted = mva_adjusted
-        self.uf_origin = uf_origin
 
     def to_dict(self) -> dict:
         return {
             'CPROD': self.cProd,
             'NCM/SH': self.ncm,
-            'UF': self.uf_origin,
             'O/CST': self.o_cst,
             'RED_BASE_CAL': Decimal(self.red_base_cal or '0.0'),
             'CFOP': self.cfop,
@@ -59,7 +56,6 @@ class NFEItem:
         return cls(
             cProd=xml_data.get('CPROD', ''),
             ncm=xml_data.get('NCM/SH', ''),
-            uf_origin=xml_data.get('UF', ''),
             o_cst=xml_data.get('O/CST', ''),
             red_base_cal=Decimal(str(xml_data.get('RED_BASE_CAL', '0'))),
             cfop=xml_data.get('CFOP', ''),

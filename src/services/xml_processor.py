@@ -114,7 +114,6 @@ class XMLProcessor:
         nfe_item = NFEItem(
             c_prod=cProd,
             ncm=ncm,
-            uf_origin=None,
             o_cst=o_cst,
             red_base_cal=safe_decimal_converter(pRedBC),
             cfop=cfop,

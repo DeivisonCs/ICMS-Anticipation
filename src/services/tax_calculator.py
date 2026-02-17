@@ -31,7 +31,7 @@ class TaxCalculator:
             item.antecipacao_total = Decimal("0.0")
             item.antecipacao_parcial = Decimal("0.0")
 
-            if not self.is_supplier_uf_taxed(item.uf_origin):
+            if not self.is_supplier_uf_taxed(nfe.emitter_uf):
                 continue
 
             if self.is_ncm_taxed(item.ncm):
@@ -58,7 +58,6 @@ class TaxCalculator:
             for item in nfe.items:
                 nfe_item = NFEItem (
                     c_prod=item.cProd,
-                    uf_origin=nfe.emitter_uf,
                     ncm=item.ncm,
                     o_cst=item.o_cst,
                     red_base_cal=safe_decimal_converter(item.red_base_cal),

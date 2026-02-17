@@ -70,7 +70,6 @@ def convert_nfe_list_to_dataframe(items: List[NFEItem]):
 
     column_mapping = {
         "cProd": "CPROD",
-        "uf_origin": "UF",
         "ncm": "NCM/SH",
         "o_cst": "O/CST",
         "red_base_cal": "RED_BASE_CAL",
