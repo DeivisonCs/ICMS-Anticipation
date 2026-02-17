@@ -161,6 +161,8 @@ class TaxCalculator:
     def calculate_partial_anticipation_outside(self, nfe:Nfe, item: NFEItem) -> Decimal:
         print("---------------- Calculando Antecipação Parcial por Fora ----------------")
         bc_ant = item.v_total + nfe.freight + nfe.ipi + nfe.insurance + nfe.others
-        result: Decimal = (bc_ant * INTERNAL_TAX_RATE_BA) - INTERSTATE_TAX_RATE
+        cred = item.bc_icms * INTERSTATE_TAX_RATE
+
+        result: Decimal = (bc_ant * INTERNAL_TAX_RATE_BA) - cred
 
         return result.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
