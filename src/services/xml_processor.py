@@ -43,6 +43,7 @@ class XMLProcessor:
             v_freight = XMLProcessor._get_text_safe(root, './/nfe:total/nfe:ICMSTot//nfe:vFrete', NFE_NAMESPACE)
             v_ipi = XMLProcessor._get_text_safe(root, './/nfe:total/nfe:ICMSTot//nfe:vIPI', NFE_NAMESPACE)
             v_insurance = XMLProcessor._get_text_safe(root, './/nfe:total/nfe:ICMSTot//nfe:vSeg', NFE_NAMESPACE)
+            v_others = XMLProcessor._get_text_safe(root, './/nfe:total/nfe:ICMSTot//nfe:vOutro', NFE_NAMESPACE)
             ie = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:IE', NFE_NAMESPACE)
 
             # Get items data
@@ -70,7 +71,8 @@ class XMLProcessor:
                 isSimei=is_simei_optant,
                 freight=safe_decimal_converter(v_freight),
                 ipi=safe_decimal_converter(v_ipi),
-                insurance=safe_decimal_converter(v_insurance)
+                insurance=safe_decimal_converter(v_insurance),
+                others=safe_decimal_converter(v_others)
             )
 
             return nfe
@@ -101,8 +103,6 @@ class XMLProcessor:
         mva_st = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pMVAST', ns)
         pRedBC = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pRedBC', ns)
 
-        v_others = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vOutro', ns)
-
         percentage = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pICMS', ns)
         percentage = percentage.split('.')[0]
         mva_adjusted = XMLProcessor.search_mva_adjusted(cest=cest, ncm=ncm, percentage=percentage)
@@ -124,8 +124,7 @@ class XMLProcessor:
             a_icms=a_icms,
             mva_st=mva_st,
             cest=cest,
-            mva_adjusted=mva_adjusted,
-            others=v_others
+            mva_adjusted=mva_adjusted
         )
 
         return nfe_item

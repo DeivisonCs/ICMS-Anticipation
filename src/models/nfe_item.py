@@ -17,11 +17,10 @@ class NFEItem:
     mva_st: Decimal = Decimal('0.0')
     cest: str = ""
     mva_adjusted: Decimal = Decimal('0.0')
-    outros: Decimal = Decimal('0.0')
     antecipacao_total: Optional[Decimal] = None
     antecipacao_parcial: Optional[Decimal] = None
 
-    def __init__(self, c_prod:str, uf_origin:str, ncm:str, o_cst:str, red_base_cal:Decimal, cfop:str, v_total:Decimal, bc_icms:Decimal, v_icms:Decimal, a_icms:Decimal, mva_st:Decimal, cest:str, mva_adjusted:Decimal, others:Decimal):
+    def __init__(self, c_prod:str, uf_origin:str, ncm:str, o_cst:str, red_base_cal:Decimal, cfop:str, v_total:Decimal, bc_icms:Decimal, v_icms:Decimal, a_icms:Decimal, mva_st:Decimal, cest:str, mva_adjusted:Decimal):
         self.cProd = c_prod
         self.ncm = ncm
         self.o_cst = o_cst
@@ -34,7 +33,6 @@ class NFEItem:
         self.mva_st = mva_st
         self.cest = cest
         self.mva_adjusted = mva_adjusted
-        self.others = others
         self.uf_origin = uf_origin
 
     def to_dict(self) -> dict:
@@ -53,8 +51,7 @@ class NFEItem:
             'CEST': self.cest,
             'MVA': Decimal(self.mva_adjusted or '0.0'),
             'ANTECIPACAO_TOTAL': Decimal(self.antecipacao_total or '0.0') if self.antecipacao_total else 0.0,
-            'ANTECIPACAO_PARCIAL': Decimal(self.antecipacao_parcial or '0.0') if self.antecipacao_parcial else 0.0,
-            'OUTROS': Decimal(self.outros or '0.0') if self.outros else 0.0
+            'ANTECIPACAO_PARCIAL': Decimal(self.antecipacao_parcial or '0.0') if self.antecipacao_parcial else 0.0
         }
 
     @classmethod
@@ -72,6 +69,5 @@ class NFEItem:
             a_icms=Decimal(str(xml_data.get('A ICMS', '0'))),
             mva_st=Decimal(str(xml_data.get('MVA-ST', '0'))),
             cest=xml_data.get('CEST', ''),
-            mva_adjusted=Decimal(str(xml_data.get('MVA', '0'))),
-            outros=Decimal(str(xml_data.get('OUTROS', '0')))
+            mva_adjusted=Decimal(str(xml_data.get('MVA', '0')))
         )
