@@ -101,10 +101,10 @@ class XMLProcessor:
         v_insurance = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vSeg', ns)
         v_others = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vOutro', ns)
 
-        mva_adjusted = None
-        if not mva_st:
-            percentage = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pICMS', ns)
-            mva_adjusted = XMLProcessor.search_mva(cest=cest, ncm=ncm, percentage=percentage)
+        percentage = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pICMS', ns)
+        percentage = percentage.split('.')[0]
+        mva_adjusted = XMLProcessor.search_mva_adjusted(cest=cest, ncm=ncm, percentage=percentage)
+        mva_st = XMLProcessor.search_mva_original(cest=cest, ncm=ncm)
 
         if not mva_st and not mva_adjusted:
             mva_st = "0.0"
@@ -172,15 +172,32 @@ class XMLProcessor:
         return all_nfes
 
     @staticmethod
-    def search_mva(cest:str, ncm:str, percentage:str=None):
+    def search_mva_adjusted(cest:str, ncm:str, percentage:str):
         formatted_cest = cest.replace('.', '')
         formatted_ncm = ncm.replace('.', '')
 
         for taxed_item in TAXED_ITEMS:
             if formatted_cest == taxed_item.cest.replace('.', ''):
                 for key in taxed_item.ncm.keys():
-                    if key.replace('.', '') == formatted_ncm:
-                        if percentage:
-                            return taxed_item.ncm[key][percentage]
+                    formatted_key = key.replace('.', '')
 
-                        return taxed_item.ncm[key].original
+                    if formatted_key == formatted_ncm or formatted_ncm.startswith(formatted_key):
+                        mva_values = taxed_item.ncm[key]
+                        attr_name = f"_{percentage}"
+                        
+                        return getattr(mva_values, attr_name)
+
+    @staticmethod
+    def search_mva_original(cest:str, ncm:str):
+        formatted_cest = cest.replace('.', '')
+        formatted_ncm = ncm.replace('.', '')
+
+        for taxed_item in TAXED_ITEMS:
+            if formatted_cest == taxed_item.cest.replace('.', ''):
+                for key in taxed_item.ncm.keys():
+                    formatted_key = key.replace('.', '')
+
+                    if formatted_key == formatted_ncm or formatted_ncm.startswith(formatted_key):
+                        mva_values = taxed_item.ncm[key]
+
+                        return mva_values.original
