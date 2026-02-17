@@ -18,13 +18,12 @@ class NFEItem:
     cest: str = ""
     mva_adjusted: Decimal = Decimal('0.0')
     frete: Decimal = Decimal('0.0')
-    ipi: Decimal = Decimal('0.0')
     outros: Decimal = Decimal('0.0')
     seguro: Decimal = Decimal('0.0')
     antecipacao_total: Optional[Decimal] = None
     antecipacao_parcial: Optional[Decimal] = None
 
-    def __init__(self, c_prod:str, uf_origin:str, ncm:str, o_cst:str, red_base_cal:Decimal, cfop:str, v_total:Decimal, bc_icms:Decimal, v_icms:Decimal, a_icms:Decimal, mva_st:Decimal, cest:str, mva_adjusted:Decimal, freight:Decimal, ipi:Decimal, others:Decimal, insurance:Decimal):
+    def __init__(self, c_prod:str, uf_origin:str, ncm:str, o_cst:str, red_base_cal:Decimal, cfop:str, v_total:Decimal, bc_icms:Decimal, v_icms:Decimal, a_icms:Decimal, mva_st:Decimal, cest:str, mva_adjusted:Decimal, freight:Decimal, others:Decimal, insurance:Decimal):
         self.cProd = c_prod
         self.ncm = ncm
         self.o_cst = o_cst
@@ -38,7 +37,6 @@ class NFEItem:
         self.cest = cest
         self.mva_adjusted = mva_adjusted
         self.frete = freight
-        self.ipi = ipi
         self.others = others
         self.seguro = insurance
         self.uf_origin = uf_origin
@@ -61,7 +59,6 @@ class NFEItem:
             'ANTECIPACAO_TOTAL': Decimal(self.antecipacao_total or '0.0') if self.antecipacao_total else 0.0,
             'ANTECIPACAO_PARCIAL': Decimal(self.antecipacao_parcial or '0.0') if self.antecipacao_parcial else 0.0,
             'FRETE': Decimal(self.frete or '0.0') if self.frete else 0.0,
-            'IPI': Decimal(self.ipi or '0.0') if self.ipi else 0.0,
             'SEGURO': Decimal(self.seguro or '0.0') if self.seguro else 0.0,
             'OUTROS': Decimal(self.outros or '0.0') if self.outros else 0.0
         }
@@ -83,7 +80,6 @@ class NFEItem:
             cest=xml_data.get('CEST', ''),
             mva_adjusted=Decimal(str(xml_data.get('MVA', '0'))),
             frete=Decimal(str(xml_data.get('FRETE', '0'))),
-            ipi=Decimal(str(xml_data.get('IPI', '0'))),
             seguro=Decimal(str(xml_data.get('SEGURO', '0'))),
             outros=Decimal(str(xml_data.get('OUTROS', '0')))
         )
