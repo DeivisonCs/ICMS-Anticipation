@@ -46,6 +46,12 @@ class TaxCalculator:
 
         return products
 
+    def _get_cred_icms(self, nfe: Nfe, item: NFEItem) -> Decimal:
+        if nfe.isSimple:
+            return item.bc_icms * INTERSTATE_TAX_RATE
+        else:
+            return item.v_icms
+
     def process_dataframe_taxes(self, nfe_list: List[Nfe]) -> pd.DataFrame:
         if not nfe_list:
             return nfe_list
@@ -140,29 +146,26 @@ class TaxCalculator:
         return False
 
     def calculate_total_anticipation(self, nfe:Nfe, item: NFEItem) -> Decimal:
-        print("---------------- Calculando Antecipação Total ----------------")
         bc_ant = item.v_total + nfe.freight + nfe.ipi + nfe.insurance + nfe.others
-        cred = item.bc_icms * INTERSTATE_TAX_RATE
+        cred_icms = self._get_cred_icms(nfe, item)
 
         mva = item.mva_st
         if item.mva_adjusted:
             mva = item.mva_adjusted
 
-        result: Decimal = ((bc_ant + mva) * INTERNAL_TAX_RATE_BA) - cred
+        result: Decimal = ((bc_ant + mva) * INTERNAL_TAX_RATE_BA) - cred_icms
         return result.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
 
     def calculate_partial_anticipation_inside(self, nfe:Nfe, item: NFEItem) -> Decimal:
-        print("---------------- Calculando Antecipação Parcial por Dentro ----------------")
         bc_ant = item.v_total + nfe.freight + nfe.ipi + nfe.insurance + nfe.others
         result: Decimal = bc_ant * (INTERNAL_TAX_RATE_BA - INTERSTATE_TAX_RATE)
 
         return result.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
 
     def calculate_partial_anticipation_outside(self, nfe:Nfe, item: NFEItem) -> Decimal:
-        print("---------------- Calculando Antecipação Parcial por Fora ----------------")
         bc_ant = item.v_total + nfe.freight + nfe.ipi + nfe.insurance + nfe.others
-        cred = item.bc_icms * INTERSTATE_TAX_RATE
+        cred_icms = self._get_cred_icms(nfe, item)
 
-        result: Decimal = (bc_ant * INTERNAL_TAX_RATE_BA) - cred
+        result: Decimal = (bc_ant * INTERNAL_TAX_RATE_BA) - cred_icms
 
         return result.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
