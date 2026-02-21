@@ -52,11 +52,9 @@ class XMLProcessor:
                 item_data:NFEItem = XMLProcessor._extract_item_data(item)
                 items_data.append(item_data)
 
-            # fetch_data = FetchHandler.fetch_data(emitter_cnpj)
-            # is_simples_optant = fetch_data['company']['simples']['optant']
-            # is_simei_optant = fetch_data['company']['simei']['optant']
-            is_simples_optant = True
-            is_simei_optant = False
+            fetch_data = FetchHandler.fetch_data(emitter_cnpj)
+            is_simples_optant = fetch_data['company']['simples']['optant']
+            is_simei_optant = fetch_data['company']['simei']['optant']
 
             nfe: Nfe = Nfe(
                 ie=ie,
