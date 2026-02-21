@@ -3,7 +3,7 @@ import requests
 class FetchHandler:
 
     @staticmethod
-    def fetch_data(cnpj:str):
+    def fetch_cnpj_data(cnpj:str):
         url = f"https://open.cnpja.com/office/{cnpj}"
         response = requests.get(url)
 

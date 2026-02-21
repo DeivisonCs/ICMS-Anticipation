@@ -198,7 +198,7 @@ class XMLProcessor:
                         return mva_values.original
 
     def get_simple_and_simei(cnpj: str):
-        fetch_data = FetchHandler.fetch_data(cnpj)
+        fetch_data = FetchHandler.fetch_cnpj_data(cnpj)
 
         if not fetch_data:
             return None, None
