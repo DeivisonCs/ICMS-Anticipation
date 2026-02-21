@@ -8,7 +8,7 @@ from models.nfe import Nfe
 from config.settings import (
     INTERNAL_TAX_RATE_BA,
     INTERSTATE_TAX_RATE,
-    ANTECIPACAO_PARCIAL_RATE,
+    REDUCTION_CST_LIST,
     EXEMPTED_CST_LIST,
     ALREADY_CHARGED_CST_LIST,
     TAXED_ITEMS
@@ -132,6 +132,12 @@ class TaxCalculator:
 
         return True
 
+    def should_reduct_antecipation_base_calc(self, cst: str):
+        if cst in REDUCTION_CST_LIST:
+            return True
+
+        return False
+
     def is_ncm_taxed(self, ncm) -> bool:
         for item in TAXED_ITEMS:
             ncms_values = item.ncm.keys()
@@ -146,6 +152,8 @@ class TaxCalculator:
         return False
 
     def calculate_total_anticipation(self, nfe:Nfe, item: NFEItem) -> Decimal:
+        print("\n---------------- Calculando Antecipação Total ----------------")
+
         bc_ant = item.v_total + nfe.freight + nfe.ipi + nfe.insurance + nfe.others
         cred_icms = self._get_cred_icms(nfe, item)
 
@@ -157,14 +165,22 @@ class TaxCalculator:
         return result.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
 
     def calculate_partial_anticipation_inside(self, nfe:Nfe, item: NFEItem) -> Decimal:
+        print("---------------- Calculando Antecipação Parcial por Dentro ----------------")
+
         bc_ant = item.v_total + nfe.freight + nfe.ipi + nfe.insurance + nfe.others
         result: Decimal = bc_ant * (INTERNAL_TAX_RATE_BA - INTERSTATE_TAX_RATE)
 
         return result.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
 
     def calculate_partial_anticipation_outside(self, nfe:Nfe, item: NFEItem) -> Decimal:
+        print("---------------- Calculando Antecipação Parcial por Fora ----------------")
+
         bc_ant = item.v_total + nfe.freight + nfe.ipi + nfe.insurance + nfe.others
         cred_icms = self._get_cred_icms(nfe, item)
+
+        if item.red_base_cal and self.should_reduct_antecipation_base_calc(item.o_cst):
+            reduction = item.red_base_cal / Decimal("100")
+            bc_ant = bc_ant * (Decimal("1") - reduction)
 
         result: Decimal = (bc_ant * INTERNAL_TAX_RATE_BA) - cred_icms
 
