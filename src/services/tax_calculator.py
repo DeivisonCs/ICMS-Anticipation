@@ -154,34 +154,38 @@ class TaxCalculator:
     def calculate_total_anticipation(self, nfe:Nfe, item: NFEItem) -> Decimal:
         print("\n---------------- Calculando Antecipação Total ----------------")
 
-        bc_ant = item.v_total + nfe.freight + nfe.ipi + nfe.insurance + nfe.others
+        bc_item = item.v_total + nfe.freight + nfe.ipi + nfe.insurance + nfe.others
         cred_icms = self._get_cred_icms(nfe, item)
 
-        mva = item.mva_st
-        if item.mva_adjusted:
-            mva = item.mva_adjusted
+        mva_percent = item.mva_adjusted if item.mva_adjusted else item.mva_st
+        bc_st = bc_item * (1 + (mva_percent / Decimal("100")))
 
-        result: Decimal = ((bc_ant + mva) * INTERNAL_TAX_RATE_BA) - cred_icms
+        result = (bc_st * INTERNAL_TAX_RATE_BA) - cred_icms
+
+        print(f'---------------- Resultado Antecipação R${result} ----------------')
         return result.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
 
     def calculate_partial_anticipation_inside(self, nfe:Nfe, item: NFEItem) -> Decimal:
-        print("---------------- Calculando Antecipação Parcial por Dentro ----------------")
+        print("\n---------------- Calculando Antecipação Parcial por Dentro ----------------")
 
         bc_ant = item.v_total + nfe.freight + nfe.ipi + nfe.insurance + nfe.others
         result: Decimal = bc_ant * (INTERNAL_TAX_RATE_BA - INTERSTATE_TAX_RATE)
 
+        print(f'---------------- Resultado Antecipação R${result} ----------------')
         return result.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
 
     def calculate_partial_anticipation_outside(self, nfe:Nfe, item: NFEItem) -> Decimal:
-        print("---------------- Calculando Antecipação Parcial por Fora ----------------")
+        print("\n---------------- Calculando Antecipação Parcial por Fora ----------------")
 
         bc_ant = item.v_total + nfe.freight + nfe.ipi + nfe.insurance + nfe.others
         cred_icms = self._get_cred_icms(nfe, item)
 
         if item.red_base_cal and self.should_reduct_antecipation_base_calc(item.o_cst):
+            print("-------- Reducig Anticipation --------")
             reduction = item.red_base_cal / Decimal("100")
             bc_ant = bc_ant * (Decimal("1") - reduction)
 
         result: Decimal = (bc_ant * INTERNAL_TAX_RATE_BA) - cred_icms
 
+        print(f'---------------- Resultado Antecipação R${result} ----------------')
         return result.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
