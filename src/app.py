@@ -6,7 +6,8 @@ from config.settings import STREAMLIT_CONFIG
 from services.xml_processor import XMLProcessor
 from services.tax_calculator import TaxCalculator
 from services.file_handler import FileHandler
-from models.nfe_item import NFEItem
+from utils.helpers import format_decimal_to_monetary
+from models.nfe import Nfe
 
 
 def configure_page():
@@ -36,11 +37,12 @@ def render_file_uploader():
     return uploaded_file
 
 
-def render_nfe_selector(nfe_list: List[Dict]):
+def render_nfe_selector(nfe_list: List[Nfe]):
     # Agrupar NFES por Inscrição Estadual
     grouped_nfes = {}
     for nfe in nfe_list:
-        ie = nfe.get('ie', 'Desconhecido')
+        ie = nfe.ie or 'Desconhecido'
+
         if ie not in grouped_nfes:
             grouped_nfes[ie] = []
         grouped_nfes[ie].append(nfe)
@@ -62,11 +64,12 @@ def render_nfe_selector(nfe_list: List[Dict]):
     return option_keys[selected_idx]
 
 
-def render_nfe_summary(nfe_list: List[Dict]):
+def render_nfe_summary(nfe_list: List[Nfe]):
     # Agrupar NFEs por Inscrição Estadual
     grouped_nfes = {}
     for nfe in nfe_list:
-        ie = nfe.get('ie', 'Desconhecido')
+        ie = nfe.ie or 'Desconhecido'
+ 
         if ie not in grouped_nfes:
             grouped_nfes[ie] = []
         grouped_nfes[ie].append(nfe)
@@ -75,7 +78,7 @@ def render_nfe_summary(nfe_list: List[Dict]):
         st.subheader(f"Inscrição Estadual: {ie}")
 
         total_nfes = len(nfes)
-        total_items = sum(len(nfe.get('items', [])) for nfe in nfes)
+        total_items = sum(len(nfe.items or []) for nfe in nfes)
 
         col1, col2 = st.columns(2)
         with col1:
@@ -85,16 +88,16 @@ def render_nfe_summary(nfe_list: List[Dict]):
 
         summary_data = []
         for nfe in nfes:
-            items = nfe.get('items', [])
-            total_value = sum(float(item.get('V TOTAL', 0) or 0) for item in items)
-            total_icms = sum(float(item.get('V ICMS', 0) or 0) for item in items)
+            items = nfe.items or []
+            total_value = sum(float(item.v_total or 0) for item in items)
+            total_icms = sum(float(item.v_icms or 0) for item in items)
 
             summary_data.append({
-                'NF-e': nfe.get('nfe_number', 'S/N'),
-                'Série': nfe.get('nfe_series', '-'),
-                'Emitente': nfe.get('emitter_name', 'Desconhecido'),
-                'UF': nfe.get('uf', 'Desconhecido'),
-                'Data': nfe.get('emission_date', '-'),
+                'NF-e': nfe.number or 'S/N',
+                'Série': nfe.series or '-',
+                'Emitente': nfe.emitter_name or 'Desconhecido',
+                'UF': nfe.emitter_uf or 'Desconhecido',
+                'Data': nfe.emission_date or '-',
                 'Total Itens': len(items),
                 'Valor Total': f"R$ {total_value:,.2f}",
                 'ICMS Total': f"R$ {total_icms:,.2f}"
@@ -119,7 +122,7 @@ def render_statistics(df: pd.DataFrame):
         # Ensure we have numeric values
         antecipacao_total = df['ANTECIPACAO_TOTAL'].replace('', 0).astype(float).sum()
         antecipacao_parcial = df['ANTECIPACAO_PARCIAL'].replace('', 0).astype(float).sum()
-        st.metric("Antecipação Total", f"R$ {(antecipacao_total + antecipacao_parcial):,.2f}")
+        st.metric("Antecipação", f"R$ {(antecipacao_total + antecipacao_parcial):,.2f}")
 
 
 def render_download_button(df: pd.DataFrame, filename="icms_calculado.xlsx", emitter_name=None, period=None, ie=None, show_button=True):
@@ -136,26 +139,14 @@ def render_download_button(df: pd.DataFrame, filename="icms_calculado.xlsx", emi
     )
 
 
-def combine_all_nfes(nfe_list: List[Dict]) -> pd.DataFrame:
+def combine_all_nfes(nfe_list: List[Nfe]) -> pd.DataFrame:
     tax_calculator = TaxCalculator()
-    all_items = []
 
-    for nfe in nfe_list:
-        items = nfe.get('items', [])
-        # Add NF-e info to each item
-        for item in items:
-            item_with_nfe = item.copy()
-            item_with_nfe['NF-e'] = nfe.get('nfe_number', 'S/N')
-            item_with_nfe['Inscrição Estadual'] = nfe.get('ie', 'Desconhecido')
-            item_with_nfe['UF'] = nfe.get('uf', '')
-            all_items.append(item_with_nfe)
-
-    if not all_items:
+    if not nfe_list:
         return pd.DataFrame()
 
-    df = pd.DataFrame(all_items)
-    df = tax_calculator.process_dataframe_taxes(df)
-    return df
+    result = tax_calculator.process_dataframe_taxes(nfe_list)
+    return pd.DataFrame(result)
 
 
 def process_uploaded_file(uploaded_file) -> List[Dict]:
@@ -166,7 +157,7 @@ def process_uploaded_file(uploaded_file) -> List[Dict]:
 
     # Processar arquivo ZIP
     with st.spinner('Processando NF-Es...'):
-        nfe_list = XMLProcessor.process_zip_file(uploaded_file)
+        nfe_list:List[Nfe] = XMLProcessor.process_zip_file(uploaded_file)
 
     if not nfe_list:
         st.error("Não foi possível extrair dados do arquivo.")
@@ -187,11 +178,10 @@ def main():
     filtered_nfes = []
 
     if uploaded_file is not None:
-        nfe_list = process_uploaded_file(uploaded_file)
+        nfe_list:List[Nfe] = process_uploaded_file(uploaded_file)
 
         if nfe_list:
             st.success(f"Processamento concluído! {len(nfe_list)} NF-es encontradas.")
-           
             selected_ie = render_nfe_selector(nfe_list)
 
             if selected_ie == "all":
@@ -203,16 +193,19 @@ def main():
 
                 if not df_all.empty:
                     render_statistics(df_all)
+                    df_to_show = df_all.drop(["MVA_ADJUSTED"], axis=1)
+                    df_to_show = df_to_show.rename(columns={"MVA-ST":"MVA"})
+                    df_to_show.iloc[:, -2:] = df_to_show.iloc[:, -2:].applymap(format_decimal_to_monetary)
 
                     st.subheader("Todos os Itens")
-                    st.dataframe(df_all, use_container_width=True)
+                    st.dataframe(df_to_show, use_container_width=True)
                     # Não mostrar botão de download para "Todas as Inscrições"
 
                 else:
                     st.warning("Nenhum item encontrado para download.")
             else:
                 # Filtrar NF-es pela inscrição estadual selecionada
-                filtered_nfes = [nfe for nfe in nfe_list if nfe.get('ie', 'Desconhecido') == selected_ie]
+                filtered_nfes = [nfe for nfe in nfe_list if nfe.ie or 'Desconhecido' == selected_ie]
 
                 # Mostrar resumo das NF-es filtradas
                 render_nfe_summary(filtered_nfes)

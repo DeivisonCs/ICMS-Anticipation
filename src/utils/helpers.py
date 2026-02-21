@@ -2,7 +2,7 @@
 Funções auxiliares e utilitárias
 """
 from decimal import Decimal, getcontext
-from typing import Union
+from typing import Union, List
 from models.nfe_item import NFEItem
 from dataclasses import asdict
 import pandas as pd
@@ -15,7 +15,7 @@ def safe_decimal_converter(value: Union[str, None]) -> Decimal:
     if value == '' or value is None:
         return Decimal('0.0')
     try:
-        return Decimal(str(value))
+        return round(Decimal(str(value)), 2)
     except Exception:
         return Decimal('0.0')
 
@@ -65,7 +65,7 @@ def clean_numeric_string(value: str) -> str:
     return cleaned if cleaned else '0'
 
 
-def convert_nfe_list_to_dataframe(items: list[NFEItem]):
+def convert_nfe_list_to_dataframe(items: List[NFEItem]):
     df_result = pd.DataFrame([asdict(item) for item in items])
 
     column_mapping = {
@@ -110,3 +110,12 @@ def add_dots_to_ncm_(ncm:str) -> str:
             result += '.'
 
     return result
+
+def format_decimal_to_monetary(value) -> str:
+    result = value
+
+    if isinstance(value, Decimal):
+        result = f"{value:.2f}"
+
+    result = "R$ " + result
+    return result.replace(".", ",")

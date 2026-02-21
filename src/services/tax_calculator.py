@@ -1,7 +1,9 @@
-from decimal import Decimal
+from decimal import Decimal, ROUND_HALF_UP
 from typing import List
 import pandas as pd
 from utils.helpers import safe_decimal_converter, convert_nfe_list_to_dataframe, add_dots_to_ncm_
+
+from models.nfe import Nfe
 
 from config.settings import (
     INTERNAL_TAX_RATE_BA,
@@ -24,63 +26,64 @@ class TaxCalculator:
         b_step = a_step / (1 - INTERSTATE_TAX_RATE)
         return round((b_step - 1) * 100, 2)
 
-    def calculate_anticipation_taxes(self, products: List[NFEItem]) -> List[NFEItem]:
+    def calculate_anticipation_taxes(self, nfe:Nfe, products: List[NFEItem]) -> List[NFEItem]:
         for item in products:
             if not self.is_supplier_uf_taxed(item.uf_origin):
                 continue
 
             if self.is_ncm_taxed(item.ncm):
                 if not self.is_st_already_paid_by_cst(item.o_cst[1:]):
-                    item.antecipacao_total = self.calculate_total_anticipation(item)
+                    item.antecipacao_total = self.calculate_total_anticipation(nfe, item)
+
+            elif nfe.isSimple:
+                item.antecipacao_parcial = self.calculate_partial_anticipation_inside(nfe, item)
 
             else:
-                item.antecipacao_parcial = item.bc_icms * ANTECIPACAO_PARCIAL_RATE
+                item.antecipacao_parcial = self.calculate_partial_anticipation_outside(nfe, item)
+
+            if not item.antecipacao_parcial:
+                item.antecipacao_parcial = Decimal("0.0")
+
+            if not item.antecipacao_total:
+                item.antecipacao_total = Decimal("0.0")
 
         return products
 
-    def process_dataframe_taxes(self, df: pd.DataFrame) -> pd.DataFrame:
-        if df.empty:
-            return df
+    def process_dataframe_taxes(self, nfe_list: List[Nfe]) -> pd.DataFrame:
+        if not nfe_list:
+            return nfe_list
 
-        # Converter colunas numéricas
-        numeric_columns = ['V TOTAL', 'BC ICMS', 'V ICMS', 'A ICMS', 'MVA-ST', 'RED_BASE_CAL']
-        for col in numeric_columns:
-            df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
+        calculated_items:List[NFEItem] = []
 
-        items = []
-        for index, row in df.iterrows():
-            cest = row['CEST']
-            ncm = row['NCM/SH']
-            mva_st = safe_decimal_converter(row['MVA-ST'])
+        for nfe in nfe_list:
+            items = []
 
-            for item in TAXED_ITEMS:
-                formated_ncm = add_dots_to_ncm_(ncm)
-                if cest == item.cest.replace('.', '') and formated_ncm in list(item.ncm.keys()):
-                    mva_st = item.ncm[formated_ncm].original
+            for item in nfe.items:
+                nfe_item = NFEItem (
+                    c_prod=item.cProd,
+                    uf_origin=nfe.emitter_uf,
+                    ncm=item.ncm,
+                    o_cst=item.o_cst,
+                    red_base_cal=safe_decimal_converter(item.red_base_cal),
+                    cfop=item.cfop,
+                    v_total=safe_decimal_converter(item.v_total),
+                    bc_icms=safe_decimal_converter(item.bc_icms),
+                    v_icms=safe_decimal_converter(item.v_icms),
+                    a_icms=safe_decimal_converter(item.a_icms),
+                    mva_st=safe_decimal_converter(item.mva_st),
+                    mva_adjusted=safe_decimal_converter(item.mva_st),
+                    cest=item.cest,
+                    freight=safe_decimal_converter(nfe.freight),
+                    ipi=safe_decimal_converter(item.ipi),
+                    others=safe_decimal_converter(item.others),
+                    insurance=safe_decimal_converter(item.seguro)
+                )
 
-            nfe_item = NFEItem (
-                cProd=row['CPROD'],
-                uf_origin=row['UF'],
-                ncm=ncm,
-                o_cst=row['O/CST'],
-                red_base_cal=safe_decimal_converter(row['RED_BASE_CAL']),
-                cfop=row['CFOP'],
-                v_total=safe_decimal_converter(row['V TOTAL']),
-                bc_icms=safe_decimal_converter(row['BC ICMS']),
-                v_icms=safe_decimal_converter(row['V ICMS']),
-                a_icms=safe_decimal_converter(row['A ICMS']),
-                mva_st=mva_st,
-                mva_adjusted=TaxCalculator.calculate_adjusted_mva(mva_st),
-                cest=cest,
-                frete=safe_decimal_converter(row['FRETE']),
-                ipi=safe_decimal_converter(row['IPI']),
-                outros=safe_decimal_converter(row['OUTROS'])
-            )
-            items.append(nfe_item)
+                items.append(nfe_item)
 
-        items = self.calculate_anticipation_taxes(items)
+            calculated_items.extend(self.calculate_anticipation_taxes(nfe, items))
 
-        return convert_nfe_list_to_dataframe(items)
+        return convert_nfe_list_to_dataframe(calculated_items)
 
     @staticmethod
     def calculate_summary_statistics(items: List[NFEItem]) -> dict:
@@ -137,8 +140,25 @@ class TaxCalculator:
 
         return False
 
-    def calculate_total_anticipation(self, nfe: NFEItem) -> Decimal:
-        bc_ant = nfe.v_total + nfe.frete + nfe.ipi + nfe.seguro + nfe.outros
-        cred = nfe.bc_icms * INTERSTATE_TAX_RATE
+    def calculate_total_anticipation(self, nfe:Nfe, item: NFEItem) -> Decimal:
+        bc_ant = item.v_total + nfe.freight + item.ipi + item.seguro + item.outros
+        cred = item.bc_icms * INTERSTATE_TAX_RATE
 
-        return ((bc_ant + nfe.mva_adjusted) * INTERNAL_TAX_RATE_BA) - cred
+        mva = item.mva_st
+        if item.mva_adjusted:
+            mva = item.mva_adjusted
+
+        result: Decimal = ((bc_ant + mva) * INTERNAL_TAX_RATE_BA) - cred
+        return result.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+
+    def calculate_partial_anticipation_inside(self, nfe:Nfe, item: NFEItem) -> Decimal:
+        bc_ant = item.v_total + nfe.freight + item.ipi + item.seguro + item.outros
+        result: Decimal = bc_ant * (INTERNAL_TAX_RATE_BA - INTERSTATE_TAX_RATE)
+
+        return result.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+
+    def calculate_partial_anticipation_outside(self, nfe:Nfe, item: NFEItem) -> Decimal:
+        bc_ant = item.v_total + nfe.freight + item.ipi + item.seguro + item.outros
+        result: Decimal = (bc_ant * INTERNAL_TAX_RATE_BA) - INTERSTATE_TAX_RATE
+
+        return result.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
