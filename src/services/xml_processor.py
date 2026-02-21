@@ -41,6 +41,9 @@ class XMLProcessor:
             emitter_cnpj = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:CNPJ', NFE_NAMESPACE)
             emitter_uf = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:enderEmit//nfe:UF', NFE_NAMESPACE)
             v_freight = XMLProcessor._get_text_safe(root, './/nfe:total/nfe:ICMSTot//nfe:vFrete', NFE_NAMESPACE)
+            v_ipi = XMLProcessor._get_text_safe(root, './/nfe:total/nfe:ICMSTot//nfe:vIPI', NFE_NAMESPACE)
+            v_insurance = XMLProcessor._get_text_safe(root, './/nfe:total/nfe:ICMSTot//nfe:vSeg', NFE_NAMESPACE)
+            v_others = XMLProcessor._get_text_safe(root, './/nfe:total/nfe:ICMSTot//nfe:vOutro', NFE_NAMESPACE)
             ie = XMLProcessor._get_text_safe(root, './/nfe:emit/nfe:IE', NFE_NAMESPACE)
 
             # Get items data
@@ -66,7 +69,10 @@ class XMLProcessor:
                 items=items_data,
                 isSimple=is_simples_optant,
                 isSimei=is_simei_optant,
-                freight=safe_decimal_converter(v_freight)
+                freight=safe_decimal_converter(v_freight),
+                ipi=safe_decimal_converter(v_ipi),
+                insurance=safe_decimal_converter(v_insurance),
+                others=safe_decimal_converter(v_others)
             )
 
             return nfe
@@ -97,14 +103,10 @@ class XMLProcessor:
         mva_st = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pMVAST', ns)
         pRedBC = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pRedBC', ns)
 
-        v_ipi = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vIPI', ns)
-        v_insurance = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vSeg', ns)
-        v_others = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vOutro', ns)
-
-        mva_adjusted = None
-        if not mva_st:
-            percentage = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pICMS', ns)
-            mva_adjusted = XMLProcessor.search_mva(cest=cest, ncm=ncm, percentage=percentage)
+        percentage = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pICMS', ns)
+        percentage = percentage.split('.')[0]
+        mva_adjusted = XMLProcessor.search_mva_adjusted(cest=cest, ncm=ncm, percentage=percentage)
+        mva_st = XMLProcessor.search_mva_original(cest=cest, ncm=ncm)
 
         if not mva_st and not mva_adjusted:
             mva_st = "0.0"
@@ -112,7 +114,6 @@ class XMLProcessor:
         nfe_item = NFEItem(
             c_prod=cProd,
             ncm=ncm,
-            uf_origin=None,
             o_cst=o_cst,
             red_base_cal=safe_decimal_converter(pRedBC),
             cfop=cfop,
@@ -122,11 +123,7 @@ class XMLProcessor:
             a_icms=a_icms,
             mva_st=mva_st,
             cest=cest,
-            mva_adjusted=mva_adjusted,
-            freight=None,
-            ipi=v_ipi,
-            others=v_others,
-            insurance=v_insurance
+            mva_adjusted=mva_adjusted
         )
 
         return nfe_item
@@ -172,15 +169,32 @@ class XMLProcessor:
         return all_nfes
 
     @staticmethod
-    def search_mva(cest:str, ncm:str, percentage:str=None):
+    def search_mva_adjusted(cest:str, ncm:str, percentage:str):
         formatted_cest = cest.replace('.', '')
         formatted_ncm = ncm.replace('.', '')
 
         for taxed_item in TAXED_ITEMS:
             if formatted_cest == taxed_item.cest.replace('.', ''):
                 for key in taxed_item.ncm.keys():
-                    if key.replace('.', '') == formatted_ncm:
-                        if percentage:
-                            return taxed_item.ncm[key][percentage]
+                    formatted_key = key.replace('.', '')
 
-                        return taxed_item.ncm[key].original
+                    if formatted_key == formatted_ncm or formatted_ncm.startswith(formatted_key):
+                        mva_values = taxed_item.ncm[key]
+                        attr_name = f"_{percentage}"
+                        
+                        return getattr(mva_values, attr_name)
+
+    @staticmethod
+    def search_mva_original(cest:str, ncm:str):
+        formatted_cest = cest.replace('.', '')
+        formatted_ncm = ncm.replace('.', '')
+
+        for taxed_item in TAXED_ITEMS:
+            if formatted_cest == taxed_item.cest.replace('.', ''):
+                for key in taxed_item.ncm.keys():
+                    formatted_key = key.replace('.', '')
+
+                    if formatted_key == formatted_ncm or formatted_ncm.startswith(formatted_key):
+                        mva_values = taxed_item.ncm[key]
+
+                        return mva_values.original

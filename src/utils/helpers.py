@@ -70,7 +70,6 @@ def convert_nfe_list_to_dataframe(items: List[NFEItem]):
 
     column_mapping = {
         "cProd": "CPROD",
-        "uf_origin": "UF",
         "ncm": "NCM/SH",
         "o_cst": "O/CST",
         "red_base_cal": "RED_BASE_CAL",
@@ -83,11 +82,7 @@ def convert_nfe_list_to_dataframe(items: List[NFEItem]):
         "cest": "CEST",
         "mva_adjusted": "MVA_ADJUSTED",
         "antecipacao_total": "ANTECIPACAO_TOTAL",
-        "antecipacao_parcial": "ANTECIPACAO_PARCIAL",
-        "frete": "FRETE",
-        "ipi": "IPI",
-        "seguro": "SEGURO",
-        "outros": "OUTROS"
+        "antecipacao_parcial": "ANTECIPACAO_PARCIAL"
     }
 
     return df_result.rename(columns=column_mapping)

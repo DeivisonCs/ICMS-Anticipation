@@ -8,7 +8,7 @@ from models.nfe import Nfe
 from config.settings import (
     INTERNAL_TAX_RATE_BA,
     INTERSTATE_TAX_RATE,
-    ANTECIPACAO_PARCIAL_RATE,
+    REDUCTION_CST_LIST,
     EXEMPTED_CST_LIST,
     ALREADY_CHARGED_CST_LIST,
     TAXED_ITEMS
@@ -28,26 +28,29 @@ class TaxCalculator:
 
     def calculate_anticipation_taxes(self, nfe:Nfe, products: List[NFEItem]) -> List[NFEItem]:
         for item in products:
-            if not self.is_supplier_uf_taxed(item.uf_origin):
+            item.antecipacao_total = Decimal("0.0")
+            item.antecipacao_parcial = Decimal("0.0")
+
+            if not self.is_supplier_uf_taxed(nfe.emitter_uf):
                 continue
 
             if self.is_ncm_taxed(item.ncm):
-                if not self.is_st_already_paid_by_cst(item.o_cst[1:]):
+                if not self.is_st_already_paid_by_cst(item.o_cst):
                     item.antecipacao_total = self.calculate_total_anticipation(nfe, item)
 
-            elif nfe.isSimple:
-                item.antecipacao_parcial = self.calculate_partial_anticipation_inside(nfe, item)
-
             else:
-                item.antecipacao_parcial = self.calculate_partial_anticipation_outside(nfe, item)
-
-            if not item.antecipacao_parcial:
-                item.antecipacao_parcial = Decimal("0.0")
-
-            if not item.antecipacao_total:
-                item.antecipacao_total = Decimal("0.0")
+                if nfe.isSimple:
+                    item.antecipacao_parcial = self.calculate_partial_anticipation_inside(nfe, item)
+                else:
+                    item.antecipacao_parcial = self.calculate_partial_anticipation_inside(nfe, item)
 
         return products
+
+    def _get_cred_icms(self, nfe: Nfe, item: NFEItem) -> Decimal:
+        if nfe.isSimple:
+            return item.bc_icms * INTERSTATE_TAX_RATE
+        else:
+            return item.v_icms
 
     def process_dataframe_taxes(self, nfe_list: List[Nfe]) -> pd.DataFrame:
         if not nfe_list:
@@ -61,7 +64,6 @@ class TaxCalculator:
             for item in nfe.items:
                 nfe_item = NFEItem (
                     c_prod=item.cProd,
-                    uf_origin=nfe.emitter_uf,
                     ncm=item.ncm,
                     o_cst=item.o_cst,
                     red_base_cal=safe_decimal_converter(item.red_base_cal),
@@ -71,12 +73,8 @@ class TaxCalculator:
                     v_icms=safe_decimal_converter(item.v_icms),
                     a_icms=safe_decimal_converter(item.a_icms),
                     mva_st=safe_decimal_converter(item.mva_st),
-                    mva_adjusted=safe_decimal_converter(item.mva_st),
-                    cest=item.cest,
-                    freight=safe_decimal_converter(nfe.freight),
-                    ipi=safe_decimal_converter(item.ipi),
-                    others=safe_decimal_converter(item.others),
-                    insurance=safe_decimal_converter(item.seguro)
+                    mva_adjusted=safe_decimal_converter(item.mva_adjusted),
+                    cest=item.cest
                 )
 
                 items.append(nfe_item)
@@ -134,31 +132,60 @@ class TaxCalculator:
 
         return True
 
-    def is_ncm_taxed(self, ncm) -> bool:
-        if any(ncm in list(item.ncm.keys()) for item in TAXED_ITEMS):
+    def should_reduct_antecipation_base_calc(self, cst: str):
+        if cst in REDUCTION_CST_LIST:
             return True
 
         return False
 
+    def is_ncm_taxed(self, ncm) -> bool:
+        for item in TAXED_ITEMS:
+            ncms_values = item.ncm.keys()
+            if ncm in ncms_values:
+                return True
+
+            for ncm_value in ncms_values:
+                ncm_value_start = ncm_value.split('.')[0]
+                if ncm.startswith(ncm_value_start):
+                    return True
+
+        return False
+
     def calculate_total_anticipation(self, nfe:Nfe, item: NFEItem) -> Decimal:
-        bc_ant = item.v_total + nfe.freight + item.ipi + item.seguro + item.outros
-        cred = item.bc_icms * INTERSTATE_TAX_RATE
+        print("\n---------------- Calculando Antecipação Total ----------------")
 
-        mva = item.mva_st
-        if item.mva_adjusted:
-            mva = item.mva_adjusted
+        bc_item = item.v_total + nfe.freight + nfe.ipi + nfe.insurance + nfe.others
+        cred_icms = self._get_cred_icms(nfe, item)
 
-        result: Decimal = ((bc_ant + mva) * INTERNAL_TAX_RATE_BA) - cred
+        mva_percent = item.mva_adjusted if item.mva_adjusted else item.mva_st
+        bc_st = bc_item * (1 + (mva_percent / Decimal("100")))
+
+        result = (bc_st * INTERNAL_TAX_RATE_BA) - cred_icms
+
+        print(f'---------------- Resultado Antecipação R${result} ----------------')
         return result.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
 
     def calculate_partial_anticipation_inside(self, nfe:Nfe, item: NFEItem) -> Decimal:
-        bc_ant = item.v_total + nfe.freight + item.ipi + item.seguro + item.outros
+        print("\n---------------- Calculando Antecipação Parcial por Dentro ----------------")
+
+        bc_ant = item.v_total + nfe.freight + nfe.ipi + nfe.insurance + nfe.others
         result: Decimal = bc_ant * (INTERNAL_TAX_RATE_BA - INTERSTATE_TAX_RATE)
 
+        print(f'---------------- Resultado Antecipação R${result} ----------------')
         return result.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
 
     def calculate_partial_anticipation_outside(self, nfe:Nfe, item: NFEItem) -> Decimal:
-        bc_ant = item.v_total + nfe.freight + item.ipi + item.seguro + item.outros
-        result: Decimal = (bc_ant * INTERNAL_TAX_RATE_BA) - INTERSTATE_TAX_RATE
+        print("\n---------------- Calculando Antecipação Parcial por Fora ----------------")
 
+        bc_ant = item.v_total + nfe.freight + nfe.ipi + nfe.insurance + nfe.others
+        cred_icms = self._get_cred_icms(nfe, item)
+
+        if item.red_base_cal and self.should_reduct_antecipation_base_calc(item.o_cst):
+            print("-------- Reducig Anticipation --------")
+            reduction = item.red_base_cal / Decimal("100")
+            bc_ant = bc_ant * (Decimal("1") - reduction)
+
+        result: Decimal = (bc_ant * INTERNAL_TAX_RATE_BA) - cred_icms
+
+        print(f'---------------- Resultado Antecipação R${result} ----------------')
         return result.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
