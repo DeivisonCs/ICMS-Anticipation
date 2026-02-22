@@ -42,5 +42,3 @@ class Nfe:
 
         if len(emitter_cnpj) != 14:
             raise ValueError("CNPJ deve ter 14 caracteres.")
-        if len(ie) != 9:
-            raise ValueError("IE deve ter 9 caracteres.")
