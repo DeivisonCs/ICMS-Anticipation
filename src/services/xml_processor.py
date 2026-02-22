@@ -66,7 +66,6 @@ class XMLProcessor:
                 filename=filename,
                 items=items_data,
                 isSimple=is_simples_optant,
-                isSimei=False,
                 freight=safe_decimal_converter(v_freight),
                 ipi=safe_decimal_converter(v_ipi),
                 insurance=safe_decimal_converter(v_insurance),
