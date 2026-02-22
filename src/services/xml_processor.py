@@ -52,7 +52,7 @@ class XMLProcessor:
                 item_data:NFEItem = XMLProcessor._extract_item_data(item)
                 items_data.append(item_data)
 
-            is_simples_optant, is_simei_optant = XMLProcessor.get_simple_and_simei(emitter_cnpj)
+            is_simples_optant = XMLProcessor.is_simple_optant(emitter_cnpj)
 
             nfe: Nfe = Nfe(
                 ie=ie,
@@ -66,7 +66,6 @@ class XMLProcessor:
                 filename=filename,
                 items=items_data,
                 isSimple=is_simples_optant,
-                isSimei=is_simei_optant,
                 freight=safe_decimal_converter(v_freight),
                 ipi=safe_decimal_converter(v_ipi),
                 insurance=safe_decimal_converter(v_insurance),
@@ -197,13 +196,10 @@ class XMLProcessor:
 
                         return mva_values.original
 
-    def get_simple_and_simei(cnpj: str):
-        fetch_data = FetchHandler.fetch_cnpj_data(cnpj)
+    def is_simple_optant(cnpj: str):
+        response_data = FetchHandler.fetch_cnpj_data_on_open_cnpj(cnpj)
 
-        if not fetch_data:
-            return None, None
+        if not response_data:
+            return None
 
-        is_simples_optant = fetch_data['company']['simples']['optant']
-        is_simei_optant = fetch_data['company']['simei']['optant']
-
-        return is_simples_optant or None, is_simei_optant or None
+        return response_data.get("opcao_simples") == "S"
