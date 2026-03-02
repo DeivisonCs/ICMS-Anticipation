@@ -27,8 +27,8 @@ class TaxCalculator:
         b_step = a_step / (1 - INTERSTATE_TAX_RATE)
         return round((b_step - 1) * 100, 2)
 
-    def calculate_anticipation_taxes(self, nfe:Nfe, products: List[NFEItem]) -> List[NFEItem]:
-        for item in products:
+    def calculate_anticipation_taxes(self, nfe:Nfe) -> List[NFEItem]:
+        for item in nfe.items:
             item.antecipacao_total = Decimal("0.0")
             item.antecipacao_parcial = Decimal("0.0")
 
@@ -47,7 +47,7 @@ class TaxCalculator:
 
             log_anticipation_calculated(nfe, item)
 
-        return products
+        return nfe.items
 
     def _get_cred_icms(self, nfe: Nfe, item: NFEItem) -> Decimal:
         if nfe.isSimple:
@@ -62,27 +62,7 @@ class TaxCalculator:
         calculated_items:List[NFEItem] = []
 
         for nfe in nfe_list:
-            items = []
-
-            for item in nfe.items:
-                nfe_item = NFEItem (
-                    c_prod=item.cProd,
-                    ncm=item.ncm,
-                    o_cst=item.o_cst,
-                    red_base_cal=safe_decimal_converter(item.red_base_cal),
-                    cfop=item.cfop,
-                    v_total=safe_decimal_converter(item.v_total),
-                    bc_icms=safe_decimal_converter(item.bc_icms),
-                    v_icms=safe_decimal_converter(item.v_icms),
-                    a_icms=safe_decimal_converter(item.a_icms),
-                    mva_st=safe_decimal_converter(item.mva_st),
-                    mva_adjusted=safe_decimal_converter(item.mva_adjusted),
-                    cest=item.cest
-                )
-
-                items.append(nfe_item)
-
-            calculated_items.extend(self.calculate_anticipation_taxes(nfe, items))
+            calculated_items.extend(self.calculate_anticipation_taxes(nfe))
 
         return convert_nfe_list_to_dataframe(calculated_items)
 
