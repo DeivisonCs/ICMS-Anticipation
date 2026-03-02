@@ -14,12 +14,18 @@ class NFEItem:
     v_icms: Decimal = Decimal('0.0')
     a_icms: Decimal = Decimal('0.0')
     mva_st: Decimal = Decimal('0.0')
+    freight: Decimal = Decimal('0.0')
+    insurance: Decimal = Decimal('0.0')
+    ipi: Decimal = Decimal('0.0')
+    others_costs: Decimal = Decimal('0.0')
+    icms_st: Decimal = Decimal('0.0')
+    bc_st: Decimal = Decimal('0.0')
     cest: str = ""
     mva_adjusted: Decimal = Decimal('0.0')
     antecipacao_total: Optional[Decimal] = None
     antecipacao_parcial: Optional[Decimal] = None
 
-    def __init__(self, c_prod:str, ncm:str, o_cst:str, red_base_cal:Decimal, cfop:str, v_total:Decimal, bc_icms:Decimal, v_icms:Decimal, a_icms:Decimal, mva_st:Decimal, cest:str, mva_adjusted:Decimal):
+    def __init__(self, c_prod:str, ncm:str, o_cst:str, red_base_cal:Decimal, cfop:str, v_total:Decimal, bc_icms:Decimal, v_icms:Decimal, a_icms:Decimal, mva_st:Decimal, freight:Decimal, insurance:Decimal, ipi:Decimal, others_costs:Decimal, icms_st:Decimal, bc_st:Decimal, cest:str, mva_adjusted:Decimal):
         self.cProd = c_prod
         self.ncm = ncm
         self.o_cst = o_cst
@@ -29,6 +35,12 @@ class NFEItem:
         self.bc_icms = bc_icms
         self.v_icms = v_icms
         self.a_icms = a_icms
+        self.freight = freight
+        self.insurance = insurance
+        self.ipi = ipi
+        self.others_costs = others_costs
+        self.icms_st = icms_st
+        self.bc_st = bc_st
         self.mva_st = mva_st
         self.cest = cest
         self.mva_adjusted = mva_adjusted

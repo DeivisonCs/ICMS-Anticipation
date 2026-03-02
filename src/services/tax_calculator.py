@@ -155,11 +155,21 @@ class TaxCalculator:
         return False
 
     def calculate_total_anticipation(self, nfe:Nfe, item: NFEItem) -> Decimal:
-        bc_item = item.v_total + nfe.freight + nfe.ipi + nfe.insurance + nfe.others
-        cred_icms = self._get_cred_icms(nfe, item)
+        bc_ant = (
+            item.v_total +
+            item.freight +
+            item.ipi +
+            item.insurance +
+            item.others_costs
+        )
 
-        mva_percent = item.mva_adjusted if item.mva_adjusted else item.mva_st
-        bc_st = bc_item * (1 + (mva_percent / Decimal("100")))
+        if item.mva_st:
+            mva_factor = item.mva_st / Decimal("100")
+            bc_st = bc_ant * (Decimal("1") + mva_factor)
+        else:
+            bc_st = bc_ant
+
+        cred_icms = self._get_cred_icms(nfe, item)
 
         result = (bc_st * INTERNAL_TAX_RATE_BA) - cred_icms
 

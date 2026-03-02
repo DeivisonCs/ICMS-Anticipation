@@ -1,3 +1,4 @@
+from decimal import Decimal
 import xml.etree.ElementTree as ET
 import zipfile
 from typing import List, Dict
@@ -100,13 +101,17 @@ class XMLProcessor:
         mva_st = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pMVAST', ns)
         pRedBC = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pRedBC', ns)
 
+        v_freight = XMLProcessor._get_text_safe(item, 'nfe:prod/nfe:vFrete', ns)
+        v_insurance = XMLProcessor._get_text_safe(item, 'nfe:prod/nfe:vSeg', ns)
+        v_others = XMLProcessor._get_text_safe(item, 'nfe:prod/nfe:vOutro', ns)
+        v_ipi = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:IPI//nfe:vIPI', ns)
+        v_icms_st = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vICMSST', ns)
+        v_bc_st = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:vBCST', ns)
+
         percentage = XMLProcessor._get_text_safe(item, 'nfe:imposto/nfe:ICMS//nfe:pICMS', ns)
         percentage = percentage.split('.')[0]
         mva_adjusted = XMLProcessor.search_mva_adjusted(cest=cest, ncm=ncm, percentage=percentage)
         mva_st = XMLProcessor.search_mva_original(cest=cest, ncm=ncm)
-
-        if not mva_st and not mva_adjusted:
-            mva_st = "0.0"
 
         nfe_item = NFEItem(
             c_prod=cProd,
@@ -114,13 +119,19 @@ class XMLProcessor:
             o_cst=o_cst,
             red_base_cal=safe_decimal_converter(pRedBC),
             cfop=cfop,
-            v_total=v_total,
-            bc_icms=bc_icms,
-            v_icms=v_icms,
-            a_icms=a_icms,
-            mva_st=mva_st,
+            v_total=safe_decimal_converter(v_total),
+            bc_icms=safe_decimal_converter(bc_icms),
+            v_icms=safe_decimal_converter(v_icms),
+            a_icms=safe_decimal_converter(a_icms),
+            mva_st=safe_decimal_converter(mva_st),
+            mva_adjusted=safe_decimal_converter(mva_adjusted),
             cest=cest,
-            mva_adjusted=mva_adjusted
+            freight=safe_decimal_converter(v_freight),
+            insurance=safe_decimal_converter(v_insurance),
+            others_costs=safe_decimal_converter(v_others),
+            ipi=safe_decimal_converter(v_ipi),
+            icms_st=safe_decimal_converter(v_icms_st),
+            bc_st=safe_decimal_converter(v_bc_st)
         )
 
         return nfe_item
