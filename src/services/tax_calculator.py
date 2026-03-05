@@ -130,35 +130,56 @@ class TaxCalculator:
 
         return False
 
-    def calculate_total_anticipation(self, nfe:Nfe, item: NFEItem) -> Decimal:
-        bc_ant = (
-            item.v_total +
-            item.freight +
-            item.ipi +
-            item.insurance +
-            item.others_costs
+    def sum_bc_anticipation(self, nfe: Nfe, item: NFEItem):
+        freight = item.freight if item.freight and item.freight > 0 else (
+            nfe.freight / len(nfe.items) if nfe.freight else Decimal("0.00")
         )
 
-        if item.mva_st:
-            mva_factor = item.mva_st / Decimal("100")
-            bc_st = bc_ant * (Decimal("1") + mva_factor)
-        else:
-            bc_st = bc_ant
+        insurance = item.insurance if item.insurance and item.insurance > 0 else (
+            nfe.insurance / len(nfe.items) if nfe.insurance else Decimal("0.00")
+        )
 
+        ipi = item.ipi if item.ipi and item.ipi > 0 else (
+            nfe.ipi / len(nfe.items) if nfe.ipi else Decimal("0.00")
+        )
+
+        others = item.others_costs if item.others_costs and item.others_costs > 0 else (
+            nfe.others / len(nfe.items) if nfe.others else Decimal("0.00")
+        )
+
+        return (
+            item.v_total +
+            freight +
+            insurance +
+            ipi +
+            others
+        )
+
+    def calculate_total_anticipation(self, nfe:Nfe, item: NFEItem) -> Decimal:
+        bc_ant = self.sum_bc_anticipation(nfe, item)
         cred_icms = self._get_cred_icms(nfe, item)
 
-        result = (bc_st * INTERNAL_TAX_RATE_BA) - cred_icms
+        mva = item.mva_adjusted if item.mva_adjusted else item.mva_st
+        mva_factor = mva / Decimal("100")
+
+        bc_st = bc_ant * (Decimal("1") + mva_factor)
+        icms_st_total = bc_st * INTERNAL_TAX_RATE_BA
+
+        result = icms_st_total - cred_icms
+
+        if result < 0:
+            result = Decimal("0.00")
 
         return result.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
 
     def calculate_partial_anticipation_inside(self, nfe:Nfe, item: NFEItem) -> Decimal:
-        bc_ant = item.v_total + nfe.freight + nfe.ipi + nfe.insurance + nfe.others
+        bc_ant = self.sum_bc_anticipation(nfe, item)
         result: Decimal = bc_ant * (INTERNAL_TAX_RATE_BA - INTERSTATE_TAX_RATE)
 
         return result.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
 
     def calculate_partial_anticipation_outside(self, nfe:Nfe, item: NFEItem) -> Decimal:
-        bc_ant = item.v_total + nfe.freight + nfe.ipi + nfe.insurance + nfe.others
+        bc_ant = self.sum_bc_anticipation(nfe, item)
         cred_icms = self._get_cred_icms(nfe, item)
 
         if item.red_base_cal and self.should_reduct_antecipation_base_calc(item.o_cst):
