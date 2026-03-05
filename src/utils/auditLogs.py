@@ -7,6 +7,7 @@ from config.settings import (
 )
 
 def log_anticipation_calculated(nfe:Nfe, item: NFEItem):
+    print("-------------- Anticipation Properties --------------")
     print("Item: ", nfe.number)
     print("Alíquota BA: ", INTERNAL_TAX_RATE_BA)
     print("Alíquota Interestadual: ", INTERSTATE_TAX_RATE)
@@ -16,3 +17,5 @@ def log_anticipation_calculated(nfe:Nfe, item: NFEItem):
         print("Antecipação Total: ", item.antecipacao_total)
     else:
         print("Antecipação Parcial: ", item.antecipacao_parcial)
+
+    print("-----------------------------------------------------")
