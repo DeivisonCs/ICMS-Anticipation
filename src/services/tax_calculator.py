@@ -29,21 +29,17 @@ class TaxCalculator:
 
     def calculate_anticipation_taxes(self, nfe:Nfe) -> List[NFEItem]:
         for item in nfe.items:
-            item.antecipacao_total = Decimal("0.0")
-            item.antecipacao_parcial = Decimal("0.0")
+            item.antecipacao_total = Decimal("0.00")
+            item.antecipacao_parcial = Decimal("0.00")
 
             if not self.is_supplier_uf_taxed(nfe.emitter_uf):
                 continue
 
-            if self.is_ncm_taxed(item.ncm):
-                if not self.is_st_already_paid_by_cst(item.o_cst):
-                    item.antecipacao_total = self.calculate_total_anticipation(nfe, item)
+            if self.is_ncm_taxed(item.ncm) and not self.is_st_already_paid_by_cst(item.o_cst):
+                item.antecipacao_total = self.calculate_total_anticipation(nfe, item)
 
             else:
-                if nfe.isSimple:
-                    item.antecipacao_parcial = self.calculate_partial_anticipation_inside(nfe, item)
-                else:
-                    item.antecipacao_parcial = self.calculate_partial_anticipation_outside(nfe, item)
+                item.antecipacao_parcial = self.calculate_partial_anticipation_outside(nfe, item)
 
             log_anticipation_calculated(nfe, item)
 
